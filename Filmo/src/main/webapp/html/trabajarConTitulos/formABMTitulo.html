@@ -1,0 +1,97 @@
+<div id="{{id}}_ABMTitulos">
+	<h3><a href="#">{{operacionTitulo}} De Titulo</a></h3>
+	<div>
+		<form id="{{id}}_formABMTitulo">
+			<input type="hidden" name="titulo.senial" value="{{senial}}">
+			<div class="FormRowC">
+				<a href="#" id="{{id}}_popupFichaCinematografica" style="display: none; margin-left: 85%;">Ficha cinematográfica</a>
+			</div>
+
+			<div id="{{id}}_claveTitulo" style="display: none;" class="FormRowA">
+				<label>Clave:</label><label>{{clave}}</label>
+				<input type="hidden" name="titulo.clave" value="{{clave}}">
+			</div>
+			
+			<div class="FormRowA">
+				<table border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+						<td><label>Tipo Título:</label></td>
+						<td><input type="text" name="titulo.tipoTitulo" id="{{id}}_tipoTituloCodigo"/></td>
+						<td><span id="{{id}}_tipoTituloDesc"/></td>
+						<td><span id="{{id}}_popupTipoTitulo" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar título" /></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="FormRowB">
+				<label>Título original:</label>
+				<input type="text" name="titulo.tituloOriginal" id="{{id}}_tituloOriginal" style="text-transform: uppercase;"/>
+			</div>			
+				
+			<div class="FormRowA">
+				<label>Título castellano:</label>
+				<input type="text" name="titulo.tituloCastellano" id="{{id}}_tituloCastellano" style="text-transform: uppercase;"/>
+			</div>
+			
+			<div class="FormRowB">
+				<table border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+						<td><label>Calificación oficial:</label></td>
+						<td><input type="text" name="titulo.calificacionOficial" id="{{id}}_calificacionOficialCodigo" style="text-transform: uppercase;"/></td>
+						<td><span id="{{id}}_calificacionOficialDesc"/></td>
+						<td><span id="{{id}}_popupCalifOficial" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar calificación oficial"/></td>
+					</tr>
+				</table>
+				
+			</div>
+			
+			<div id="{{id}}_divActores" class="FormRowC">
+				<h3><a href="#">Actores</a></h3>
+				<table class="table-actors">
+					<tr>
+						<th><td style="width: 96px">
+							<label>Actor:</label>
+						</td>
+						<td>
+							<input type="text" name="titulo.actor1" id="{{id}}_actor1"/>
+						</td></th>
+						<th><td>
+							<label>Personaje:</label>
+						</td>
+						<td>
+							<input type="text" name="titulo.personaje1" id="{{id}}_personaje1"/>
+						</td></th>
+						<td><span class="add-inputActor ui-icon ui-icon-plusthick"  style="cursor: pointer;"></span></td>
+					</tr>
+					<tr>
+						<th><td style="width: 96px">
+							<label>Actor:</label>
+						</td>
+						<td>
+							<input type="text" name="titulo.actor2" id="{{id}}_actor2"/>
+						</td></th>
+						<th><td>
+							<label>Personaje:</label>
+						</td>
+						<td>
+							<input type="text" name="titulo.personaje2" id="{{id}}_personaje2"/>
+						</td></th>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="botonera">
+				<button id="{{id}}_aceptarFormABMTitulo">Aceptar</button>
+				<button id="{{id}}_cancelarFormABMTitulo">Cancelar</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div id="{{id}}_popupSituarFicha" style="display: none;">
+	<label>T&iacute;tulo <span id="{{id}}_origenBusquedaFicha">{{tipoBusquedaFicha}}</span>:</label>
+	<input type="text" name="descPrograma" id="{{id}}_inputBusquedaSituarFicha"/>
+	<button id="{{id}}_buttonBusquedaSituarFicha">Buscar</button>
+	<a href="#" id="{{id}}_cambiarOrigenBusquedaFicha">Cambiar Origen de Busqueda</a>
+	<table id="{{id}}_gridSituarFicha"></table><div id="{{id}}_pagerGridSituarFicha"></div>
+</div>

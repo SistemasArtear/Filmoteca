@@ -1,0 +1,29 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Armado de programación</h1>
+	<div id="{{id}}_listadoProgramas">
+		<div id="{{id}}_accordionListadoProgramas">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+                 <!-- <div class="FormRowA">
+                    <label>Señal:</label>
+                    <select id="{{id}}_comboDeSeniales">
+                    </select>
+                </div>-->
+
+				<div class="FormRowA">
+					<label>Programa</label>
+					<input type="text" size="10" name="clavePrograma" id="{{id}}_busquedaProgramaPorCodigo"/> -
+                    <input type="text" name="descripcionPrograma" id="{{id}}_busquedaProgramaPorDescripcion"/>
+					<button id="{{id}}_buscarProgramas">Buscar</button>
+                </div>
+			</div>
+		</div>
+		
+		<br>
+		
+		<div id="{{id}}_gridContainer">
+			<table id="{{id}}_gridProgramas"></table>
+			<div id="{{id}}_pagerGridProgramas"></div>
+		</div>
+	</div>
+</div>

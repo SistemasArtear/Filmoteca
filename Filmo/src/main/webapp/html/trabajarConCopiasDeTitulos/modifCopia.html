@@ -1,0 +1,100 @@
+<div id="{{id}}_modifCopia" class="FormContainer">
+	<div id="{{id}}_accordionModifCopia">
+		<h3><a href="#">Modificaci&iacute;on de {{tipoCopia}} {{tipoCapitulo}} cap&iacute;tulos</a></h3>
+		<div>
+			<table>
+				<tr>
+					<th>
+						<td>
+							<label>Clave:</label>
+						</td>
+						<td>
+							<span>{{clave}}</span>
+						</td>
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<td>
+							<label>T&iacute;tulo Original:</label>
+						</td>
+						<td>
+							<span>{{tituloOriginal}}</span>
+						</td>
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<td>
+							<label>T&iacute;tulo Castellano:</label>
+						</td>
+						<td>
+							<span>{{tituloCastellano}}</span>
+						</td>
+					</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</br>
+	
+	<div class="FormContainer3c ui-accordion ui-widget ui-helper-reset" role="tablist">
+		<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true" tabindex="-1"><a href="#">Datos</a></h3>
+		<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" role="tabpanel">
+			<form id="{{id}}_modifCopiaForm" >
+				<input type="hidden" name="modifRequest.senial" value="{{senial}}">
+				<input type="hidden" name="modifRequest.clave" value="{{clave}}">
+				<input type="hidden" name="modifRequest.copia" value="{{nroCopia}}">
+				<input type="hidden" name="modifRequest.secuencia" value="{{secuencia}}">
+				<input type="hidden" name="modifRequest.capitulo" value="{{capitulo}}">
+				<input type="hidden" name="modifRequest.parte" value="{{parte}}">
+				<input type="hidden" name="modifRequest.segmento" value="{{segmento}}">
+				<input type="hidden" name="modifRequest.soporte" value="{{codSoporte}}">
+				<table>
+					<tr>
+						<th>
+							<td> <label>Nro. de Copia: </label> </td>
+							<td> <span>{{nroCopia}}</span> </td>
+							<td> <label>Secuencia: </label> </td>
+							<td> <span>{{secuencia}}</span> </td>
+						</th>
+					</tr>
+					<tr id="{{id}}_datosConCapitulos">
+						<th>
+							<td> <label>Cap&iacute;tulo: </label> </td>
+							<td> <span>{{capitulo}}</span> </td>
+							<td> <label>Parte: </label> </td>
+							<td> <span>{{parte}}</span> </td>
+							<td> <label>Segmento: </label> </td>
+							<td> <span>{{segmento}}</span> </td>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<td> <label>Soporte: </label> </td>
+							<td> <span>{{codSoporte}}</span> </td>
+							<!-- td> <span>{{descSoporte}}</span> </td-->
+						</th>
+					</tr>
+					<tr id="{{id}}_trRollos">
+						<th>
+							<td> <label>Rollo/s: </label> </td>
+							<td> <input type="text" id="{{id}}_rolloModif" name="modifRequest.rollo" value="{{rollo}}" maxlength="6"/> </td>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<td> <label>Fecha: </label> </td>
+							<td> <input type="text" id="{{id}}_fechaModif" name="modifRequest.fecha" class="datepicker" /> </td>
+						</th>
+					</tr>
+				</table>
+			</form>
+			
+			<div class="botonera">
+				<button id="{{id}}_aceptarModifCopia" >Aceptar</button>
+				<button id="{{id}}_volverModifCopia" >Volver</button>
+			</div>
+		</div>
+	</div>
+</div>

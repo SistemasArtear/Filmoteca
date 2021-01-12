@@ -1,0 +1,53 @@
+<div id="{{id}}_formCargaContrato">
+	<h1>Carga de contratos</h1>
+	<div id="{{id}}_datosCabeceraContratoPopUp">
+		<div id="{{id}}_accordionDatosCabeceraContratoCabecera">
+			<h3><a href="#">Datos del contrato</a></h3>
+			<div>
+		        <div class="divLeft">
+		            <label>Contrato:</label>
+		            <span class="texto" id="{{id}}_contratoCargaContrato" style="font-style: italic; font-weight: bold; color: red;">Pendiente</span>
+		        </div>
+	   			<div class="divCenter">
+					<label>Distribuidor:</label>
+					<span id="{{id}}_distribuidorCargaContrato" class="texto"></span>
+				</div>	
+		        <div class="divRight">
+		            <label>Moneda:</label>
+		            <span id="{{id}}_monedaCargaContrato" class="texto"></span>
+		        </div>
+		        <div class="divLeft">
+		            <label>Fecha contrato:</label>
+		            <span id="{{id}}_fechaContratoCargaContrato" class="texto"></span>
+		        </div>
+		        <div class="divCenter">
+		            <label>Fecha aprobación:</label>
+		            <span id="{{id}}_fechaAprobacionCargaContrato" class="texto"></span>
+		        </div>
+		        <div class="divRight">
+		            <label>Por canje:</label>
+		            <span id="{{id}}_tipoContratoCargaContrato" class="texto"></span>
+		        </div>
+		        <div class="divLeft">
+		            <label>Monto total:</label>
+		            <span id="{{id}}_montoTotalCargaContrato" class="texto"></span>
+		        </div>
+		        <div class="botonera">
+		        	<button id="{{id}}_agregarSenialCargaContrato">Agregar señal</button>
+		        	<button id="{{id}}_volverCargaContrato">Salir</button>
+		        </div>
+			</div>
+		</div>
+	    
+	    <br>
+	    
+	    <div id="{{id}}_gridSenialImporteContainer">
+	        <table id="{{id}}_gridSenialImporte"></table>
+	        <div id="{{id}}_pagerGridSenialImporte"></div>
+	    </div>
+	</div>
+	
+	<div class="botoneraMarginTop">
+		<button id="{{id}}_confirmarCargaContrato">Confirmar</button>
+	</div>
+</div>

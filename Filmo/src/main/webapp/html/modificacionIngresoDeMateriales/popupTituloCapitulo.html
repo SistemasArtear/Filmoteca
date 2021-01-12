@@ -1,0 +1,41 @@
+<div id="{{id}}_popupTituloCapitulo" class="FormContainer">
+	<div class="FormRowC">
+		<table border='0' cellspacing='0' cellpadding='0'>
+			<tr>
+				<td><label>Clave</label></td>
+				<td><input type="text" id="{{id}}_inputClave"></input></td>
+				<td><input type="text" id="{{id}}_inputDescripcion" disabled="disabled" class="readOnly"></input></td>
+				<td><span id="{{id}}_popupClave" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar título"/></td>
+			</tr>
+		</table>
+	</div>	
+	
+	<div class="FormRowA">
+		<table border='0' cellspacing='0' cellpadding='0'>
+			<tr>
+				<td><label>Capítulo</label></td>
+				<td><input type="text" id="{{id}}_inputCapitulo" style="width: 90%;"></input></td>
+				<td><span id="{{id}}_popupCapitulo" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar capítulos"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="FormRowB">	
+		<table border='0' cellspacing='0' cellpadding='0'>
+			<tr>
+				<td><label>Parte</label></td>
+				<td><input type="text" id="{{id}}_inputParte" style="width: 90%;"></input></td>
+				<td><span id="{{id}}_popupParte" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar partes"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="botonera">
+		<button id="{{id}}_buttonBusqueda">Buscar</button>
+    </div>
+    
+    <br>
+	
+	<table id="{{id}}_gridSituar"></table>
+	<div id="{{id}}_pagerGridSituar"></div>
+</div>

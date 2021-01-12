@@ -1,0 +1,43 @@
+<div id="{{id}}_divListadoTitulos">
+	<form id="{{id}}_formTitulos" class="FormContainer3c">
+		<table>
+			<tr>
+				<th><td>
+					<label>Se&ntilde;al:</label>
+				</td>
+				<td>
+					<label id="{{id}}_senialLabel">{{senial}}</label>
+				</td></th>
+				<th><td>
+					<label>Programa:</label>
+				</td>
+				<td>
+					<label id="{{id}}_programaLabel">{{programa}}</label>
+				</td></th>
+				<th><td>
+					<label id="{{id}}_descProgramaLabel">{{descripcion}}</label>
+				</td></th>
+			</tr>
+			<tr>
+				<th><td>
+					<label>Fecha Desde:</label>
+				</td>
+				<td>
+					<input type="text" id="{{id}}_fechaDesde" class="datepicker"/>
+				</td></th>
+				<th><td>
+					<label>Fecha Hasta:</label>
+				</td>
+				<td>
+					<input type="text" id="{{id}}_fechaHasta" class="datepicker"/>
+				</td></th>
+			</tr>
+		</table>
+	</form>
+	<button id="{{id}}_filtrarFormTitulos" >Filtrar</button>
+	<button id="{{id}}_volverAFormInicial" >Volver</button>
+	<div id="{{id}}_divListadoTitulos" style="margin: 10px;">
+		<table id="{{id}}_gridTitulos"></table><div id="{{id}}_pagerGridTitulos"></div>
+	</div>
+	<button id="{{id}}_validarLevantarButton" >Levantar</button>
+</div>

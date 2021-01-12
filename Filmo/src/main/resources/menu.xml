@@ -1,0 +1,587 @@
+<com.artear.filmo.bo.menu.Menu>
+    <subMenu>
+        <!--ADMINISTRACION DE CONTRATOS -->
+        <com.artear.filmo.bo.menu.SubMenu>
+            <key>menu-opcion-administracionContratos</key>
+            <title>Administración de Contratos</title>
+            <action></action>
+            <roles>
+                <string>FIL_OPERADOR</string>
+            </roles>
+            <subMenu>
+
+                <!--ALTA DE CONTRATO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-altaDeContrato</key>
+                    <title>Alta de contrato</title>
+                    <action>altaContratoEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--MODIFICAR CONTRATO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-modificarContrato</key>
+                    <title>Modificar Contrato</title>
+                    <action>modificarContratoInit.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--BAJA DE CONTRATO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-bajaDeContrato</key>
+                    <title>Baja De Contrato</title>
+                    <action>bajaDeContratoInit.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--TRABAJAR CON TITULOS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-trabajarConTitulos</key>
+                    <title>Trabajar con Titulos</title>
+                    <action>trabajarConTitulosEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--ACTIVAR TITULO VENCIDO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-activarTituloVencido</key>
+                    <title>Activar Titulo Vencido</title>
+                    <action>activarTituloVencidoEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--ACTIVAR TITULO AMORTIZADO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-activarTituloAmortiado</key>
+                    <title>Activar Tit.Enviado a Amortizar S/Exhibir-Recibir</title>
+                    <action>trabajarConTitulosAmortizadosEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--AMORTIZAR TITULOS SIN EXHIBIR/RECIBIR -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-amortizarTitulosSinExhibirRecibir</key>
+                    <title>Amortizar títulos sin exhibir / recibir</title>
+                    <action>amortizarTituloSinExhibirRecibirEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+            </subMenu>
+        </com.artear.filmo.bo.menu.SubMenu>
+
+        <!--ADMINISTRACION DE MATERIALES -->
+        <com.artear.filmo.bo.menu.SubMenu>
+            <key>menu-opcion-administracionDeMateriales</key>
+            <title>Administración de Materiales</title>
+            <action></action>
+            <roles>
+                <string>FIL_OPERADOR</string>
+            </roles>
+            <subMenu>
+                <!--INGRESO DE MATERIALES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-ingresoDeMateriales</key>
+                    <title>Ingreso de Materiales</title>
+                    <action>ingresoDeMaterialesEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--MODIFICACION DE INGRESO DE MATERIALES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-modificacionIngresoDeMateriales</key>
+                    <title>Modificación de Ingreso de Materiales</title>
+                    <action>modificacionIngresoDeMaterialesEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--TRABAJAR CON FICHAS DE CHEQUEO TECNICO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-trabajarConFichasDeChequeoTecnico</key>
+                    <title>Trabajar con Fichas de Chequeo Técnico</title>
+                    <action>trabajarConFichasDeChequeoTecnicoEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--TRABAJAR CON COPIAS DE TITULOS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-trabajarConCopiasDeTitulos</key>
+                    <title>Trabajar con Copias de Títulos</title>
+                    <action>trabajarConCopiasDeTitulosEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--TRABAJAR CON REMITOS DE MATERIALES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-trabajarConRemitosDeMateriales</key>
+                    <title>Trabajar con remitos de materiales</title>
+                    <action>trabajarConRemitosMaterialesEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+            </subMenu>
+        </com.artear.filmo.bo.menu.SubMenu>
+
+        <!--MENU DE PROGRAMACION -->
+        <com.artear.filmo.bo.menu.SubMenu>
+            <key>menu-opcion-menuDeProgramacion</key>
+            <title>Menú de Programación</title>
+            <action></action>
+            <roles>
+                <string>FIL_PROGRAMADOR</string>
+            </roles>
+            <subMenu>
+
+                <!--ARMADO DE PROGRAMACION -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-armadoDeProgramacion</key>
+                    <title>Armado de Programacion</title>
+                    <action>armadoDeProgramacionEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--CONFIRMAR PROGRAMACIÓN -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-confirmarProgramacion</key>
+                    <title>Confirmacion de programación</title>
+                    <action>confirmarProgramacionEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--DESCONFIRMAR PROGRAMACIÓN -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-desconfirmarProgramacion</key>
+                    <title>Desconfirmacion de programación</title>
+                    <action>desconfirmarProgramacionEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LEVANTAR PROGRAMAS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-levantarProgramas</key>
+                    <title>Levantar Programas</title>
+                    <action>levantarProgramasEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--HORARIOS DE PROGRAMAS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-horariosDeProgramas</key>
+                    <title>Horarios de Programas</title>
+                    <action>horarioProgramasEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--MODIFICAR HORARIO DE EMISIÓN DE GRILLA -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-modificarHorarioDeEmisionDeGrilla</key>
+                    <title>Modificar Horario de Emisión de Grilla</title>
+                    <action>modificarHorarioEmisionGrillaEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--CONFIRMAR SIN AMORTIZACIÓN -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-confirmarSinAmortizacion</key>
+                    <title>Confirmar Sin Amortización</title>
+                    <action>confirmarSinAmortizacionEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--DESCONFIRMAR SIN AMORTIZACIÓN -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-desconfirmarSinAmortizacion</key>
+                    <title>Desconfirmar Sin Amortización</title>
+                    <action>desconfirmarSinAmortizacionEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO REPORTE DE TRANSMISION -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoReporteTransmision-2</key>
+                    <title>L2400 - Reporte de transmisión</title>
+                    <action>consultasListadosEvent.createListadoReporteTransmision</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+                
+                <!--MODIFICAR RATING EXCENDENTE -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-modificarValorRatingExcendente</key>
+                    <title>Modificar valor de rating o excedente</title>
+                    <action>modificarRatingExcedenteEvent.create</action>
+                    <roles>
+                        <string>FIL_PROGRAMADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+            </subMenu>
+        </com.artear.filmo.bo.menu.SubMenu>
+
+        <!--MENU CONTABLE -->
+        <com.artear.filmo.bo.menu.SubMenu>
+            <key>menu-opcion-menuContable</key>
+            <title>Menú Contable</title>
+            <action></action>
+            <roles>
+                <string>FIL_CONTABLE</string>
+                <string>FIL_CONTABLEFINANZAS</string>
+            </roles>
+            <subMenu>
+                <!--CIERRE CONTABLE -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-cierreContable</key>
+                    <title>Cierre contable</title>
+                    <action>consultasListadosEvent.createCierreContable</action>
+                    <roles>
+                        <string>FIL_CONTABLE</string>
+                        <string>FIL_CONTABLEFINANZAS</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--GENERACION INTERFAZ A SAP -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-generacionInterfazSap</key>
+                    <title>Generación interfaz a sap</title>
+                    <action>consultasListadosEvent.createGeneracionInterfazSap</action>
+                    <roles>
+                        <string>FIL_CONTABLEFINANZAS</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--CHEQUEO OPERATIVO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-chequeoOperativo</key>
+                    <title>Chequeo operativo</title>
+                    <action>chequeoOperativoEvent.create</action>
+                    <roles>
+                        <string>FIL_CONTABLE</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+            </subMenu>
+        </com.artear.filmo.bo.menu.SubMenu>
+
+
+        <!--MANTENIMIENTO ARCHIVOS -->
+        <com.artear.filmo.bo.menu.SubMenu>
+            <key>menu-opcion-mantenimientoArchivos</key>
+            <title>Mantenimiento Archivos</title>
+            <action></action>
+            <roles>
+                <string>FIL_CONTABLEFINANZAS</string>
+            </roles>
+            <subMenu>
+                <!--TRABAJAR CON SETEO DE CUENTAS CONTABLES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-trabajarSeteoCuentasContables</key>
+                    <title>Trabajar con seteo de cuentas contables</title>
+                    <action>consultasListadosEvent.createTrabajarSeteoCtasContables</action>
+                    <roles>
+                        <string>FIL_CONTABLEFINANZAS</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+                <!--TRABAJAR CON CUENTAS CONTABLES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-trabajarCuentasContables</key>
+                    <title>Trabajar con cuentas contables</title>
+                    <action>consultasListadosEvent.createTrabajarCtasContables</action>
+                    <roles>
+                        <string>FIL_CONTABLEFINANZAS</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+            </subMenu>
+        </com.artear.filmo.bo.menu.SubMenu>
+
+        <!--CONSULTAS -->
+        <com.artear.filmo.bo.menu.SubMenu>
+            <key>menu-opcion-consultas</key>
+            <title>Consultas</title>
+            <action></action>
+            <roles>
+                <string>FIL_CONSULTOR</string>
+            </roles>
+            <subMenu>
+
+                <!--CONSULTA DE TÍTULOS VIGENTES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-consultaTitulosVigentes</key>
+                    <title>Títulos vigentes</title>
+                    <action>consultasListadosEvent.createConsultaTitulosVigentes</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--CONSULTA DE TÍTULOS PARA PROGRAMAR LA - LM - PE -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-consultaTitulosProgramarLALMPE</key>
+                    <title>Títulos para programar LA-LM-PE</title>
+                    <action>consultasListadosEvent.createConsultarTitulosProgramarLALMPE</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+
+                <!--CONSULTA DE TÍTULOS PARA PROGRAMAR SE - MS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-consultaTitulosProgramarSEMS</key>
+                    <title>Títulos para programar SE-MS</title>
+                    <action>consultasListadosEvent.createConsultaTitulosProgramarSEMS</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+
+                <!--CONSULTA HISTÓRICA DE TÍTULOS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-consultaHistoricaTitulos</key>
+                    <title>Histórica de títulos</title>
+                    <action>consultasListadosEvent.createConsultaHistoricaTitulos</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--CONSULTA DE CONTRATOS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-consultaContratos</key>
+                    <title>Contratos</title>
+                    <action>consultasListadosEvent.createConsultaContratos</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--CONSULTA HISTÓRICA INGRESOS - DEVOLUCIONES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-consultaHistoricaIngresosDevoluciones</key>
+                    <title>Histórica ingresos - devoluciones</title>
+                    <action>consultasListadosEvent.createConsultaHistoricaIngresosDevoluciones</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--CONSULTA REPORTE DE TRANSMISIÓN -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-consultaReporteTransmision</key>
+                    <title>Reporte de transmisión</title>
+                    <action>consultasListadosEvent.createConsultaTransmision</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+            </subMenu>
+        </com.artear.filmo.bo.menu.SubMenu>
+
+        <!--LISTADOS -->
+        <com.artear.filmo.bo.menu.SubMenu>
+            <key>menu-opcion-listados</key>
+            <title>Listados</title>
+            <action></action>
+            <roles>
+                <string>FIL_CONSULTOR</string>
+            </roles>
+            <subMenu>
+
+                <!--LISTADO DISPONIBILIDAD LALMPE -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoDisponibilidadLALMPE</key>
+                    <title>L1800 - Disponibilidad de LA-LM-PE</title>
+                    <action>consultasListadosEvent.createListadoDisponibilidadLALMPE</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO MATERIAL RECIBIDO Y NO CHEQUEADO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoMaterialRecibidoNoChequeado</key>
+                    <title>L1700 - Material recibido y no chequeado</title>
+                    <action>consultasListadosEvent.createListadoMaterialRecibidoNoChequeado</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO CONTRATOS VIGENTES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoContratosVigentes</key>
+                    <title>L1300 - Contratos vigentes</title>
+                    <action>consultasListadosEvent.createListadoContratosVigentes</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+
+                <!--LISTADO DE LARGOMETRAJES POR RECIBIR -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoLargometrajesPorRecibir</key>
+                    <title>L2200 - Largometrajes por recibir</title>
+                    <action>consultasListadosEvent.createListadoLargometrajesPorRecibir</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO DE LARGOMETRAJES PARA RECALIFICAR -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoLargometrajesParaRecalificar</key>
+                    <title>L2300 - Largometrajes para recalificar</title>
+                    <action>consultasListadosEvent.createListadoLargometrajesParaRecalificar</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+
+                <!--LISTADO DE ARGENTORES CON Y SIN CAPITULOS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoArgentoresCsCapitulos</key>
+                    <title>L1100 - Argentores c/s capítulos</title>
+                    <action>consultasListadosEvent.createListadoArgentoresCsCapitulos</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO DE DISTRIBUIDORES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoDistribuidores</key>
+                    <title>L1200 - Distribuidores</title>
+                    <action>consultasListadosEvent.createListadoDistribuidores</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO DE TITULOS VENCIDOS EN UN PERIODO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoTitulosVencidosPeriodo</key>
+                    <title>L1600 - Títulos vencidos en un período</title>
+                    <action>consultasListadosEvent.createListadoTitulosVencidosPeriodo</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO REPORTE DE TRANSMISION -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoReporteTransmision</key>
+                    <title>L2400 - Reporte de transmisión</title>
+                    <action>consultasListadosEvent.createListadoReporteTransmision</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO TITULOS POR PROGRAMA -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoTitulosPrograma</key>
+                    <title>L1400 - Títulos por programa</title>
+                    <action>consultasListadosEvent.createListadoTitulosPrograma</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+                <!--LISTADO DE TITULOS EXHIBIDOS SIN VENCER -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoTitulosExhibidosSinVencer</key>
+                    <title>L1500 - Títulos exhibidos sin vencer</title>
+                    <action>consultasListadosEvent.createListadoTitulosExhibidosSinVencer</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+
+                <!--LISTADO DE TITULOS ORIGINALES -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoTitulosOriginales</key>
+                    <title>L2100 - Títulos originales</title>
+                    <action>consultasListadosEvent.createListadoTitulosOriginales</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+
+                <!--LISTADO DE FÍLMICOS POR EXHIBIR -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoFilmicosPorExhibir</key>
+                    <title>L2600 - Listado de fílmicos por exhibir</title>
+                    <action>consultasListadosEvent.createListadoFilmicosPorExhibir</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+
+                <!-- LISTADO DISPONIBILIDAD DE SE-MS -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoDisponibilidadSEMS</key>
+                    <title>L1900 - Disponibilidad de SE-MS</title>
+                    <action>consultasListadosEvent.createListadoDisponibilidadSEMS</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+                
+                <!-- LISTADO CONTRATOS POR AMORTIZAR (RFP400L2) -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-listadoContratosPorAmortizar</key>
+                    <title>RFP400L2 - Contratos por amortizar</title>
+                    <action>consultasListadosEvent.createContratosPorAmortizar</action>
+                    <roles>
+                        <string>FIL_CONSULTOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+
+            </subMenu>
+        </com.artear.filmo.bo.menu.SubMenu>
+    </subMenu>
+</com.artear.filmo.bo.menu.Menu>

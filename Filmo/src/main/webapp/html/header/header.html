@@ -1,0 +1,46 @@
+<div class="header">
+	<div class="logo">
+		<img src="img/logo.gif" alt="">
+	</div>
+	
+	<div class="user">
+		<div class="izq">
+			<img src="img/user_left.gif" alt="" height="17" width="5">
+		</div>
+		<div class="nombre">Filmoteca</div>
+		<div class="der">
+			<img src="img/user_right.gif" alt="">
+		</div>
+		<div class="fecha">
+			<strong id="userEmpresa"></strong>
+		</div>
+	</div>
+	
+	<div id="datosSesion" style="float: right;">
+		<table border='0' cellspacing='0' cellpadding='0' align="right">
+			<tr align="right">
+				<td colspan="2">
+					<button id="buttonVariablesSesion" title="Variables de sesión de usuario" tabindex="-1">
+						<span class="ui-icon ui-icon-info"></span>
+					</button>
+					<button id="buttonInicio" title="Home" tabindex="-1">
+						<span class="ui-icon ui-icon-home"></span>
+					</button>
+				<td>
+			<tr>
+			<tr align="right">
+				<td colspan="2">
+					<select id="senialDefaultUsuario" disabled="disabled" class="icono-lateral-label"></select>
+					<span id="buttonCambiarSenial" class="ui-icon ui-icon-signal-diag icono-lateral-input" title="Cambiar señal del usuario"></span>
+				</td>
+			</tr>
+		</table>	
+		<br>
+		<!-- contenedor de variables de entorno a mostrar -->
+		<div id="variablesSesionPop" title="Variables de sesión de usuario"></div>
+	</div>
+</div>
+<div class="menu">
+	<ul class="topnav" id="itemsMenu">
+	</ul>
+</div>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} [Filmo] %p [%t] %c{1}.%M(%L) | %m%n"/>
+        </layout>
+    </appender>
+
+	<appender name="FILE" class="org.apache.log4j.FileAppender">
+		<param name="file" value="${catalina.home}/logs/filmo-log.out" />
+		<param name="immediateFlush" value="true" />
+		<param name="threshold" value="debug" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} [Filmo] %p [%t] %c{1}.%M(%L) | %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="ASYNC_CONSOLE" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="CONSOLE" />
+	</appender>
+	<appender name="PERFORMANCE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %c [%t] %-5p - %m%n" />
+		</layout>
+	</appender>
+	<appender name="ASYNC_PERFORMANCE" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="PERFORMANCE" />
+	</appender>
+	<!-- ExceptionLogger -->
+	<appender name="EXCEPTIONS" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %c [%t] %-5p - %m%n" />
+		</layout>
+	</appender>
+	<appender name="ASYNC_EXCEPTIONS" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="EXCEPTIONS" />
+	</appender>
+	<category name="Performance" additivity="false">
+		<priority value="INFO" />
+		<appender-ref ref="ASYNC_PERFORMANCE" />
+	</category>
+	<category name="ExceptionLogger" additivity="false">
+		<priority value="INFO" />
+		<appender-ref ref="ASYNC_EXCEPTIONS" />
+	</category>
+	<category name="com.artear.filmo" additivity="false">
+		<priority value="INFO" />
+		<appender-ref ref="ASYNC_CONSOLE" />
+	</category>
+	<logger name="org.acegisecurity">
+        <level value="ERROR"/>
+    </logger>
+
+    <logger name="org.apache">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="WARN"/>
+    </logger>
+    
+    <logger name="org.springframework.transaction">
+        <level value="DEBUG"/>
+    </logger>
+   
+    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <level value="DEBUG"/>
+    </logger>
+   
+    <logger name="org.springframework.jdbc">
+        <level value="WARN"/>
+    </logger>
+   
+    <logger name="org.appfuse">
+        <level value="INFO"/>
+    </logger>
+
+    <logger name="org.appfuse.util">
+        <level value="WARN"/>
+    </logger>
+    
+    <logger name="org.appfuse.webapp.filter">
+        <level value="ERROR"/>
+    </logger>
+    
+    <logger name="org.appfuse.webapp.listener.UserCounterListener">
+        <level value="WARN"/>
+    </logger>
+    
+    <logger name="log4j.logger.com.opensymphony.xwork2.interceptor.ParametersInterceptor">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="com.artear">
+        <level value="DEBUG"/>
+    </logger>
+	<root>
+		<priority value="INFO"></priority>
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</log4j:configuration>

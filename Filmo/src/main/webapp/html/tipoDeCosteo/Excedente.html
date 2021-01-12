@@ -1,0 +1,43 @@
+<div id="{{id}}" class="FormContainer">
+	<h1 style="text-align: center;">TIPO DE COSTEO EXCEDENTE</h1>	
+	<div class="FormRowC"><h3>TIPO CONTABILIZACION</h3></div>
+		<div class="FormRowA" id="{{id}}-div-radioButtonTipoContrado">
+			<table>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonExcedente-tipoCash" name="{{id}}-radioButtonTipoContrato" value="N"/></td>
+	   				<td><label for="{{id}}-radioButtonExcedente-tipoCash" style="width: 150px;">Tipo Cash</label></td>
+	   			</tr>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonExcedente-tipoCabecera" name="{{id}}-radioButtonTipoContrato" value="T" checked="checked"/></td>
+	   				<td><label for="{{id}}-radioButtonExcedente-tipoCabecera" style="width: 150px;">Tipo Cabecera</label></td>
+	   				<td><span id="{{id}}-descripcionCanjeCabecera"></span></td>
+	   			</tr>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonExcedente-tipoCanje" name="{{id}}-radioButtonTipoContrato" value="S"/></td>
+	   				<td><label for="{{id}}-radioButtonExcedente-tipoCanje" style="width: 150px;">Tipo Canje</label></td>
+	   			</tr>
+	   		</table>
+		</div>
+		<div class="FormRowC">
+			<span id="{{id}}-span-tipoContrato"></span>
+		</div>
+		<div class="FormRowC">
+			<table>
+				<tr>
+				<td><label>MINUTO DESDE::</label></td>
+				<td><input type="text" maxlength="4" size="4" name="anio" id="{{id}}-minutoDesde"/></td>
+				<td><label>MINUTO HASTA::</label></td>
+				<td><input type="text" maxlength="4" size="4" name="anio" id="{{id}}-minutoHasta"/></td>
+				<td><label>VALOR:</label></td>
+				<td><input type="text" size="11" name="valor" id="{{id}}-valor"/></td>
+				<td><button id="{{id}}-buttonAgregarExcedente">Agregar</button></td>
+				</tr>
+			</table>
+		</div>
+		<div id="{{id}}-grillaExcedente">
+	        <table id="{{id}}-tGrillaExcedente"></table>
+    	    <div id="{{id}}-pagerGrillaExcedente"></div>
+        </div>
+        <div id="{{id}}-div-popUp-modificacion" title="Modificación Tipo de Costeo"></div>
+        
+</div>

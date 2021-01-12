@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="aceptadoTecFichaTecnicaSR" columnCount="5" printOrder="Horizontal" pageWidth="407" pageHeight="20" columnWidth="81" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<subDataset name="dataset1"/>
+	<subDataset name="dataset2"/>
+	<parameter name="p_fichaChequeo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT distinct 
+       sc.snkcod                                                  senial,
+       sc.scmokfil                                                okFilmoteca
+ FROM ch6001 ch, tt6001 tt,
+       mt6001 mt, sc6001 sc,
+       et6001 et, ot6001 ot,
+       sm6001 sm, oc6001 oc,
+       to6001 t
+ WHERE ch.ttktpotit = tt.ttktpotit
+   AND ch.ttktpotit = mt.ttktpotit
+   AND ch.mtknrotit = mt.mtknrotit
+   AND ch.chkfchchk = sc.chkfchchk
+   AND ch.ttktpotit = et.ttktpotit(+)
+   AND ch.mtknrotit = et.mtknrotit(+)
+   AND ch.chnnumcap = et.toknrocap(+)
+   AND ch.chnnumpar = et.tokparte (+)
+   AND mt.ttktpotit = ot.ttktpotit(+)
+   AND mt.mtknrotit = ot.mtknrotit(+)
+   AND ch.chkfchchk = sm.chkfchchk(+)
+   AND ch.chnnumpar = sm.smnnumpar(+)
+   AND ch.chkfchchk = oc.chkfchchk(+)
+   AND ch.ttktpotit = t.ttktpotit(+)
+   AND ch.mtknrotit = t.mtknrotit(+)
+   AND ch.chnnumcap = t.toknrocap(+)
+   AND ch.chnnumpar = t.tokparte (+)
+   AND ch.chkfchchk = $P{p_fichaChequeo}]]>
+	</queryString>
+	<field name="SENIAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="OKFILMOTECA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="2" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SENIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="2" width="29" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{OKFILMOTECA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

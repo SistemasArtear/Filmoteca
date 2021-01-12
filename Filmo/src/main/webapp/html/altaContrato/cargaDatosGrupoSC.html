@@ -1,0 +1,132 @@
+<div id="{{id}}_formCargaGrupoSC">
+	<h1>Carga de contratos - Alta de grupo</h1>
+	<div id="{{id}}_datosCargaGrupoSC">
+		<div id="{{id}}_accordionCargaGrupoSC" class="altaContrato">
+			<h3><a href="#">Datos del grupo</a></h3>
+			<div>
+		        <div class="divLeft">
+		            <label>Contrato:</label>
+		            <span class="texto" id="{{id}}_contratoCargaGrupoSC" style="font-style: italic; font-weight: bold; color: red;">Pendiente</span>
+		        </div>
+	   			<div class="divCenter">
+					<label>Señal:</label>
+					<span id="{{id}}_senialCargaGrupoSC" class="texto"></span>
+				</div>	
+	   			<div class="divRight">
+					<label>Distribuidor:</label>
+					<span id="{{id}}_distribuidorCargaGrupoSC" class="texto"></span>
+				</div>
+				
+				<div class="divLeft">
+		            <label>Monto total:</label>
+		            <span id="{{id}}_montoTotalCargaGrupoSC" class="texto"></span>
+		        </div>
+				<div class="divCenter">
+					<label>Nro. de grupo:</label>
+					<span id="{{id}}_nroGrupoCargaGrupoSC" class="texto"></span>
+				</div>
+				<div class="divRight">
+					<label>Tipo de título:</label>
+					<span id="{{id}}_tipoTituloCargaGrupoSC" class="texto"></span>
+				</div>
+					
+				<div class="divLeft">
+					<table border='0' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td><label>Señales heredadas:</label></td>
+							<td><span id="{{id}}_senialesHeredadasCargaGrupoSC" class="texto"></span></td>
+							<td><span id="{{id}}_cargarSenialesHeredadasCargaGrupoSC" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar señales heredadas"></span></td>
+						</tr>
+					</table>
+		        </div>
+		        <div class="divCenter">
+		            <label>Nombre del grupo:</label>
+		            <input id="{{id}}_nombreGrupoCargaGrupoSC" type="text" style="text-transform: uppercase;"></input>
+		        </div>
+		        <div class="divRight">
+					<label>Cant. de títulos:</label>
+					<input id="{{id}}_cantidadTitulosCargaGrupoSC" type="text"></input>
+				</div>
+						
+				<div class="divLeft">
+					<label>Cant. Pasadas Cont.:</label>
+					<input id="{{id}}_cantidadPasadasContratadasCargaGrupoSC" type="text"></input>
+				</div>
+				<div class="divCenter">
+					<label>Tipo de importe:</label>
+					<select id="{{id}}_tipoImporteCargaGrupoSC" class="descripcionCorta"></select>
+				</div>		
+				<div class="divRight">
+					<label>Costo unitario:</label>
+					<input id="{{id}}_costoUnitarioCargaGrupoSC" type="text"></input>
+				</div>
+				
+				<div class="divLeft">
+					<label>Estreno/Repet.:</label>
+					<select id="{{id}}_estrenoRepeticionCargaGrupoSC" class="descripcionCorta"></select>
+				</div>
+				<div class="divCenter">
+					<label>Fecha Com. Der.:</label>
+					<input id="{{id}}_fechaComienzoDerechosCargaGrupoSC" type="text"></input>
+				</div>					
+				<div class="divRight">
+					<label>Cód. Com. Derechos:</label>
+					<select id="{{id}}_codigoComienzoDerechosCargaGrupoSC" class="descripcionCorta"></select>
+				</div>		
+							
+				<div class="divLeft">
+					<label>Cant. Tiempo:</label>
+					<input id="{{id}}_cantidadTiempoCargaGrupoSC" type="text"></input>
+				</div>				
+				<div class="divCenter">
+					<label>Unidad Tiempo:</label>
+					<select id="{{id}}_codigoUnidadTiempoCargaGrupoSC" class="descripcionCorta"></select>
+				</div>
+				<div class="divRight">
+					<label>Cód. Derechos Terr.:</label>
+					<select id="{{id}}_codigoDerechosTerritorialesCargaGrupoSC" class="descripcionCorta"></select>
+				</div>
+
+				<div class="divLeft">
+					<label>Marca perpetuidad:</label>
+					<select id="{{id}}_marcaPerpetuidadCargaGrupoSC" class="descripcionCorta"></select>
+				</div>
+				<div class="divCenter">
+					<label>Plan de entrega:</label>
+					<input id="{{id}}_planEntregaCargaGrupoSC" type="text"></input>
+				</div>
+				<div class="divRight">
+					<label>Cant. Tiempo Excl.:</label>
+					<input id="{{id}}_cantidadTiempoExclusividadCargaGrupoSC" type="text"></input>
+				</div>
+
+				<div class="divLeft">
+					<label>Tiempo Excl.:</label>
+					<select id="{{id}}_unidadTiempoExclusividadCargaGrupoSC" class="descripcionCorta"></select>
+				</div>
+				<div class="divCenter">
+					<label>Autorización autor:</label>
+					<select id="{{id}}_autorizacionAutorCargaGrupoSC" class="descripcionCorta"></select>
+				</div>		
+				<div class="divRight">
+					<label>Paga argentores:</label>
+					<select id="{{id}}_pagaArgentoresCargaGrupoSC" class="descripcionCorta"></select>
+				</div>
+
+				<div class="divLeft">
+					<label>Pasa a librería:</label>
+					<select id="{{id}}_pasaLibreriaCargaGrupoSC" class="descripcionCorta"></select>
+				</div>
+				<div class="divCenter">
+					<label>Fecha Der. Lib.:</label>
+					<input id="{{id}}_fechaComienzoDerechosLibreriaCargaGrupoSC" type="text"></input>
+				</div>
+									
+		        <div class="botonera">
+		        	<button id="{{id}}_aceptarDatosCargaGrupoSC">Aceptar</button>
+		        	<button id="{{id}}_volverDatosCargaGrupoSC">Volver</button>
+		        </div>
+			</div>
+		</div>
+	</div>
+</div>

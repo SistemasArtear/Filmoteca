@@ -1,0 +1,43 @@
+<div id="{{id}}_formVisualizarGruposContrato">
+	<h1>Carga de contratos - Visualizar todos los grupos del contrato</h1>
+	<div id="{{id}}_datosVisualizarGruposContrato">
+		<div id="{{id}}_accordionVisualizarGruposContrato">
+			<h3><a href="#">Datos del grupo</a></h3>
+			<div>
+		        <div class="divLeft">
+		            <label>Contrato:</label>
+		            <span class="texto" id="{{id}}_contratoVisualizarGruposContrato" style="font-style: italic; font-weight: bold; color: red;">Pendiente</span>
+		        </div>
+	   			<div class="divCenter">
+					<label>Señal:</label>
+					<span id="{{id}}_senialVisualizarGruposContrato" class="texto"></span>
+				</div>	
+		        <div class="divRight">
+		            <label>Distribuidor:</label>
+					<span id="{{id}}_distribuidorVisualizarGruposContrato" class="texto"></span>
+		        </div>
+		        
+		        <div class="divLeft">
+		            <label>Monto señal:</label>
+		            <span id="{{id}}_montoSenialVisualizarGruposContrato" class="texto"></span>
+		        </div>
+		        <div class="divCenter">
+		        	<label>Monto cargado:</label>
+		            <span id="{{id}}_montoCargadoVisualizarGruposContrato" class="texto"></span>
+		        </div>
+		        
+		        <div class="botonera">
+		        	<button id="{{id}}_agregarGrupoVisualizarGruposContrato">Agregar grupo</button>
+		        	<button id="{{id}}_volverVisualizarGruposContrato">Volver</button>
+		        </div>
+			</div>
+		</div>
+	    
+	    <br>
+	    
+	    <div id="{{id}}_gridGruposContratoContainer">
+	        <table id="{{id}}_gridGruposContrato"></table>
+	        <div id="{{id}}_pagerGruposContrato"></div>
+	    </div>
+	</div>
+</div>

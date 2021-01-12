@@ -1,0 +1,72 @@
+<div id="{{id}}">
+	<h1>Confirmar programación</h1>
+	<div id="{{id}}_divConfirmarProg">
+		<div id="{{id}}_accordionConfirmarProg" class="FormContainer3c">
+			<h3><a href="#">Filtros</a></h3>
+			<div class="clearfix">
+				<div class="divLeft">
+					<label>Fecha:</label>
+					<input id="{{id}}_fecha" type="text" name="fecha"></input>
+				</div>
+				
+				<div class="divCenter" id="{{id}}_filtroProgramaDivContainer">
+					<table border='0' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td><label style="width:70px;">Programa:</label></td>
+							<td>
+								<input id="{{id}}_programa" type="text" name="programa" maxlength="9" style="width:65px;"></input>
+								<input id="{{id}}_descripcionPrograma" type="text" name="descripcionPrograma" disabled="disabled" class="readOnly" style="width:100px;"></input>
+							</td>
+							<td><span id="{{id}}_popupPrograma" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar programas"/></td>
+							<td><span id="{{id}}_limpiarPrograma" style="cursor: pointer" class="ui-icon ui-icon-trash" title="Limpiar programa"/></td>
+						</tr>
+					</table>
+				</div>	
+				
+				<div class="divRight" id="{{id}}_filtroClaveDivContainer">
+					<table border='0' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td><label style="width:70px;">Clave:</label></td>
+							<td>
+								<input id="{{id}}_clave" type="text" name="clave" maxlength="8" style="width:65px;"></input>
+								<input id="{{id}}_descripcionTitulo" type="text" name="descripcionTitulo" disabled="disabled" class="readOnly" style="width:100px;"></input>
+							</td>
+							<td><span id="{{id}}_popupTitulo" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar titulos"/></td>
+							<td><span id="{{id}}_limpiarTitulo" style="cursor: pointer" class="ui-icon ui-icon-trash" title="Limpiar filtro"/></td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="divLeft" id="{{id}}_filtroCapituloDivContainer">
+					<label>Capítulo:</label>
+					<input id="{{id}}_capitulo" type="text" name="capitulo" maxlength="7"></input>
+				</div>
+				
+				<div class="divCenter" id="{{id}}_filtroParteDivContainer">
+					<label style="width:70px;">Parte:</label>
+					<input id="{{id}}_parte" type="text" name="parte" maxlength="1"></input>
+				</div>	
+				
+				<div class="divRight" id="{{id}}_filtroSegmentoDivContainer">
+					<label style="width:70px;">Segmento:</label>
+					<input id="{{id}}_segmento" type="text" name="segmento" maxlength="2"></input>
+				</div>		
+				
+				<div class="botoneraMarginTop">
+					<button id="{{id}}_limpiarFiltros">Limpiar</button>
+					<button id="{{id}}_programarCapitulos">Programar capítulos</button>
+					<button id="{{id}}_programarSinCapitulos">Programar sin capítulos</button>
+					<button id="{{id}}_buscarProgramacion">Buscar</button>
+					<!-- <button id="{{id}}_generarListadoENC">Listado</button>-->
+				</div>
+			</div>
+		</div>
+
+		<br>
+
+		<div id="{{id}}_divListado" class="FormContainer">
+			<table id="{{id}}_grid"></table>
+			<div id="{{id}}_pagerGrid"></div>
+		</div>
+	</div>
+</div>

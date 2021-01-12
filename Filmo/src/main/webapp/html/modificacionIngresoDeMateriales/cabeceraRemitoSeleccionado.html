@@ -1,0 +1,78 @@
+<div id="{{id}}_divCabeceraRemitoSeleccionado">
+	<div id="{{id}}_cabeceraRemitoSeleccionado" class="FormContainer3c">
+		<div id="{{id}}_accordionCabeceraRemitoSeleccionado" hidden="true">
+			<h3><a href="#">Detalle de la cabecera del remito</a></h3>
+			<div>
+				<div class="divLeft">
+					<label>Nombre Distribuidor:</label>
+					<span class="texto">{{razonSocial}}</span>
+				</div>
+				
+				<div class="divCenter">
+					<label>Numero de Remito:</label>
+					<span class="texto">{{remito}}</span>				
+				</div>
+		
+				<div class="divRight">
+					<label>Numero de guía:</label>
+					<span class="texto">{{guia}}</span>
+				</div>
+				
+				<br>
+				<br>
+				
+				<div class="divLeft">
+					<label>Fecha de Ingreso:</label>
+					<span class="texto">{{fechaIngreso}}</span>
+				</div>
+				
+				<div class="divCenter">
+					<label>Fecha Rto o Guia:</label>
+					<span class="texto">{{fechaRemitoGuia}}</span>
+				</div>
+				
+				<div align="right">
+					<button id="{{id}}_volverBusquedaRemito">Volver</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="{{id}}_accordionModificacionCabeceraRemitoSeleccionado" hidden="true">
+			<h3><a href="#">Modificación de la cabecera del remito</a></h3>
+			<div>
+				<div class="divLeft">
+					<label>Nombre Distribuidor:</label>
+					<span class="texto">{{razonSocial}}</span>
+				</div>
+			
+				<div class="divCenter">
+					<label>Número de remito:</label>
+					<input type="text" name="numeroRemito" id="{{id}}_numeroRemito" maxlength="13"/>
+				</div>
+				
+				<div class="divRight">
+					<label>Número de guía:</label>
+					<input type="text" name="numeroGuia" id="{{id}}_numeroGuia" maxlength="13"/>
+				</div>
+				
+				<br>
+				<br>
+				
+				<div class="divLeft">	
+					<label>Fecha de ingreso:</label>
+					<input type="text" name="fechaIngreso" id="{{id}}_fechaIngreso" class="datepicker"/>
+				</div>
+	
+				<div class="divCenter">
+					<label>Fecha remito/guía:</label>
+					<input type="text" name="fechaRemitoGuia" id="{{id}}_fechaRemitoGuia" class="datepicker"/>
+				</div>
+				
+				<div align="right">
+					<button id="{{id}}_aceptarModificacionCabecera">Guardar</button>
+					<button id="{{id}}_volverModificacionBusquedaRemito">Volver</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<div id="{{id}}">
+	<h1>Trabajar con emisión de remitos</h1>
+	<div id="{{id}}_divFormCabecera" class="FormContainer3c resizeableContainer3c">
+		<div id="{{id}}_accordionFormCabecera">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				
+				<div class="clearfix">
+					<div class="divLeft">
+						<label>Fecha de remito:</label>
+						<input type="text" name="fechaRemito" id="{{id}}_fechaRemito" class="datepicker"/>
+					</div>
+					
+					<div class="divCenter">
+						<label>Nro. guía Fedex:</label>
+						<input type="text" name="numeroGuiaFedex" id="{{id}}_numeroGuiaFedex" maxlength="12"/>
+					</div>
+					
+					<div class="divRight">
+						<label>Destinatario:</label>
+						<input type="text" name="destinatario" id="{{id}}_destinatario" maxlength="30"/>
+					</div>
+				</div>
+				
+				<div class="clearfix">
+					<div class="divLeft">
+						<label>Motivo:</label>
+						<select name="motivo" id="{{id}}_motivo"></select>
+					</div>	
+					
+					<div class="divCenter">
+						<label>Días de préstamo:</label>
+						<input type="text" name="prestamo" id="{{id}}_prestamo" maxlength="3"/>
+					</div>
+					
+					<div class="divRight">
+						<label>Observaciones:</label>
+						<input type="text" name="observaciones" id="{{id}}_observaciones" maxlength="30"/>
+					</div>
+				</div>
+
+				<div class="clearfix">
+					<div class="divLeft">
+						<table cellspacing="0" cellpadding="0" border="0" style=" width:320px;">
+							<tbody>
+								<tr>
+									<td>
+										<label style="width: 80%;" >Distribuidor:</label>
+									</td>
+									<td style=" width:180px;">
+										<input type="text" name="codigoDistribuidor" id="{{id}}_codigoDistribuidor" maxlength="6" class="codigoSituar" style=" width: 30%; " />
+										<input type="text" name="razonSocialDistribuidor" id="{{id}}_razonSocialDistribuidor"  disabled="true" class="readOnly descripcionSituar"/>
+										
+									</td>
+									<td>
+									<span id="{{id}}_popupDistribuidorPorRazonSocial" style="cursor: pointer" style="float:left;" class="ui-icon ui-icon-search" title="Buscar por razón social" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="botonera">
+						<button id="{{id}}_aceptarEmisionRemito">Aceptar</button>
+						<button id="{{id}}_limpiarFiltrosEmisionRemito">Limpiar</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="popupErrores"></div>

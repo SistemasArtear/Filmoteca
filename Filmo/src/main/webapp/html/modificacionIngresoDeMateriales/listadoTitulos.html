@@ -1,0 +1,59 @@
+<div id="{{id}}_divTitulos">
+	<div id="{{id}}_formTitulos" class="FormContainer3c">
+		<div id="{{id}}_accordionFormTitulos">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				<div class="divLeft">
+					<label>Distribuidor:</label>
+					<span class="texto">{{razonSocial}}</span>
+				</div>
+		
+				<div class="divCenter">
+					<label>Remito/Guia:</label>
+					<span class="texto">{{remito-guia}}</span>
+				</div>
+				
+				<div class="divRight">
+					<label>Fecha Rto o Guia:</label>
+					<span class="texto">{{fechaRemitoGuia}}</span>
+				</div>
+				
+				<br>
+				<br>
+				
+				<div class="divLeft">
+					<label>Fecha Ingreso:</label>
+					<span class="texto">{{fechaIngreso}}</span>
+				</div>
+				
+				<div class="divCenter">
+					<table border='0' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td><label>Situar tít. <span id="{{id}}_tipoBusquedaTitulo">{{tipoBusquedaTitulo}}:</span></label></td>
+							<td><input type="text" name="titulo" id="{{id}}_tituloBusqueda"/></td>
+							<td><span id="{{id}}_cambiarTipoBusquedaTitulo" style="cursor: pointer" class="ui-icon ui-icon-transferthick-e-w" title="Cambiar tipo de búsqueda" /></td>
+						</tr>
+					</table>	
+				</div>
+				
+<!-- 				<div class="divRight">
+					<label>Señal:</label>
+					<select id="{{id}}_senial" style="width: 45%;"></select>
+				</div>   -->
+				
+				<br>
+				<br>
+		
+				<div class="botonera">
+					<button id="{{id}}_aceptarBusquedaTitulos">Buscar</button>
+					<button id="{{id}}_volverBusquedaTitulos">Volver</button>
+					<button id="{{id}}_agregarTitulos">Agregar títulos</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	
+	<table id="{{id}}_gridTitulos"></table>
+	<div id="{{id}}_pagerGridTitulos"></div>
+</div>

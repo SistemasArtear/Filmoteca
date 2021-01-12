@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  	   					http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+              			http://www.springframework.org/schema/security 
+              			http://www.springframework.org/schema/security/spring-security-3.0.xsd
+              			http://www.springframework.org/schema/context
+              			http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+	
+		<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/jdbc.properties</value> 
+				<value>classpath*:service.properties</value>
+			</list>
+		</property>
+	<!--  	<property name="ignoreUnresolvablePlaceholders" value="true"/> -->
+	</bean>
+
+	
+	<security:http auto-config="true" access-denied-page="/html/accesoDenegado.html">
+		<!-- <security:intercept-url pattern="/Login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
+		<security:intercept-url pattern="/static/**" filters="none" access="IS_AUTHENTICATED_FULLY" />  
+		<security:intercept-url pattern="/html/**" access="IS_AUTHENTICATED_FULLY" />
+		<security:intercept-url pattern="/index.html" access="IS_AUTHENTICATED_FULLY" />
+		<security:intercept-url pattern="/" access="IS_AUTHENTICATED_FULLY" />
+		<security:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY" />
+
+		
+		<security:http-basic />
+		<security:logout />
+	</security:http>
+	
+
+	<bean name="serviciosSesionUsuario"
+		class="com.artear.filmo.seguridad.services.ServiciosSesionUsuarioImpl">
+	<!-- 	<property name="serviciosSesionUsuarioUtils" ref="serviciosSesionUsuarioUtils" /> -->
+	</bean>
+
+	<!-- BEAN PARA LOGIN CON LDAP -->
+	<bean id="accessDecisionManager" class="com.artear.filmo.seguridad.services.utils.OrBased">
+		<property name="allowIfAllAbstainDecisions" value="false" />
+		<property name="decisionVoters">
+			<list>
+				<bean class="com.artear.filmo.seguridad.services.utils.RoleVoter" />
+				<bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="LDAPInternos"
+		class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+		<constructor-arg value="${desa.url.LDAP.int}/o=artear" />
+		<property name="userDn" value="cn=ldapview,o=artear" />
+		<property name="password" value="" />
+	</bean>
+
+	<bean id="LDAPExternos"
+		class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+		<constructor-arg value="${desa.url.LDAP.ext}/o=externos" />
+		<property name="userDn" value="cn=ldapview,o=externos" />
+		<property name="password" value="" />
+	</bean>
+
+	<!-- Mapper para internos -->
+	<bean id="userDetailsContextMapperInt"
+		class="com.artear.filmo.seguridad.userdetails.AttributesLDAPUserDetailsContextMapper">
+		<property name="attributesToPopulate">
+			<list>
+				<value>grupojerarquico</value><!--Grupo Jerarquico "&(uniqueMember=$DN)&((objectClass=groupOfNames)(o=Jerarquico))" -->
+				<value>gruposfuncionales</value><!--Grupos Funcionales "&(uniqueMember=$DN)(objectClass=groupOfNames)" -->
+				<value>fullname</value><!--Fullname -->
+				<value>telephonenumber</value><!--Telefono -->
+				<value>mobilenumber</value><!--Celular -->
+				<value>fechanac</value><!--Fecha Nac. -->
+				<value>jerarquias</value><!--Jerarquia -->
+				<value>roles</value><!--Roles -->
+				<value>generador</value><!--Generadores -->
+				<value>legajo</value><!--Legajo -->
+				<value>posicion</value><!--Posicion -->
+				<value>funcion</value><!--Funcion -->
+				<value>mail</value><!--Email -->
+				<value>ftpserver</value><!--FTPServer -->
+				<value>empresa</value><!--Empresa -->
+				<value>passwordexpirationtime</value><!--Expired Time -->
+				<value>centrodecosto</value><!--Centro de Costo -->
+				<value>senal</value><!--senial -->
+			</list>
+		</property>
+		<property name="ldapTree" value="interno" /><!--Tipo Usuario -->
+		<property name="springSecurityContextSource" ref="LDAPInternos" />
+		<property name="rolePrefix" value="" />
+	</bean>
+
+	<!-- Mapper para externos -->
+	<bean id="userDetailsContextMapperExt"
+		class="com.artear.filmo.seguridad.userdetails.AttributesLDAPUserDetailsContextMapper">
+		<property name="attributesToPopulate">
+			<list>
+				<value>codigocliente</value><!--Agencias "&(uniqueMember=$DN)(objectClass=groupOfNames)" -->
+				<value>gruposfuncionales</value><!--Grupos Funcionales "&(uniqueMember=$DN)(objectClass=groupOfNames)" -->
+				<value>fullname</value><!--Fullname -->
+				<value>telephonenumber</value><!--Telefono -->
+				<value>mobilenumber</value><!--Celular -->
+				<value>fechanac</value><!--Fecha Nac. -->
+				<value>jerarquias</value><!--Jerarquia -->
+				<value>roles</value><!--Roles -->
+				<value>generador</value><!--Generadores -->
+				<value>legajo</value><!--Legajo -->
+				<value>posicion</value><!--Posicion -->
+				<value>funcion</value><!--Funcion -->
+				<value>mail</value><!--Email -->
+				<value>ftpserver</value><!--FTPServer -->
+				<value>empresa</value><!--Empresa -->
+				<value>passwordexpirationtime</value><!--Expired Time -->
+				<value>centrodecosto</value><!--Centro de Costo -->
+				<value>senal</value><!--senial -->
+			</list>
+		</property>
+		<property name="ldapTree" value="externo" /><!--Tipo Usuario -->
+		<property name="springSecurityContextSource" ref="LDAPExternos" />
+		<property name="rolePrefix" value="" />
+	</bean>
+
+	<bean id="ldapAuthProviderInt"
+		class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+		<constructor-arg>
+			<bean
+				class="org.springframework.security.ldap.authentication.BindAuthenticator">
+				<constructor-arg ref="LDAPInternos" />
+				<property name="userSearch">
+					<bean
+						class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+						<constructor-arg index="0" value="" />
+						<constructor-arg index="1"
+							value="(&amp;(cn={0})(objectClass=InetOrgPerson))" />
+						<constructor-arg index="2" ref="LDAPInternos" />
+					</bean>
+				</property>
+			</bean>
+		</constructor-arg>
+		<constructor-arg>
+			<bean
+				class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+				<constructor-arg ref="LDAPInternos" />
+				<constructor-arg value="" />
+				<property name="rolePrefix" value="ROLE_" />
+				<property name="searchSubtree" value="true" />
+				<property name="convertToUpperCase" value="false" />
+			</bean>
+		</constructor-arg>
+		<property name="userDetailsContextMapper" ref="userDetailsContextMapperInt" />
+	</bean>
+
+	<bean id="ldapAuthProviderExt"
+		class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+		<!-- Segundo LDAP -->
+		<!-- <security:custom-authentication-provider /> -->
+		<constructor-arg>
+			<bean
+				class="org.springframework.security.ldap.authentication.BindAuthenticator">
+				<constructor-arg ref="LDAPExternos" />
+				<property name="userSearch">
+					<bean
+						class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+						<constructor-arg index="0" value="" />
+						<constructor-arg index="1"
+							value="(&amp;(cn={0})(objectClass=InetOrgPerson))" />
+						<constructor-arg index="2" ref="LDAPExternos" />
+					</bean>
+				</property>
+			</bean>
+		</constructor-arg>
+		<constructor-arg>
+			<bean
+				class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+				<constructor-arg ref="LDAPExternos" />
+				<constructor-arg value="" />
+				<property name="rolePrefix" value="ROLE_" />
+				<property name="searchSubtree" value="true" />
+				<property name="convertToUpperCase" value="false" />
+			</bean>
+		</constructor-arg>
+		<property name="userDetailsContextMapper" ref="userDetailsContextMapperExt" />
+	</bean>
+
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider
+			ref="ldapAuthProviderInt" />
+		<security:authentication-provider
+			ref="ldapAuthProviderExt" />
+	</security:authentication-manager>
+	<!-- FIN BEAN PARA LOGIN CON LDAP -->
+
+
+		
+	<!-- LDAP Service -->
+	<bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <!-- Si se necesita agregar otra url, se agrega con un espacio intermedio -->
+        <property name="urls" value="${desa.url.LDAP.int}" />
+        <property name="base" value="o=artear" />
+        <property name="userDn" value="cn=${desa.user.LDAP.int},o=artear" />
+        <property name="password" value="${desa.password.LDAP.int}" />
+        <property name="dirObjectFactory" value="org.springframework.ldap.core.support.DefaultDirObjectFactory" />
+    </bean>
+    
+    <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="contextSource" />
+    </bean>
+    
+    <bean id="ldapService" class="com.artear.filmo.seguridad.services.ldap.LDAPService">
+        <property name="ldapTemplate" ref="ldapTemplate" />
+    </bean>
+
+	<bean id="contextSourceExt" class="org.springframework.ldap.core.support.LdapContextSource">
+        <!-- Si se necesita agregar otra url, se agrega con un espacio intermedio -->
+        <property name="urls" value="${desa.url.LDAP.ext}" />
+        <property name="base" value="o=externos" />
+        <property name="userDn" value="cn=${desa.user.LDAP.ext},o=externos" />
+        <property name="password" value="${desa.password.LDAP.ext}" />
+        <!-- usrabm y pwd : escribe -->
+        <property name="dirObjectFactory" value="org.springframework.ldap.core.support.DefaultDirObjectFactory" />
+<!--         <property name="pool" value="false"/> -->
+    </bean>
+    
+    <bean id="ldapTemplateExt" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="contextSourceExt" />
+    </bean>
+    
+    <bean id="ldapServiceExt" class="com.artear.filmo.seguridad.services.ldap.LDAPServiceExt">
+        <property name="ldapTemplateExt" ref="ldapTemplateExt" />
+    </bean>
+	
+	 
+</beans>

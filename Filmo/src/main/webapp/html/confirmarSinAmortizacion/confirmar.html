@@ -1,0 +1,44 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Confirmar sin amortización</h1>
+	<div id="{{id}}_divFormInicial">
+		<div id="{{id}}_accordion">
+			<h3><a href="#">Filtros</a></h3>
+			<form id="{{id}}_formInicial">
+				<!-- <div class="FormRowA">
+					<label>Se&ntilde;al:</label>
+					<select name="titulosProgramasRequest.senial" id="{{id}}_senial">
+						<option value="" label="Seleccionar..." selected="selected"></option>
+					</select>
+				</div>-->
+				
+				<div class="FormRowA">
+					<label>Fecha:</label>
+					<input type="text" name="titulosProgramasRequest.fecha" id="{{id}}_fecha" class="datepicker"/>
+				</div>
+				
+				<div id="{{id}}_filtro" style="display: none;">
+					<div class="FormRowA">
+						<label>Programa:</label>
+						<input type="text" name="titulosProgramasRequest.codigo" id="{{id}}_programa"/>
+						<a href="#" id="{{id}}_buscarPorPrograma">Buscar</a>
+					</div>
+					
+					<div class="FormRowB">
+						<label>Clave:</label>
+						<input type="text" name="titulosProgramasRequest.clave" id="{{id}}_clave"/>
+						<a href="#" id="{{id}}_buscarPorClave">Buscar</a>
+					</div>
+				</div>
+				<div class="botonera">
+					<a href="#" id="{{id}}_aceptarFormInicial">Aceptar</a>
+				</div>
+			</form>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div id="{{id}}_divListado">
+			<table id="{{id}}_grid"></table><div id="{{id}}_pagerGrid"></div>
+		</div>
+	</div>
+</div>

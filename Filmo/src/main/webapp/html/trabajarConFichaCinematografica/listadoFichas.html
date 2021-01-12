@@ -1,0 +1,29 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Trabajar Con Fichas Cinematogr&aacute;ficas</h1>
+	<div id="{{id}}_divFormInicial">
+		<div id="{{id}}_accordionFormInicial">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				<form id="{{id}}_formInicial">
+					<div class="FormRowA">
+						<label>Situar en T&iacute;tulo :</label>
+						<select name="tipo" id="{{id}}_tipoBusqueda" style="width: 90px;">
+							<option value="CASTELLANO" label="Castellano" selected="selected">Castellano</option>
+							<option value="ORIGINAL" label="Original">Original</option>
+						</select>
+						<input type="text" name="titulo" id="{{id}}_tituloBusqueda"/>
+						<a href="#" id="{{id}}_buscarFichas" >Buscar</a>
+					</div>
+				</form>
+				<div class="botonera">
+					<button id="{{id}}_crearFicha">Crear Ficha</button>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div id="{{id}}_divListadoFichas">
+			<table id="{{id}}_gridFichas"></table>
+			<div id="{{id}}_pagerGridFichas"></div>
+		</div>
+	</div>
+</div>

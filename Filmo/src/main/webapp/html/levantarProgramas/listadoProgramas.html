@@ -1,0 +1,28 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Levantar programas</h1>
+	<div id="{{id}}_divFormInicial">
+		<div id="{{id}}_accordionFormInicial">
+			<h3><a href="#">Filtros</a></h3>
+			<form id="{{id}}_formInicial">
+				<!-- <div class="FormRowA">
+					<label>Señal:</label>
+					<select name="idSenial" id="{{id}}_senial">
+						<option value="" label="Seleccionar..." selected="selected"></option>
+					</select>
+				</div>-->
+				<div id="{{id}}_filtro" class="FormRowA" style="display: none;">
+					<label>Programa:</label>
+					<input type="text" name="codPrograma" id="{{id}}_codPrograma" /> - 
+					<input type="text" name="descPrograma" id="{{id}}_descPrograma" />
+					<a href="#" id="{{id}}_filtrarProgramas">Buscar</a>
+				</div>
+			</form>
+		</div>
+		<br>
+		<div id="{{id}}_divListadoInicial">
+			<table id="{{id}}_gridInicial"></table>
+			<div id="{{id}}_pagerGridInicial"></div>
+		</div>
+	</div>
+	
+</div>

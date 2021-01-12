@@ -1,0 +1,154 @@
+<!doctype html> 
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <head profile="http://www.w3.org/2005/10/profile">
+        <link rel="icon" type="image/gif" href="img/logo.gif">
+        
+		<title>Filmoteca</title>
+		<link rel="stylesheet" href="css/menu.css">
+		<link rel="stylesheet" href="css/estilo.css">
+		<link rel="stylesheet" href="css/jquery-ui-1.8.12.custom.css">
+		<link rel="stylesheet" href="css/ui.jqGrid.css">
+		<link rel="stylesheet" href="css/ui.multiselect.css">
+	</head>
+	<body>
+		<div id="headerContainer"></div>
+		<div id="viewContainer" class="contenido">
+			<div align="center" class="inicio">
+				<p>FILMOTECA</p>
+			</div>
+		</div>
+		<div id="popupContainer" title="Confirmación"></div>
+		<div id="footerContainer" class="pie">Copyright &copy; 2012 ARTEAR</div>
+		<div id="globalMess">
+			<div class="img"></div>
+			<div id="globalMessImgClose" class="imgClose"></div>
+			<div id="tituloMess" class="titulo">TITULO</div>
+			<p id="textoMess" class="texto">MENSAJE<br /></p>
+		</div>
+		<div id="dialog"></div>
+		<script type="text/javascript" src="js/libs/jquery-1.6.1.js"></script>
+		<script type="text/javascript" src="js/libs/jquery-ui-1.8.12.custom.min.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.autocomplete.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.validate.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.maskedinput-1.2.2.min.js"></script>
+		<script type="text/javascript" src="js/libs/jqgrid/grid.locale-es.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.jqGrid-4.4.5.min.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.numeric.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.autoNumeric-1.7.4.js"></script>
+		<script type="text/javascript" src="js/libs/moment/moment.min.js"></script>
+		
+		<script type="text/javascript" src="js/libs/common/common.js"></script>
+		<script type="text/javascript" src="js/libs/common/plugin.js"></script>
+		<script type="text/javascript" src="js/plugins/service/menu/menuService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/menu/menuEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/menu/consultasListadosEvent.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/service/variablesSesionUsuario/variablesSesionUsuarioService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/variablesSesionUsuario/variablesSesionUsuarioEvent.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/service/basic/basicService.js"></script>
+		<script type="text/javascript" src="js/applicationLoader.js"></script>
+		<script type="text/javascript" src="js/plugins/service/situar/situarPopupService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/situar/situarPopupEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/popupConfirmacion/popupConfirmacionEvent.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/event/amortizarTituloSinExhibirRecibir/amortizarTituloSinExhibirRecibirEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/service/amortizarTituloSinExhibirRecibir/amortizarTituloSinExhibirRecibirService.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/service/horarioProgramas/horarioProgramasService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/horarioProgramas/horarioProgramasEvent.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/service/chequeoOperativo/chequeoOperativoService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/chequeoOperativo/chequeoOperativoEvent.js"></script>
+				
+		<script type="text/javascript" src="js/plugins/service/trabajarConTitulos/trabajarConTitulosService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/trabajarConTitulos/trabajarConTitulosEvent.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/service/activarTituloVencido/activarTituloVencidoService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/activarTituloVencido/activarTituloVencidoEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/event/trabajarConTitulosAmortizados/trabajarConTitulosAmortizadosEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/event/armadoDeProgramacion/armadoDeProgramacionEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/service/armadoDeProgramacion/armadoDeProgramacionService.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/event/ingresoDeMateriales/ingresoDeMaterialesEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/service/ingresoDeMateriales/ingresoDeMaterialesService.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/event/modificacionIngresoDeMateriales/modificacionIngresoDeMaterialesEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/service/modificacionIngresoDeMateriales/modificacionIngresoDeMaterialesService.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/service/modificarHorarioEmisionGrilla/modificarHorarioEmisionGrillaService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/modificarHorarioEmisionGrilla/modificarHorarioEmisionGrillaEvent.js"></script>
+		
+		<script type="text/javascript" src="js/plugins/service/trabajarConFichasDeChequeoTecnico/trabajarConFichasDeChequeoTecnicoService.js"></script>
+		<script type="text/javascript" src="js/plugins/event/trabajarConFichasDeChequeoTecnico/trabajarConFichasDeChequeoTecnicoEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/service/modificarContrato/modificarContratoService.js"></script>
+        <script type="text/javascript" src="js/plugins/service/modificarContrato/modificarContratoStaticService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/modificarContrato/modificarContratoInit.js"></script>
+        <script type="text/javascript" src="js/plugins/event/modificarContrato/modificarContratoValidator.js"></script>
+        <script type="text/javascript" src="js/plugins/event/modificarContrato/modificarContratoSelector.js"></script>
+        <script type="text/javascript" src="js/plugins/event/modificarContrato/modificarContratoBusiness.js"></script>
+        <script type="text/javascript" src="js/plugins/event/modificarContrato/modificarContratoDrawer.js"></script>
+        <script type="text/javascript" src="js/plugins/event/modificarContrato/modificarContratoPopulator.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/event/bajaDeContrato/bajaDeContratoInit.js"></script>
+        <script type="text/javascript" src="js/plugins/event/bajaDeContrato/bajaDeContratoSelector.js"></script>
+        <script type="text/javascript" src="js/plugins/event/bajaDeContrato/bajaDeContratoBusiness.js"></script>
+        <script type="text/javascript" src="js/plugins/event/bajaDeContrato/bajaDeContratoDrawer.js"></script>
+        <script type="text/javascript" src="js/plugins/event/bajaDeContrato/bajaDeContratoPopulator.js"></script>
+        <script type="text/javascript" src="js/plugins/service/bajaDeContrato/bajaContratoStaticService.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoGestionCapitulosEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoGestionGrupoCCEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoGestionGrupoSCEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoGestionGruposEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoGestionSenialesEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoGestionTitulosEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoRecontratacionRerunEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoSeleccionCapitulosEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoSeleccionTitulosEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/event/altaContrato/altaContratoUtilsEvent.js"></script>
+		<script type="text/javascript" src="js/plugins/service/altaContrato/altaContratoService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/tipoDeCosteo/tipoDeCosteoEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/event/tipoDeCosteo/tipoDeCosteoCFMEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/event/tipoDeCosteo/tipoDeCosteoExcedenteEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/event/tipoDeCosteo/tipoDeCosteoRatingEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/event/tipoDeCosteo/tipoDeCosteoMixtoEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/service/desconfirmarSinAmortizacion/desconfirmarSinAmortizacionService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/desconfirmarSinAmortizacion/desconfirmarSinAmortizacionEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/service/confirmarSinAmortizacion/confirmarSinAmortizacionService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/confirmarSinAmortizacion/confirmarSinAmortizacionEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/service/levantarProgramas/levantarProgramasService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/levantarProgramas/levantarProgramasEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/service/trabajarConCopiasDeTitulos/trabajarConCopiasDeTitulosService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/trabajarConCopiasDeTitulos/trabajarConCopiasDeTitulosEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/service/trabajarConFichaCinematografica/trabajarConFichaCinematograficaService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/trabajarConFichaCinematografica/trabajarConFichaCinematograficaEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/service/trabajarConRemitosMateriales/trabajarConRemitosMaterialesService.js"></script>
+        <script type="text/javascript" src="js/plugins/event/trabajarConRemitosMateriales/trabajarConRemitosMaterialesEvent.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/event/confirmarProgramacion/confirmarProgramacionEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/service/confirmarProgramacion/confirmarProgramacionService.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/event/desconfirmarProgramacion/desconfirmarProgramacionEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/service/desconfirmarProgramacion/desconfirmarProgramacionService.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/event/modificarRatingExcedente/modificarRatingExcedenteEvent.js"></script>
+        <script type="text/javascript" src="js/plugins/service/modificarRatingExcedente/modificarRatingExcedenteService.js"></script>
+	</body>
+</html>

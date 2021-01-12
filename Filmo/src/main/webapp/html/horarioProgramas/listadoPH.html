@@ -1,0 +1,44 @@
+<div id="{{id}}">
+	<h1>Horarios de Programas</h1>
+	<div id="{{id}}_listadoPH">
+		<div id="{{id}}_accordionListadoPH">
+		<h3><a href="#">Filtros</a></h3>
+		<form id="{{id}}_formInicial" class="FormContainer3c">
+			<div id="{{id}}_botonAgregar" style="display:none; float: right;">
+				<a id="{{id}}_agregarProgramaPH">Agregar Programa</a>
+			</div>
+			<!-- <table>
+				<tr>
+					<th><td>
+						<label>Se&ntilde;al:</label>
+					</td>
+					<td>
+						<select name="idSenial" id="{{id}}_senial">
+							<option value="" label="Seleccionar..." selected="selected"></option>
+						</select>
+					</td></th>
+				</tr>
+			</table>-->
+			<table id="{{id}}_filtro" style="display: none">
+				<tr>
+					<th><td>
+						<label>Situar en Programa por Clave:</label>
+					</td>
+					<td>
+						<input type="text" name="claveProgramaPH" id="{{id}}_busquedaPHPorCodigo"/>
+					</td>
+					<td>
+						<a href="#" id="{{id}}_buscarProgramaPHPorCodigo">Buscar</a>
+					</td>
+					<td>
+						<a href="#" name="{{id}}_popupBuscarPorDesc" id="{{id}}_popupBuscarPorDescPH">Situar en Programa por Descripci&oacute;n</a>
+					</td>
+					</th>
+				</tr>
+			</table>
+		</form>
+		</div>
+			
+		<div id="{{id}}_gridContainer" style="margin-top: 20px;"><table id="{{id}}_gridProgramasPH"></table><div id="{{id}}_pagerGridProgramasPH"></div></div>
+	</div>
+</div>

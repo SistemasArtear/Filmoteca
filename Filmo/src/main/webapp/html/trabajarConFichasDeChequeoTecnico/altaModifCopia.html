@@ -1,0 +1,84 @@
+<div id="{{id}}_listadoCopiasDiv" class="FormContainer">
+	<div id="{{id}}_accordionListadoCopiasDiv">
+		<h3><a href="#">Trabajar con Rollos</a></h3>
+		<div>
+			<div class="FormRowA">
+				<label>Clave:</label>
+				<span>{{clave}}</span>
+			</div>
+			<div class="FormRowA">
+				<label>Titulo Original:</label>
+				<span>{{tituloOriginal}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>T&iacute;tulo Castellano:</label>
+				<span>{{tituloCastellano}}</span>
+			</div>
+			<div class="FormRowA">
+				<label>Capitulo:</label>
+				<span>{{capitulo}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>Parte:</label>
+				<span>{{parte}}</span>
+			</div>
+			<div class="botonera">
+				<button id="{{id}}_agregarCopias" >Agregar</button>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div>
+		<table id="{{id}}_gridCopias"></table><div id="{{id}}_pagerGridCopias"></div>
+	</div>
+	</br>
+	<div class="botonera">
+		<button id="{{id}}_volverDeListadoCopias">Volver</button>
+	</div>
+	<div id="{{id}}_popupFormAltaModifCopia" style="display: none" class="FormContainer">
+		<h3><a href="#"><span id="{{id}}_tipoAccion"></span> de Rollos</a></h3>
+		<div>
+			<form id="{{id}}_formAltaModifRollos">
+				<input type="hidden" name="altaModifRollosRequest.clave" value="{{clave}}" >
+				<input type="hidden" name="altaModifRollosRequest.capitulo" value="{{capitulo}}" >
+				<input type="hidden" name="altaModifRollosRequest.parte" value="{{parte}}" >
+				<div class="FormRowA">
+					<label>Se&ntilde;al:</label>
+					<!-- <span id="{{id}}_senialCopia"></span>-->
+					<input type="text" name="altaModifRollosRequest.senial" id="{{id}}_senialCopia" style="width: 84px"/>
+					<span id="{{id}}_popupBusquedaSenialesCopia" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar Se&ntilde;ales"/>
+				</div>
+				<div class="FormRowB">
+					<label>Origen:</label>
+					<select name="altaModifRollosRequest.origen" id="{{id}}_origenCopia" style="width: 84px">
+						<option value="" label=""></option>
+						<option value="M" label="Master">Master</option>
+						<option value="C" label="Copia">Copia</option>
+					</select>
+				</div>
+				<div class="FormRowA">
+					<label>Fecha de Emisi&oacute;n:</label>
+					<input type="text" name="altaModifRollosRequest.fechaEmision" id="{{id}}_fechaEmisionCopia" class="datepicker"/>
+				</div>
+				<div class="FormRowB">
+					<label>Cantidad de Rollos:</label>
+					<input type="text" id="{{id}}_cantRollosCopia" style="width: 84px"/>
+				</div>
+				<div class="FormRowA">
+				  <table id="{{id}}_divToAppendCopias">
+					<tr>
+						<td><label>Soporte:</label></td>
+						<td><label>Nro. Rollo:</label></td>
+						<td><label>Borrar:</label></td>
+					</tr>
+				   </table>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+	<div id="{{id}}_popupContratosParaAsociarMasters" style="display: none">
+		<table id="{{id}}_gridContratosParaAsociarMasters"></table><div id="{{id}}_pagerGridContratosParaAsociarMasters"></div>
+		<p>Quiere asociar la copia a los contratos?</p>
+	</div>
+</div>

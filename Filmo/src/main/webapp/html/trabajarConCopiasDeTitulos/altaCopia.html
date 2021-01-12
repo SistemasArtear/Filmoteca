@@ -1,0 +1,114 @@
+<div id="{{id}}_altaCopia">
+	<div id="{{id}}_accordionAltaCopia" class="FormContainer">
+		<h3><a href="#">Alta de {{tipoCopia}} {{capitulo}} cap&iacute;tulos</a></h3>
+		<div>
+			<table>
+				<tr>
+					<th>
+						<td>
+							<label>Clave:</label>
+						</td>
+						<td>
+							<span>{{clave}}</span>
+						</td>
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<td>
+							<label>T&iacute;tulo Original:</label>
+						</td>
+						<td>
+							<span>{{tituloOriginal}}</span>
+						</td>
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<td>
+							<label>T&iacute;tulo Castellano:</label>
+						</td>
+						<td>
+							<span>{{tituloCastellano}}</span>
+						</td>
+					</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</br>
+	<div id="{{id}}_accordionAltaCopiaSegmento" class="FormContainer3c ui-accordion ui-widget ui-helper-reset" role="tablist">
+		<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true" tabindex="-1"><a href="#">Datos</a></h3>
+		<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" role="tabpanel">
+			<form id="{{id}}_sin_capitulosForm">
+				<input type="hidden" value="{{senial}}" name="altaRequest.{{object}}.senial">
+				<input type="hidden" value="{{clave}}" name="altaRequest.{{object}}.clave">
+				<table>
+					<tr>
+						<th>
+							<td> <label>Soporte: </label> </td>
+							<td> <input type="text" id="{{id}}_sin_soporte" name="altaRequest.{{object}}.soporte"> </td>
+							<td> <a href="#" id="{{id}}_sin_buscarSoportes">Buscar</a> </td>
+						</th>
+					</tr>
+					<tr id="{{id}}_sin_trRollos">
+						<th>
+							<td> <label>Rollo/s: </label> </td>
+							<td> <input type="text" id="{{id}}_sin_rollo0" name="altaRequest.{{object}}.rollos[0]" maxlength="6"> </td>
+							<td> <input type="text" id="{{id}}_sin_rollo1" name="altaRequest.{{object}}.rollos[1]" maxlength="6"> </td>
+							<td> <input type="text" id="{{id}}_sin_rollo2" name="altaRequest.{{object}}.rollos[2]" maxlength="6"> </td>
+							<td> <input type="text" id="{{id}}_sin_rollo3" name="altaRequest.{{object}}.rollos[3]" maxlength="6"> </td>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<td> <label>Fecha: </label> </td>
+							<td> <input type="text" id="{{id}}_sin_fecha" name="altaRequest.{{object}}.fecha" class="datepicker"> </td>
+						</th>
+					</tr>
+				</table>
+			</form>
+			<form id="{{id}}_con_capitulosForm">
+				<input type="hidden" value="{{senial}}" name="altaRequest.{{object}}.senial">
+				<input type="hidden" value="{{clave}}" name="altaRequest.{{object}}.clave">
+				<table>
+					<tr>
+						<th>
+							<td> <label>Soporte: </label> </td>
+							<td> <input type="text" id="{{id}}_con_soporte" name="altaRequest.{{object}}.soporte"> </td>
+							<td> <a href="#" id="{{id}}_con_buscarSoportes">Buscar</a> </td>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<td> <label>Cap&iacute;tulo: </label> </td>
+							<td> <input type="text" id="{{id}}_capitulo" name="altaRequest.{{object}}.capitulo" maxlength="7"> </td>
+							<td> <label>Parte: </label> </td>
+							<td> <input type="text" id="{{id}}_parte" name="altaRequest.{{object}}.parte" maxlength="1"> </td>
+							<td> <label>Segmento: </label> </td>
+							<td> <input type="text" id="{{id}}_segmento" name="altaRequest.{{object}}.segmento" maxlength="2"> </td>
+							<td> <a href="#" id="{{id}}_buscarCapitulos">Buscar</a> </td>
+						</th>
+					</tr>
+					<tr id="{{id}}_con_trRollos">
+						<th>
+							<td> <label>Rollo/s: </label> </td>
+							<td> <input type="text" id="{{id}}_con_rollo0" name="altaRequest.{{object}}.rollos[0]" maxlength="6"> </td>
+							<td> <input type="text" id="{{id}}_con_rollo1" name="altaRequest.{{object}}.rollos[1]" maxlength="6"> </td>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<td> <label>Fecha: </label> </td>
+							<td> <input type="text" id="{{id}}_con_fecha" name="altaRequest.{{object}}.fecha" class="datepicker"> </td>
+						</th>
+					</tr>
+				</table>
+			</form>
+			<div class="botonera">
+				<button id="{{id}}_aceptarAltaCopia" >Aceptar</button>
+				<button id="{{id}}_volverAltaCopia" >Volver</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,64 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Modificar horario de emisión de grilla</h1>
+	<div id="{{id}}_divFormInicial">
+		<div id="{{id}}_accordionFormInicial">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+			<form id="{{id}}_formInicial">
+				<!--  <div class="FormRowC">
+					<label>Se&ntilde;al:</label>
+					<select name="senial" id="{{id}}_senial"></select>
+				</div>-->	
+				<div class="FormRowC">
+					<table border='0' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td><label>Programa:</label></td>
+							<td><input type="text" name="codPrograma" id="{{id}}_programaBusqueda"/></td>
+							<td><span id="{{id}}_programaDesc"/></td>
+							<td><a href="#" id="{{id}}_popupProgramas">Buscar por Descripci&oacute;n</a></td>
+						</tr>
+					</table>
+				</div>	
+				<div class="FormRowC">
+					<label>Fecha de Exhibici&oacute;n</label>
+					<input type="text" name="fecha" id="{{id}}_fechaExhibicionBusqueda" class="datepicker"/>
+				</div>
+			</form>
+			<div class="botoneraMarginTop">
+				<button id="{{id}}_aceptarFormInicial">Aceptar</button>
+			</div>
+			</div>
+		</div>
+	</div>
+	<br><br><br>
+	<div id="{{id}}_horarioEmisionGrilla" style="display: none">
+		<div id="{{id}}_accordionFormInicialEmisionGrilla">
+			<h3><a href="#">Filtros</a></h3>
+			<div id="{{id}}_formInicial">
+				<div class="FormRowA">
+					<label>Programa:</label>			
+					<label id="{{id}}_programa" name="fecha"/>
+				</div>
+				
+				<div class="FormRowB">
+					<label>Fecha:</label>			
+					<label id="{{id}}_fecha" name="fecha"/>
+				</div>
+				
+				<div class="FormRowA">
+					<label>Desde:</label>			
+					<input type="text" name="desde" id="{{id}}_desde"/>
+				</div>
+				
+				<div class="FormRowB">
+					<label>Hasta:</label>			
+					<input type="text" name="hasta" id="{{id}}_hasta"/>
+				</div>
+			</div>
+		</div>
+		<div class="botoneraMarginTop">
+			<button id="{{id}}_aceptarFormNuevoHorario">Guardar</button>
+			<button id="{{id}}_volverAlFormInicial">Volver</button>
+		</div>
+	</div>
+</div>

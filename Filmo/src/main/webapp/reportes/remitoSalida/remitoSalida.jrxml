@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="remitoSalida" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true">
+	<parameter name="p_remitoInterno" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/Users/sisloc/code/head/Filmo/src/main/webapp/reportes/remitoSalida/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="usuario" class="java.lang.String"/>
+	<parameter name="p_empresa" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_puntoVenta" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_tipoComprobante" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[-- Cabecera --
+SELECT SubStr (SubStr (rt.rtnnumrem, 2, 8) + 100000000,2,8)    nroRemito,
+       TO_CHAR(rt.rtffecmov, 'dd/mm/yyyy')                fechaRemito,
+       rt.prkpro                       proveedor,
+       rt.rtddesdes                    destinatario,
+       rt.rtffecmov + rt.rtncntdpr     fechaHasta,
+       mm.mmddescri                    motivo,
+       pr.prdrazsoc                    razonSocialProv,
+       pr.prddomici                    domicilioProv,
+       pr.prncuit                      cuitProv,
+       (SELECT fmw4scai
+          FROM fmw004 fm
+         WHERE fm.fmw4kemp      = $P{p_empresa}
+           AND fm.fmw4nwkpw     = $P{p_puntoVenta}
+           AND fm.fmw4ktpocbt   = $P{p_tipoComprobante}
+           AND fm.fmw4slet      = $P{p_tipoComprobante}
+           AND rt.rtffecmov     BETWEEN fm.fmw4dfchdd AND fm.fmw4dfchhh) nroCAI,
+       TO_CHAR((SELECT fmw4dfchvto
+          FROM fmw004 fm
+         WHERE fm.fmw4kemp      = $P{p_empresa}
+           AND fm.fmw4nwkpw     = $P{p_puntoVenta}
+           AND fm.fmw4ktpocbt   = $P{p_tipoComprobante}
+           AND fm.fmw4slet      = $P{p_tipoComprobante}
+           AND rt.rtffecmov     BETWEEN fm.fmw4dfchdd AND fm.fmw4dfchhh), 'dd/mm/yyyy') fechaVtoCAI
+  FROM rt6001 rt, mm6001 mm,
+       pr6001 pr
+ WHERE rt.prkpro     = pr.prkPro
+   AND mm.mmkidtipmo IN (SELECT DISTINCT mmkidtipmo
+                           FROM rm6001
+                          WHERE rtkidrem = rt.rtkidrem)
+   AND rt.rtkidrem   = $P{p_remitoInterno}]]>
+	</queryString>
+	<field name="NROREMITO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FECHAREMITO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROVEEDOR" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESTINATARIO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FECHAHASTA" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MOTIVO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RAZONSOCIALPROV" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DOMICILIOPROV" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUITPROV" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NROCAI" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FECHAVTOCAI" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="original" class="java.lang.String" resetType="None">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="158">
+			<staticText>
+				<reportElement x="431" y="65" width="41" height="14"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[0002-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="92" width="132" height="14"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Remitimos en Calidad de]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="92" width="258" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MOTIVO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="396" y="92" width="36" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[hasta:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="432" y="92" width="100" height="14"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{FECHAHASTA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="532" y="93" width="20" height="13"/>
+				<textElement/>
+				<text><![CDATA[A:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="109" width="71" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Razon Social]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="77" y="109" width="475" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RAZONSOCIALPROV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="125" width="71" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="78" y="125" width="474" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DOMICILIOPROV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="141" width="71" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[C.U.I.T.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="78" y="141" width="174" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CUITPROV}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="472" y="65" width="79" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NROREMITO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="451" y="79" width="98" height="12"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FECHAREMITO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="13" width="555" height="34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Remito Salida]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="100">
+			<subreport>
+				<reportElement x="1" y="0" width="554" height="47">
+					<property name="p_remitoInterno" value=""/>
+					<property name="tipoCopia" value="Original"/>
+				</reportElement>
+				<subreportParameter name="usuario">
+					<subreportParameterExpression><![CDATA[$P{usuario}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_fecha">
+					<subreportParameterExpression><![CDATA[$F{FECHAVTOCAI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_remitoInterno">
+					<subreportParameterExpression><![CDATA[$P{p_remitoInterno}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_numero">
+					<subreportParameterExpression><![CDATA[$F{NROCAI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tipoCopia">
+					<subreportParameterExpression><![CDATA["Original"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="tipoCopia" toVariable="original"/>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "remitoSalidaSubReporte.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<break>
+				<reportElement x="0" y="0" width="100" height="1"/>
+			</break>
+		</band>
+		<band height="100">
+			<subreport>
+				<reportElement x="1" y="0" width="554" height="47">
+					<property name="p_remitoInterno" value=""/>
+					<property name="tipoCopia" value="Original"/>
+				</reportElement>
+				<subreportParameter name="usuario">
+					<subreportParameterExpression><![CDATA[$P{usuario}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_fecha">
+					<subreportParameterExpression><![CDATA[$F{FECHAVTOCAI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_remitoInterno">
+					<subreportParameterExpression><![CDATA[$P{p_remitoInterno}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="p_numero">
+					<subreportParameterExpression><![CDATA[$F{NROCAI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tipoCopia">
+					<subreportParameterExpression><![CDATA["Duplicado"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="tipoCopia" toVariable="original"/>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "remitoSalidaSubReporte.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="355" y="32" width="100" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NROCAI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="32" width="100" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FECHAVTOCAI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="9" width="95" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{usuario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="9" width="75" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Realizado por ]]></text>
+			</staticText>
+			<textField evaluationTime="Band">
+				<reportElement x="455" y="4" width="100" height="20">
+					<printWhenExpression><![CDATA[new Boolean ( !( $V{PAGE_NUMBER}.compareTo( new Integer("1") ) == (new Integer("0")).intValue() ) )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[( $V{original} == null ) ? "Duplicado" : $V{original}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="4" width="100" height="20">
+					<printWhenExpression><![CDATA[new Boolean ( ( $V{PAGE_NUMBER}.compareTo( new Integer("1") ) == (new Integer("0")).intValue() ) )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Original]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

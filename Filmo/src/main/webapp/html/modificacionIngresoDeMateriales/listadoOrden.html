@@ -1,0 +1,47 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Trabajar con ingreso de materiales</h1>
+	<div id="{{id}}_listadoOrden">
+		<div id="{{id}}_accordionOrden">
+			<h3><a href="#" id="{{id}}_labelSituar">Orden</a></h3>
+			<div>
+				<div class="FormRowA">
+					<table border='0' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td><label>Situar en:</label></td>
+							<td><input type="text" name="situarEn" id="{{id}}_situarEn"/></td>
+							<td><span id="{{id}}_popupDistribuidorPorRazonSocial" style="cursor: pointer; display: none;" class="ui-icon ui-icon-search" title="Buscar distribuidor" hidden="true"/></td>
+							<td><span id="{{id}}_popupTitulosPorDistribuidor" style="cursor: pointer; display: none;" class="ui-icon ui-icon-search" title="Buscar títulos" hidden="true"/></td>
+						</tr>
+					</table>	
+				</div>
+				<div class="FormRowB">
+					<label>Buscar por:</label>
+					<select name="tipoBusqueda" id="{{id}}_tipoBusqueda"></select>
+				</div>
+				<div class="FormRowC">
+					<table id="{{id}}_filtroTitulo" border='0' cellspacing='0' cellpadding='0' align="left" hidden="true" width="90%">
+						<tr>
+							<td class="divLeft"><label>Título:</label><span id="{{id}}_claveTitulo"></span><span id="{{id}}_descripcionTitulo"></span></td>
+							<td class="divCenter"><label>Capítulo:</label><span id="{{id}}_capituloTitulo"></span></td>
+							<td class="divRight"><label>Parte:</label><span id="{{id}}_parteTitulo"></span></td>
+						</tr>
+					</table>
+					<div align="right">
+						<button id="{{id}}_aceptarBusquedaRemito">Buscar</button>
+					</div>	
+				</div>
+			</div>
+		</div>
+		
+		<br>
+		
+		<div id="{{id}}_gridContainerOrden">
+			<table id="{{id}}_gridOrden"></table>
+			<div id="{{id}}_pagerOrden"></div>
+		</div>
+	</div>
+</div>
+
+<div id="popupTituloCapituloContainer" title="Filtro de títulos"></div>
+<div id="popupWarningCabecera" title="No puede modificar la fecha de ingreso de material, ya que hay exhibiciones confirmadas"></div>
+<div id="IngresoDeMaterialesEventId" style="display:none"><h1>Trabajar con ingreso de materiales</h1></div>

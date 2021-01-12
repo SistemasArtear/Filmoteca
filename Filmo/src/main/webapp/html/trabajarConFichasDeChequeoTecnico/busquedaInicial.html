@@ -1,0 +1,115 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Trabajar con fichas de chequeo técnico</h1>
+	<div id="{{id}}_busquedaInicial">
+		<div id="{{id}}_accordionBusquedaInicial">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				<form>
+				
+					<div id="{{id}}_formBusquedaSenial" class="FormContainer">
+						<!--  div class="FormRowA">
+							<label>Se&ntilde;al:</label>
+							<select name="busquedaFichasRequest.senial" id="{{id}}_senial">
+								<option value="" label="Seleccionar..." selected="selected"></option>
+							</select>
+						</div>-->
+						
+						<div class="FormRowA">
+							<label>B&uacute;squeda por:</label>
+							<select id="{{id}}_tipoBusqueda">
+								<option value="C" label="Clave" selected="selected">Clave</option>
+								<option value="O" label="Titulo Original">Titulo Original</option>
+								<option value="A" label="Titulo Castellano">Titulo Castellano</option>
+							</select>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					
+					<div id="{{id}}_formBusquedaPorClave"  class="FormContainer">
+						<div id="{{id}}_busquedaPorClave">
+							<div class="FormRowA">
+								<label>Clave:</label>
+								<input type="text" name="busquedaFichasRequest.clave" id="{{id}}_inputClave"/>
+							</div>
+							
+							<div class="FormRowB">
+								<label>Cap&iacute;tulo:</label>
+								<input type="text" name="busquedaFichasRequest.capitulo" id="{{id}}_inputCapitulo"/>
+							</div>
+							
+							<div class="FormRowC">
+								<label>Parte:</label>
+								<input type="text" name="busquedaFichasRequest.parte" id="{{id}}_inputParte"/>
+							</div>
+						</div>
+					</div>
+					
+					<div id="{{id}}_formBusquedaPorTitOri"  class="FormContainer">
+						<div id="{{id}}_busquedaPorTituloOriginal" style="display: none">
+							<div class="FormRowA">
+								<label>Titulo Original:</label>
+								<input type="text" name="busquedaFichasRequest.tituloOriginal" id="{{id}}_inputTituloOriginal"/>
+							</div>
+						</div>
+					</div>
+					
+					<div id="{{id}}_formBusquedaPorTitCast"  class="FormContainer">
+						<div id="{{id}}_busquedaPorTituloCastellano" style="display: none">
+							<div class="FormRowA">
+								<label>Titulo Castellano:</label>
+								<input type="text" name="busquedaFichasRequest.tituloCastellano" id="{{id}}_inputTituloCastellano"/>
+							</div>
+						</div>
+					</div>
+					
+					<div id="{{id}}_formComplementoBusqueda"  class="FormContainer">
+						<div class="FormRowA">
+							<label>Fichas:</label>
+							<select id="{{id}}_fichas" name="busquedaFichasRequest.fichasActivas">
+								<option value="A" label="Activas" selected="selected">Activas</option>
+								<option value="I" label="Inactivas">Inactivas</option>
+								<option value="T" label="Todas">Todas</option>
+							</select>
+						</div>
+						
+						<div class="FormRowB">
+							<label>Chequeo:</label>
+							<select id="{{id}}_chequeo" name="busquedaFichasRequest.chequeo">
+								<option value="N" label="No" selected="selected">No</option>
+								<option value="S" label="Si">Si</option>
+							</select>
+						</div>
+						
+						<div class="FormRowA">
+							<label>Fecha:</label>
+							<input type="text" name="busquedaFichasRequest.fechaDesde" id="{{id}}_fechaDesde" class="datepicker"/>
+						</div>
+						
+						<div class="FormRowB">
+							<label>al:</label>
+							<input type="text" name="busquedaFichasRequest.fechaHasta" id="{{id}}_fechaHasta" class="datepicker"/>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					
+					<div class="botonera">
+						<a href="#" id="{{id}}_agregarFicha" style="display:none; float:right;">Agregar Ficha</a>
+						<input type="button" id="{{id}}_buscarFichas" value="     Buscar     " style="height: auto; padding: 0.3em;" />
+					</div>
+					
+				</form>
+				
+			</div>
+			<br>
+		</div>
+		<div id="{{id}}_gridContainerFichas"><table id="{{id}}_gridFichas"></table><div id="{{id}}_pagerGridFichas"></div></div>
+		<div id="{{id}}_popupContratos" style="display: none;">
+			<p>La Ficha de Chequeo est&aacute; asociada a contratos no vigentes.</p>
+			<table id="{{id}}_gridContratos"></table><div id="{{id}}_pagerGridContratos"></div>
+		</div>
+	</div>
+</div>

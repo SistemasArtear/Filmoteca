@@ -1,0 +1,42 @@
+<div id="{{id}}">
+	<h1>Trabajar con ingreso de materiales</h1>
+	<div id="{{id}}_divFormCabecera" class="FormContainer3c resizeableContainer3c">
+		<div id="{{id}}_accordionFormCabecera">
+			<h3><a href="#">Filtros</a></h3>
+			<div class="clearfix">
+			
+				<div class="divLeftExtend">
+					<label style="width:15%;">Distribuidor:</label>
+					<input type="text" name="razonSocial" id="{{id}}_razonSocialDistribuidor" maxlength="60" style="float:left; width:50%;"/>
+					<span id="{{id}}_popupDistribuidorPorRazonSocial" style="cursor: pointer; float:left;" class="ui-icon ui-icon-search" title="Buscar por razón social" />
+					<input type="text" name="codigo" id="{{id}}_codigoDistribuidor" maxlength="6" style="float:left; width:10%;"/>
+					<span id="{{id}}_popupDistribuidorPorCodigo" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar por código" />
+				</div>
+			
+				<div class="divRight">
+					<label>Número de remito:</label>
+					<input type="text" name="numeroRemito" id="{{id}}_numeroRemito" maxlength="13"/>
+				</div>
+								
+				<div class="divLeft">
+					<label>Número de guía:</label>
+					<input type="text" name="numeroGuia" id="{{id}}_numeroGuia" maxlength="13"/>
+				</div>
+				
+				<div class="divCenter">
+					<label>Fecha de ingreso:</label>
+					<input type="text" name="fechaIngreso" id="{{id}}_fechaIngreso" class="datepicker"/>
+				</div>
+	
+				<div class="divRight">
+					<label>Fecha remito/guía:</label>
+					<input type="text" name="fechaRemitoGuia" id="{{id}}_fechaRemitoGuia" class="datepicker"/>
+					<div class="botonera">
+						<button id="{{id}}_aceptarFormCabecera">Aceptar</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

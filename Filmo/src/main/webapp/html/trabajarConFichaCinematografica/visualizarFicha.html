@@ -1,0 +1,95 @@
+<div id="{{id}}_visualizarFicha" class="FormContainer">
+	<h3><a href="#"><span id="{{id}}_accionV"></span> De Ficha Cinematogr&aacute;fica</a></h3>
+	<div>
+		<div class="FormRowA">
+			<label>T&iacute;tulo Castellano:</label>
+			<span>{{tituloCastellano}}</span>
+		</div>	
+		<div class="FormRowB">
+			<label>T&iacute;tulo Original:</label>
+			<span>{{tituloOriginal}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>Color C/B</label>
+			<span>{{color}}</span>
+		</div>		
+		<div class="FormRowB">
+			<label>Calif. Com.:</label>
+			<span>{{califComCod}}</span>
+			<span>{{califComDesc}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>Calif. Art.:</label>
+			<span>{{califArtCod}}</span>
+			<span>{{califArtDesc}}</span>
+		</div>		
+		<div class="FormRowB">
+			<label>Sello:</label>
+			<span>{{sello}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>Genero:</label>
+			<span>{{generoCod}}</span>
+			<span>{{generoDesc}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>A&ntilde;o Producci&oacute;n:</label>
+			<span>{{anioProduccion}}</span>
+		</div>		
+		<div class="FormRowB">
+			<label>Productor:</label>
+			<span>{{productor}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>Pa&iacute;s de Origen:</label>
+			<span>{{paisOrigen}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>Director:</label>
+			<span>{{director}}</span>
+		</div>		
+		<div class="FormRowB">
+			<label>Autor:</label>
+			<span>{{autor}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>Calif. Oficial:</label>
+			<span>{{califOficialCod}}</span>
+			<span>{{califOficiaDesc}}</span>
+		</div>		
+		<div class="FormRowB">
+			<label>Duraci&oacute;n:</label>
+			<span>{{duracion}}</span>
+		</div>		
+		<div class="FormRowA">
+			<label>Fecha Estreno en Cine:</label>
+			<span>{{fechaEstrenoCine}}</span>
+		</div>		
+		<div class="FormRowB">
+			<label>Fecha Estreno en Video:</label>
+			<span>{{fechaEstrenoVideo}}</span>
+		</div>		
+		<div id="{{id}}_divActoresV" class="FormRowC">
+			<h3><a href="#">Actores</a></h3>
+			<div>
+				<div class="FormRowA">
+					<label>Nombre de Actores:</label>
+				</div>		
+				<div class="FormRowB">
+					<label>Personajes:</label>
+				</div>		
+				{{actoresPersonajes}}
+			</div>
+		</div>
+		<div id="{{id}}_divSinopsisV" class="FormRowC">
+			<h3><a href="#">Sinopsis</a></h3>
+			<div class="FormRowC">
+				<span>{{sinopsis}}</span>
+			</div>	
+		</div>
+		<div class="botonera">
+			<button id="{{id}}_eliminarFicha">Eliminar</button>
+			<button id="{{id}}_volverDeVisualizacion">Volver</button>
+		</div>
+	</div>
+</div>

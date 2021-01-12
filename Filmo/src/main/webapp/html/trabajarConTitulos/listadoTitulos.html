@@ -1,0 +1,33 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Trabajar con títulos</h1>
+	<div id="{{id}}_listadoTitulos">
+		<div id="{{id}}_accordionListadoTitulos">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				
+				<div id="{{id}}_filtro">
+					<div class="FormRowA">
+						<label>Titulo <span id="{{id}}_tipoBusqueda">{{tipoBusquedaTitulo}}</span>:</label>
+						<input type="text" name="descripcion" id="{{id}}_inputBusquedaTitulosDescripcion"/>
+						<button id="{{id}}_buscarTitulosPorDescripcion">Buscar</button>
+					</div>
+					<div class="FormRowB">
+						<label>Clave:</label>
+						<input type="text" name="codigo" id="{{id}}_inputBusquedaTituloCodigo"/>
+						<button id="{{id}}_buscarTituloPorCodigo">Buscar</button>
+					</div>
+					<div style="float:right">
+						<a href="#" id="{{id}}_cambiarTipoTitulo">Cambiar Tipo de Busqueda</a> |
+						<a href="#" id="{{id}}_agregarTitulo">Agregar Titulo</a>
+					</div>
+				</div>
+				<br>
+				<br>
+			</div>
+		</div>
+
+		<br>
+
+		<div id="{{id}}_gridContainerTitulos"><table id="{{id}}_gridTitulos"></table><div id="{{id}}_pagerGridTitulos"></div></div>
+	</div>
+</div>

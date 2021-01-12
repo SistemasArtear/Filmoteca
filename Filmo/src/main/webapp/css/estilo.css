@@ -1,0 +1,234 @@
+/* CSS Document */
+html {overflow-y: scroll;} /* queremos siempre el scroll vertical para evitar saltos entre las paginas que requieren y las que no requieren scroll */ 
+
+body		{margin:0 auto; font:11px Arial, Helvetica, sans-serif; color:#505050;}
+a:link		{color: #97AAB5;}
+a:visited	{color: #97AAB5;}
+a:hover		{color: #97AAB5; text-decoration:underline;}
+a#crearListasDePrecio:hover {color: black}
+a#confirmarListasDePrecio:hover {color: black}
+
+h1	{font:bold 15px Arial, Helvetica, sans-serif; color: #97AAB5; margin-top:0; padding:5px 1px;}
+h2	{font:bold 13px Arial, Helvetica, sans-serif;}
+p	{padding:10px 0; margin:0;}
+
+/*Contenedor Global*/
+DIV#contenedor			{margin:0 auto; margin-right: 5px;	margin-left: 5px; text-align: left;}
+DIV#loaderPrincipal 	{position: absolute; display: none; top: 10px; right: 13px;}
+
+.header {margin-right: 5px;	margin-left: 5px; margin-top: 5px; height:50px; padding:15px; width: auto; text-align:left; background:#97AAB5}
+.logo {margin-right:20px; float:left;}
+.user {margin-top:10px; float:left;}
+.user .nombre {font:bold 10px Arial, Helvetica, sans-serif; height:17px; line-height:16px; text-align:center; text-transform:uppercase; color:#FFF; white-space:nowrap; padding:0; margin:0 0 5px; background:#A63493; float:left}
+.user .izq, .user .der	{height:17px; width:5px; display:inline; float:left}
+.fecha	{font:12px Arial, Helvetica, sans-serif; color:#A63493; clear:both}
+
+input, a {outline: 0 none;}
+input[type=checkbox] {border:none !important;}
+
+.hand {cursor: pointer;}
+
+.bigFont	{font:bold 15px Arial, Helvetica, sans-serif; color: #A63493; margin-top:0; padding:5px 1px;}
+
+/*Informacion y Estilos globales*/
+.contenido {min-width: 720px; width:1000px; margin:10px auto; text-align:left; min-height: 550px;}
+.iframeContainer {min-width: 720px; width:1000px; text-align:left; min-height: 550px; scrolling:auto;}
+.datepicker {text-align: center; width: 84px; margin-right: 4px;}
+.hidden {display: none;}
+.center {text-align: center;}
+
+/* PAGINADOR */
+.paginador 				{color:#ccc; border-top:1px dashed #93a9af; padding:10px 0 0 0; margin:15px 0; text-align:center; line-height:22px; clear:both;}
+.paginador .info		{color:#000; margin:0; padding:0; }
+.paginador .info input	{text-align: center; padding-right:11px; border:1px solid #97AAB5; height: 18px; font-size: 13px; width:70px;}
+.paginador a:link, .paginador a:visited {font-weight:normal; color:#333333; padding:0 5px; margin:0 1px; border:1px solid #FFF; text-decoration:none;}
+.paginador a:hover, .paginador a:active {color:#333333; border:1px solid #93a9af; text-decoration:none;}
+.paginador a.actual 	{color:#333333; padding:0 5px; margin:0 1px; border:1px solid #93a9af; background:#acd7e3;}
+.paginador .apagado 	{color:#999; padding:0 5px; margin:0 1px; border:1px solid #FFF;}
+
+/*Footer*/
+.pie	{margin-top:10px; margin-right: 5px; margin-left: 5px; margin-bottom:5px; width:auto; padding:0 5px; line-height:20px; color:#FFF; background:#A63493; clear:both; font-size: 10px;}
+
+/* CLEAR */
+* html .clearfix { height: 1%; }
+.clearfix {display: inline-block;}
+* html #contenedor { height: 100%; }
+.clearfix:after {content: "."; display:block; height:0px; clear:both; visibility:hidden; font-size:0;}
+.clearfix { display: block; }
+
+/* FORMULARIO */
+form {display:inline;}
+.FormContainer {font:11px Arial, Helvetica, sans-serif; text-align:left; margin:0px;}
+
+
+.FormContainer checkbox {margin:0px; padding: 0; display: block;}
+.FormContainer checkbox.inline {display: inline; margin: 0; padding: 0;}
+.FormContainer label {font:12px Arial, Helvetica, sans-serif; display: block; float: left; width: 140px; text-align: left; margin: 0 5px 0 0; padding:4px 10px; background:#EAEAEA; border-radius:3px;}
+.FormContainer span.texto {font:12px Arial, Helvetica, sans-serif; line-height:18px; display: block; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.FormContainer label.inline {display:inline; float: none; margin-left:15px; padding: 0; width: 120px; text-align:right; font-weight: normal; background:none;}
+.FormContainer label.rojo	{color:#FF0000;}
+.FormContainer select	{border:1px solid #97AAB5; padding:1px; height: 22px; font-size: 13px;border-radius:3px;}
+.FormContainer input {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;border-radius:3px;}
+.FormContainer textarea	{border:1px solid #97AAB5; padding:1px; font-size: 13px;}
+.FormButtons {width:auto; padding-top:5px; padding-bottom:5px; margin-top:10px; margin-bottom:10px; text-align:left; clear:both; border-top:1px dashed #93a9af; border-bottom:1px dashed #93a9af;}
+/* FORMULARIO */
+
+.FormRowA {width:48%; line-height:17px; margin: 0 0 10px 0; padding:0; text-align:left; float:left; clear:left;}
+.FormRowA label {font:11px Arial}
+.FormRowB {width:48%; line-height:17px; margin: 0 0 10px 0; padding:0; float:right; text-align:left; clear:right;}
+.FormRowB label {font:11px Arial}
+.FormRowC {width:auto; line-height:17px; margin: 0 0 10px 0; padding:0; float:none; text-align:left; display:block; clear:both;}
+.FormRowC label {font:11px Arial}
+
+/* Mensajes Globales */
+#globalMess	{position: absolute; display: none; top: 0px; z-index: 5000; width: 500px; text-align:left;}
+
+#globalMess .imgClose {width:20px; height:20px; cursor:pointer; float:right; margin-right:2px; margin-top:2px; background:url(../img/ico_cerrar_msg.gif) no-repeat;}
+
+.mensajesErr {border: 1px solid #ff0042; color:#000; border-top:none; font-size:13px; background:url(../img/rojo.gif) repeat-y #fec9e0; padding:0;}
+.mensajesErr .img {width:60px; height:60px; float:left; margin-right:10px; background:url(../img/mensaje_err.gif) no-repeat;}
+.mensajesErr .titulo {color:#ff0042; font-size:13px; margin-top:5px; font-weight:bold;}
+.mensajesErr p.texto {margin-left:70px;}
+
+.mensajesOk {border: 1px solid #359229; color:#000; border-top:none; font-size:13px; background:url(../img/verde.gif) repeat-y #E5FFE1; padding:0;}
+.mensajesOk .img {width:60px; height:60px; float:left; margin-right:10px; background:url(../img/mensaje_ok.gif) no-repeat;}
+.mensajesOk .titulo {color:#359229; font-size:13px; margin-top:5px; font-weight:bold;}
+.mensajesOk p.texto {margin-left:70px;}
+
+.mensajesAlert {border: 1px solid #FFC600; color:#000; border-top:none; font-size:13px; background:url(../img/naranja.gif) repeat-y #FEFDCF; padding:0;}
+.mensajesAlert .img {width:60px; height:60px; float:left; margin-right:10px; background:url(../img/mensaje_alert.gif) no-repeat;}
+.mensajesAlert .titulo {color:#FFBA00; font-size:13px; margin-top:5px; font-weight:bold;}
+.mensajesAlert p.texto {margin-left:70px;}
+/*********************/
+
+/* Autocomplete */
+.ui-autocomplete-loading { background: white url('../img/ajax-loader.gif') right center no-repeat; }
+ul.ui-autocomplete{ width:250px; background-color:white; border:1px solid gray; margin-left:3px; margin-top:-4px; font-family:Helvetica, Arial,sans-serif; }
+
+/* Tooltip por Defecto */
+.tooltip {
+		display:none;
+		background-color:#ffa;
+		border:1px solid #cc9;
+		padding:3px;
+		font-size:13px;
+		-moz-box-shadow: 2px 2px 11px #666;
+		-webkit-box-shadow: 2px 2px 11px #666;
+		z-index: 9999;
+	}
+
+.inicio {font-size: 50px; }
+
+/* Agregados para  conos */
+.icono-lateral-label { float: left; margin-top: 3px; }
+.icono-lateral-input { float: right; margin-top: 3px; margin-right: 115px; }
+.icono-lateral-input-sin-margin { float: right; margin-top: 3px; margin-right: 10px;}
+.icono-centrado { margin-left: auto; margin-right: auto; text-align: center; }
+
+.accesoDenegadoDiv { align: center; background-color: red; color: white; width: 700px }
+input.readOnly { border: 0; background-color: #ffffff; color: #000; }
+
+/* CSS Document */
+.divLeft {float:left;width:32%;margin: 0 0 5px 0;} 
+.divLeftExtend {float:left;width:65%;margin: 0 0 5px 0;} 
+.divCenter {float:left;width:32%;margin: 0 0 5px 0;}
+.divRight {float:right;width:32%;margin: 0 0 5px 0;}
+.divRightExtend {position:absolute;right:1%;width:65%;margin: 0 0 5px 0;}
+
+.divLeftExtend p {float:left; padding: 0;}
+
+form {display:inline;}
+.FormContainer3c {font:10px Arial, Helvetica, sans-serif; text-align:left; margin:0px;}
+
+.FormContainer3c checkbox {margin:0px; padding: 0; display: block;}
+.FormContainer3c checkbox.inline {display: inline; margin: 0; padding: 0;}
+.FormContainer3c label {font:10px Arial, Helvetica, sans-serif; line-height:auto; display: block; float: left; width: 100px; text-align: left; margin: 0 5px 0 0; padding:4px 10px; background:#EAEAEA;border-radius:3px;}
+.FormContainer3c span.texto {font:11px Arial, Helvetica, sans-serif; line-height:auto; display: block; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.FormContainer3c label.inline {display:inline; float: none; margin-left:15px; padding: 0; width: 120px; text-align:right; font-weight: normal; background:none;}
+.FormContainer3c label.rojo	{color:#FF0000;}
+.FormContainer3c select	{border:1px solid #97AAB5; padding:1px; height: 22px; font-size: 13px;border-radius:3px; width: 147px;}
+.FormContainer3c input {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;border-radius:3px;}
+.FormContainer3c textarea {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;}
+
+/* se cambian anchos fijos por dinámicos */
+.resizeableContainer3c label, 
+.resizeableContainer3c select { width: 30%; }
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif; font-size: 1em; }
+.ui-accordion .ui-accordion-content { padding: 10px; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: block; zoom: 1; }
+
+/* Desde aca es nuevo*/
+#viewContainer{
+	width: 66%;
+}
+.FormContainer3c .invalid{
+	border-color: yellow;
+}
+div .formConsultas {
+	border-bottom: 1px dashed #93A9AF;
+	margin-bottom: 10px;
+	padding-bottom: 7px;
+}
+.invalid{
+	border-color: yellow;
+}
+.formConsultas table td {
+	width: 130px;
+	margin-right: 5px;
+}
+div .estiloForms {
+	margin-bottom: 10px;
+	padding-bottom: 7px;
+}
+.estiloForms table td {
+	width: 130px;
+}
+div .botonera {
+    float: right;
+}
+
+div .botoneraMarginTop {
+	float: right;
+	margin-top: 10px;
+}
+
+.contratoConCabecera {width: 400px; float: left; font:10px Arial, Helvetica, sans-serif;text-align:left;margin:0px;}
+.contratoConCabecera label {background:#EAEAEA;border-radius:3px;width:130px;padding:4px 10px;}
+.contratoConCabecera select {border:1px solid #97AAB5; padding:1px; height: 22px; font-size: 13px;border-radius:3px; width: 147px;}
+.contratoConCabecera input {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;border-radius:3px;}
+.observaciones input {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;border-radius:3px;}
+
+.senialesHeredadesCheckBoxesContanier input {display: block; float: left; margin-right: 10px}
+.senialesHeredadesCheckBoxesContanier label {font-size: 8px; padding: 2px; width: auto;}
+
+.grupoPopUp .senialesHeredadesCheckBoxesContanier label {width: auto;}
+.grupoPopUp .senialesHeredadesCheckBoxesContanier input {width: auto; margin-right: 25px;}
+.grupoPopUp {font:10px Arial, Helvetica, sans-serif; text-align:left; margin:0px;}
+.grupoPopUp div {height: 30px;}
+.grupoPopUp checkbox {margin:0px; padding: 0; display: block;}
+.grupoPopUp checkbox.inline {display: inline; margin: 0; padding: 0;}
+.grupoPopUp label {font:10px Arial, Helvetica, sans-serif; line-height:auto; display: block; float: left; width: auto; text-align: right; margin: 0px 0px 0px 5px; padding:4px 10px; background:#EAEAEA;border-radius:3px;}
+.grupoPopUp span.texto {font:11px Arial, Helvetica, sans-serif; line-height:auto; display: block; margin-top: 3px;}
+.grupoPopUp label.inline {display:inline; float: none; margin-left:15px; padding: 0; width: 120px; text-align:right; font-weight: normal; background:none;}
+.grupoPopUp label.rojo {color:#FF0000;}
+.grupoPopUp select {border:1px solid #97AAB5; padding:1px; height: 22px; font-size: 13px;border-radius:3px; width: 100px; float:left;}
+.grupoPopUp input {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;border-radius:3px;float: left;}
+.grupoPopUp textarea {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;}
+
+.tituloPopUp {width: 400px; float: left; font:10px Arial, Helvetica, sans-serif;text-align:left;margin:0px;}
+.tituloPopUp div {margin-bottom: 4px}
+.tituloPopUp label {background: #EAEAEA; border-radius: 22px; width: 130px; padding: 4px 10px; display: block; float: left; text-align: left; margin-right: 10px;}
+ 
+.tituloPopUp select {border:1px solid #97AAB5; padding:1px; height: 22px; font-size: 13px;border-radius:3px; width: 50px;}
+.tituloPopUp input {border:1px solid #97AAB5; padding:1px; height: 18px; font-size: 13px;border-radius:3px;  width: 200px;}
+
+.altaContrato {display: table}
+.altaContrato .divAlong {width:auto; line-height:17px; margin: 0 0 10px 0; padding:0; float:none; text-align:left; clear:both;}
+.altaContrato .divAlong textarea {width:80%; resize: none; border-radius: 5px;}
+.altaContrato .divAlong input {width:80%;}
+.altaContrato input {width:25%;}
+.altaContrato input.hasDatepicker {width:25%;}
+.altaContrato input.codigoSituar {width:25%;}
+.altaContrato input.descripcionSituar {width:60%;}
+.altaContrato select.descripcionCorta {width:40%;}
+.altaContrato select.descripcionLarga {width:60%;}

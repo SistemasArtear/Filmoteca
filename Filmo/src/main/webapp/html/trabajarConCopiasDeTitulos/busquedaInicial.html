@@ -1,0 +1,79 @@
+<div id="{{id}}">
+	<h1>Trabajar con Copias de T&iacute;tulos</h1>
+	<div id="{{id}}_busquedaInicial">
+		<div id="{{id}}_accordionBusquedaInicial">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				<form id="{{id}}_formBusquedaInicial" class="FormContainer3c">
+					<table>
+						<tr>
+							<!--<th>
+								 <td>
+									<label>Se&ntilde;al:</label>
+								</td>
+								<td>
+									<select name="busquedaTitulosRequest.senial" id="{{id}}_senial">
+										<option value="" label="Seleccionar..." selected="selected"></option>
+									</select>
+								</td>
+							</th>-->
+							<th>
+								<td>
+									<label>Situar en T&iacute;tulo :</label>
+								</td>
+								<td>
+									<select name="busquedaTitulosRequest.tipoBusqueda" id="{{id}}_tipoBusqueda">
+										<option value="CASTELLANO" label="Castellano" selected="selected">Castellano</option>
+										<option value="ORIGINAL" label="Original">Original</option>
+									</select>
+								</td>
+								<td>
+									<input type="text" name="busquedaTitulosRequest.titulo" id="{{id}}_titulo" style="text-transform: uppercase;"/>
+								</td>
+							</th>
+							<th>
+								<td>
+									<label>Clave:</label>
+								</td>
+								<td>
+									<input type="text" name="busquedaTitulosRequest.clave" id="{{id}}_clave"/>
+								</td>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<td>
+									<label>S&oacute;lo Vigentes?:</label>
+								</td>
+								<td>
+									<select name="busquedaTitulosRequest.vigente" id="{{id}}_vigente">
+										<option value="V" label="S&oacute;lo Vigentes" selected="selected">S&oacute;lo Vigentes</option>
+										<option value="T" label="Todos">Todos</option>
+									</select>
+								</td>
+							</th>
+							<th>
+							</th>
+							<th>
+								<td>
+									<label>S&oacute;lo Con Copia/Master?:</label>
+								</td>
+								<td>
+									<select name="busquedaTitulosRequest.tieneCopia" id="{{id}}_tieneCopia">
+										<option value="S" label="Si">Si</option>
+										<option value="N" label="No" selected="selected">No</option>
+									</select>
+								</td>
+							</th>
+						</tr>
+					</table>
+				</form>
+				<div class="botonera">
+					<button id="{{id}}_buscarTitulos" >Buscar</button>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div id="{{id}}_gridContainerTitulos"><table id="{{id}}_gridTitulos"></table><div id="{{id}}_pagerGridTitulos"></div></div>
+	</div>
+</div>

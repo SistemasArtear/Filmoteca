@@ -1,0 +1,146 @@
+<div id="{{id}}_divDetalleRemitoSeleccionado">
+	<div id="{{id}}_detalleRemitoSeleccionado" class="FormContainer3c">
+		<div id="{{id}}_accordionFormDetalleRemitoSeleccionadoReadOnly">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				<div class="divLeft">
+					<label>Clave:</label>
+					<span class="texto">{{clave}}</span>
+				</div>
+		
+				<div class="divCenter">
+					<label>Titulo:</label>
+					<span class="texto">{{titulo}}</span>
+				</div>
+				
+				<div class="divRight">
+					<label>Distribuidor:</label>
+					<span class="texto">{{razonSocial}}</span>	
+				</div>
+				
+				<div class="divLeft">
+					<label>Soporte:</label>
+					<span class="texto">{{soporte}}</span>
+				</div>
+				
+				<div class="divCenter">
+					<label>Motivo ingreso:</label>
+					<span class="texto">{{motivoIngreso}}</span>
+				</div>
+				
+				<div class="divRight">
+					<label>Cant. Rollos:</label>
+					<span class="texto">{{cantRollos}}</span>
+				</div>
+				
+				<div class="divLeft">
+					<label>Capítulo:</label>
+					<span class="texto">{{nroCapitulo}}</span>
+				</div>
+		
+				<div class="divCenter">
+					<label>Parte:</label>
+					<span class="texto">{{nroParte}}</span>
+				</div>
+				
+				<div class="divRight">
+					<label>E/R:</label>
+					<span class="texto">{{er}}</span>
+				</div>
+				
+				<div class="divLeft">
+					<label>Carrete:</label>
+					<span class="texto">{{carrete}}</span>
+				</div>
+				
+				<div class="divCenter">
+					<label>Lata:</label>
+					<span class="texto">{{lata}}</span>
+				</div>
+				
+				<div class="divRight">
+					<label>Torta:</label>
+					<span class="texto">{{torta}}</span>
+				</div>
+				
+				<br>
+				<br>
+				
+				<div align="right">
+					<button id="{{id}}_volverFormTitulosReadOnly">Volver</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="{{id}}_accordionFormDetalleRemitoSeleccionadoEdicion">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				<div class="divLeft">
+					<label>Clave:</label>
+					<span class="texto">{{clave}}</span>
+				</div>
+		
+				<div class="divCenter">
+					<label>Título:</label>
+					<span class="texto">{{titulo}}</span>
+				</div>
+				
+				<div class="divRight">
+					<label>Distribuidor:</label>
+					<span class="texto">{{razonSocial}}</span>	
+				</div>
+				
+				<div class="divLeft">
+					<label>Soporte:</label>
+					<input type="text" name="codSoporte" id="{{id}}_codSoporte" style="float:left; width:10%;" maxlength="3"></input>
+					<input type="text" name="descSoporte" id="{{id}}_descSoporte" disabled="disabled" class="readOnly" style="float:left; width:30%;"></input>
+					<span id="{{id}}_popupSoportes" style="cursor: pointer" class="ui-icon ui-icon-search" title="Situar soportes" />
+				</div>
+				
+				<div class="divCenter">
+					<label>Cant. Rollos:</label>
+					<input type="text" name="rollos" id="{{id}}_rollos" maxlength="2"></input>
+				</div>
+				
+				<div class="divRight">
+					<label>E/R:</label>
+					<span class="texto">{{er}}</span>
+				</div>
+
+				<div class="divLeft" style="clear:both;">
+					<label>Capítulo:</label>
+					<span class="texto">{{nroCapitulo}}</span>
+				</div>
+		
+				<div class="divCenter">
+					<label>Parte:</label>
+					<span class="texto">{{nroParte}}</span>
+				</div>
+				
+				<div class="divRight">
+					<label>Carrete:</label>
+					<input type="text" name="carrete" id="{{id}}_carrete" maxlength="1"></input>
+				</div>
+				
+				<div class="divLeft">
+					<label>Lata:</label>
+					<input type="text" name="lata" id="{{id}}_lata" maxlength="1"></input>
+				</div>
+				
+				<div class="divCenter">
+					<label>Torta:</label>
+					<input type="text" name="torta" id="{{id}}_torta" maxlength="1"></input>
+				</div>
+				
+				<br>
+				<br>
+
+				<div align="right">
+					<button id="{{id}}_modificarDetalleRemito">Guardar</button>
+					<button id="{{id}}_volverFormTitulosEdicion">Volver</button>
+				</div>
+			</div>
+		</div>
+		
+	</div>	
+</div>

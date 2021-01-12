@@ -1,0 +1,70 @@
+<div id="{{id}}_formVisualizarTitulosGrupo">
+	<h1>Carga de contratos - Visualizar títulos de un grupo</h1>
+	<div id="{{id}}_datosVisualizarTitulosGrupo">
+		<div id="{{id}}_accordionVisualizarTitulosGrupo">
+			<h3><a href="#">Datos del grupo</a></h3>
+			<div>
+		        <div class="divLeft">
+		            <label>Contrato:</label>
+		            <span class="texto" id="{{id}}_contratoVisualizarTitulosGrupo" style="font-style: italic; font-weight: bold; color: red;">Pendiente</span>
+		        </div>
+	   			<div class="divCenter">
+					<label>Señal:</label>
+					<span id="{{id}}_senialVisualizarTitulosGrupo" class="texto"></span>
+				</div>	
+		        <div class="divRight">
+		            <label>Distribuidor:</label>
+					<span id="{{id}}_distribuidorVisualizarTitulosGrupo" class="texto"></span>
+		        </div>
+		        
+		        <div class="divLeft">
+		            <label>Monto:</label>
+		            <span id="{{id}}_montoVisualizarTitulosGrupo" class="texto"></span>
+		        </div>
+		        <div class="divCenter">
+		        	<label>Nro. de Grupo:</label>
+		            <span id="{{id}}_nroGrupoVisualizarTitulosGrupo" class="texto"></span>
+		        </div>
+		        <div class="divRight">
+		        	<label>Tipo de título:</label>
+		            <span id="{{id}}_tipoTituloVisualizarTitulosGrupo" class="texto"></span>
+		        </div>
+		        
+		        <div class="divLeft">
+					<label>Estreno:</label>
+		            <span id="{{id}}_estrenoVisualizarTitulosGrupo" class="texto"></span>		            
+		        </div>
+      		    <div class="divCenter">
+		            <label>Nombre del grupo:</label>
+		            <span id="{{id}}_nombreGrupoVisualizarTitulosGrupo" class="texto"></span>
+		        </div>
+		        <div class="divRight">
+					<table border='0' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td><label>Título <span id="{{id}}_tipoBusquedaVisualizarTitulosGrupo">castellano</span></label></td>
+							<td><input id="{{id}}_tituloBusquedaVisualizarTitulosGrupo" type="text" style="text-transform: uppercase;"></input></td>
+							<td><span id="{{id}}_cambiarOrdenVisualizarTitulosGrupo" style="cursor: pointer" class="ui-icon ui-icon-transferthick-e-w" title="Cambiar tipo de búsqueda" /></td>
+						</tr>
+					</table>	
+		        </div>
+		        
+		        <div class="divLeft">
+					<label>Ingresadas:</label>
+					<span id="{{id}}_ingresadasVisualizarTitulosGrupo" class="texto"></span>
+		        </div>
+		        
+		        <div class="FormRowC botonera">
+		        	<button id="{{id}}_agregarTituloVisualizarTitulosGrupo">Crear titulo</button>
+		        	<button id="{{id}}_buscarTitulosGrupoVisualizarTitulosGrupo">Buscar</button>
+		        </div>
+			</div>
+		</div>
+	    
+	    <br>
+	    
+	    <div id="{{id}}_gridTitulosGrupoContainer">
+	        <table id="{{id}}_gridTitulosGrupo"></table>
+	        <div id="{{id}}_pagerTitulosGrupo"></div>
+	    </div>
+	</div>
+</div>

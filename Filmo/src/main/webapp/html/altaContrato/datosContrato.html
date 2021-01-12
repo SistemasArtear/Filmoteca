@@ -1,0 +1,77 @@
+<div id="{{id}}" class="FormContainer3c">
+	<div id="{{id}}_formAltaContrato">
+		<h1>Alta de contratos</h1>
+		<div id="{{id}}_contratoConCabeceraPopUp">
+			<div id="{{id}}_accordionCabecera" class="altaContrato">
+				<h3><a href="#">Datos del contrato</a></h3>
+				<div>
+			        <div class="divLeft">
+			            <label>Contrato:</label>
+			            <span class="texto" id="{{id}}_contrato" style="font-style: italic; font-weight: bold; color: red;">Pendiente</span>
+			        </div>
+	      			<div class="divCenter">
+						<table border='0' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td><label>Distribuidor:</label></td>
+								<td>
+									<input id="{{id}}_codigoDistribuidor" type="text" name="codigoDistribuidor" maxlength="6" class="codigoSituar"></input>
+									<input id="{{id}}_descripcionDistribuidor" type="text" name="descripcionDistribuidor" disabled="disabled" class="readOnly descripcionSituar"></input>
+								</td>
+								<td><span id="{{id}}_popupDistribuidor" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar distribuidor"/></td>
+								<td><span id="{{id}}_limpiarDistribuidor" style="cursor: pointer" class="ui-icon ui-icon-trash" title="Limpiar distribuidor"/></td>
+							</tr>
+						</table>
+					</div>	
+			        <div class="divRight">
+			            <label>Moneda:</label>
+			            <select id="{{id}}_moneda" class="descripcionCorta"></select>
+			        </div>
+			        
+			        <div class="divLeft">
+			            <label>Fecha contrato:</label>
+			            <input type="text" id="{{id}}_fechaContrato"></input>
+			        </div>
+			        <div class="divCenter">
+			            <label>Fecha aprobacion:</label>
+			            <input type="text" id="{{id}}_fechaAprobacion"></input>
+			        </div>
+			        <div class="divRight">
+			            <label>Tipo contrato:</label>
+			            <select id="{{id}}_tipoContrato" class="descripcionCorta"></select>
+			        </div>
+			        
+			        <div class="divLeft">
+			            <label>Monto total:</label>
+			            <input type="text" id="{{id}}_montoTotal"></input>
+			        </div>
+			    
+				   <div class="divAlong">
+				        <label>Observaciones de pago:</label>
+				        <textarea id="{{id}}_observaciones" style="height: 10%;" maxlength="5000"></textarea>
+				    </div>
+				    
+	   			   <div class="botonera">
+	   			   		<button id="{{id}}_aceptarCabecera">Aceptar</button>
+				   </div>
+			    </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<!-- DIALOGS -->
+<div id="popupMontoSenial" title="Monto por señal"></div>
+<div id="popupTipoTituloGrupo" title="Tipo de título"></div>
+<div id="popupDatosDesenlace" title="Aviso"></div>
+<div id="popupDatosVigencia" title="Aviso"></div>
+<div id="popupCargaSenialesHeredadas" title="Señales heredadas"></div>
+<div id="popupValidacionGrupo" title="Validacion modificación"></div>
+<div id="popupDatosTitulosSH" title="Titulos que no se verán afectados por la modificación"></div>
+<div id="popupFormulasAmortizacion" title="Fórmulas de amortización"></div>
+<div id="popupValidarRemitoSNC" title="Confirma remito ingreso para volver"></div>
+<div id="popupConfirmarMaster" title="Confirma ingreso para volver por master"></div>
+<div id="popupValidarMasterTitulo" title="Confirma asociar master al título-Capítulo-Contrato, el sistema encontró master para el título-capítulo, ¿da por valido asociarlo al contrato?"></div>
+<div id="popupWarningsRecepcionMaster"></div>
+<div id="popupTitulosDesenlaceSC" title="Hay títulos con rerun, al cambiar la vigencia del grupo el sistema intentará desenlazar el contrato para todos esos títulos. Luego presentará cada título para volver a enlazarlo con la nueva vigencia. ¿Desea hacer la modificación?"></div>
+<div id="popupWarningsModificacionGrupo" title="Desenlace"></div>
+<div id="popupTipoDeCosteo" title="Tipo de Costeo"></div>

@@ -1,0 +1,61 @@
+<div id="{{id}}_horarios">
+	<div id="{{id}}_accordionHorarios">
+		<h3><a href="#">Programa {{codigo}} - {{descripcion}}</a></h3>
+		<form id="{{id}}_formHorarios">
+			<input type="hidden" name="horariosProgramaRequest.codPrograma" value="{{codigo}}">
+			<input type="hidden" name="horariosProgramaRequest.senial" value="{{senial}}">
+			<table>
+				<tr>
+					<td></td>
+					<td>Lunes</td>
+					<td>Martes</td>
+					<td>Miercoles</td>
+					<td>Jueves</td>
+					<td>Viernes</td>
+					<td>Sabado</td>
+					<td>Domingo</td>
+				</tr>
+				<tr>
+					<td>Hora Desde:</td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.lunes.desde" id="{{id}}_lunesDesde" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.martes.desde" id="{{id}}_martesDesde" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.miercoles.desde" id="{{id}}_miercolesDesde" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.jueves.desde" id="{{id}}_juevesDesde" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.viernes.desde" id="{{id}}_viernesDesde" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.sabado.desde" id="{{id}}_sabadoDesde" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.domingo.desde" id="{{id}}_domingoDesde" value="00:00"/></td>
+				</tr>
+				<tr>
+					<td>Hora Hasta:</td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.lunes.hasta" id="{{id}}_lunesHasta" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.martes.hasta" id="{{id}}_martesHasta" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.miercoles.hasta" id="{{id}}_miercolesHasta" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.jueves.hasta" id="{{id}}_juevesHasta" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.viernes.hasta" id="{{id}}_viernesHasta" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.sabado.hasta" id="{{id}}_sabadoHasta" value="00:00"/></td>
+					<td><input type="text" class="hhmm"
+						name="horariosProgramaRequest.domingo.hasta" id="{{id}}_domingoHasta" value="00:00"/></td>
+				</tr>
+			</table>
+			<div class="botonera">
+				<button class="botonGuardar" id="{{id}}_guardarHorario">Guardar</button>
+				<button class="botonModificar" id="{{id}}_modificarHorario">Modificar</button>
+				<button class="botonEliminar" id="{{id}}_eliminarHorario">Eliminar</button>
+				<button id="{{id}}_volverHorario">Volver</button>
+			</div>
+		</form>
+	</div>
+</div>

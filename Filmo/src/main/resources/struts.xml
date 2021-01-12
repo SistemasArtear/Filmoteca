@@ -1,0 +1,1324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" /> -->
+	<constant name="struts.objectFactory.spring.autoWire" value="type" />
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	
+	<package name="default" namespace="/" extends="json-default">
+		
+		<interceptors>
+			<interceptor name="errorInterceptor" class="com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor"/>
+			<!-- <interceptor name="setUsuarioEnSesion" class="com.artear.filmo.interceptors.SetUsuarioEnSesionInterceptor"/> -->
+			<interceptor name="actionLoggingInterceptor" class="com.artear.filmo.interceptors.ActionLoggingInterceptor"/>
+			<interceptor-stack name="interceptorsStack">
+           		<interceptor-ref name="actionLoggingInterceptor"/>
+				<!-- <interceptor-ref name="setUsuarioEnSesion"/> -->
+           		<interceptor-ref name="errorInterceptor"/>
+           		<interceptor-ref name="defaultStack">
+           			<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+           		</interceptor-ref>
+        	</interceptor-stack>
+		</interceptors>
+       	<default-interceptor-ref name="interceptorsStack"/>
+       	
+       	<global-results>
+			<result name="exception" type="httpheader">
+				<param name="status">500</param>
+				<param name="headers.errorMessage">${exception.message}</param>
+			</result>
+			<result name="input" type="json">
+				<param name="root">fieldErrors</param>
+				<param name="wrapPrefix"><![CDATA[{ "fieldErrors" : ]]></param>
+				<param name="wrapSuffix"><![CDATA[}]]></param>
+			</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Throwable" result="exception" />
+		</global-exception-mappings>
+		
+		<action name="menuAction" class="com.artear.filmo.web.action.MenuAction" method="returnMenu">
+			<result type="json"/>
+<!-- 			<param name="root">menu</param></result> -->
+		</action>
+		<action name="retrieveSeniales" class="com.artear.filmo.web.action.BasicAction" method="retrieveSeniales">
+			<result type="json"/>
+		</action>
+		<action name="retrieveEncabezado" class="com.artear.filmo.web.action.BasicAction" method="retrieveEncabezado">
+			<result type="json"/>
+		</action>
+		<action name="retrieveDatosSesionUsuario" class="com.artear.filmo.web.action.BasicAction" method="retrieveDatosSesionUsuario">
+			<result type="json"/>
+		</action>
+		<action name="retrieveServiceProperties" class="com.artear.filmo.web.action.ServicePropertiesAction">
+			<result type="json"/>
+		</action>
+		
+		<!-- Reportes -->
+		<action name="generarReporteFichaChequeo" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="generarReporteFichaTecnica">
+			<result type="json"/>
+			<result name="error" type="json"/>
+		</action>
+		
+		<action name="generarReporteRemito" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="generarReporteRemitoSalida">
+			<result type="json"/>
+			<result name="error" type="json"/>
+		</action>
+		
+		<action name="generarListadoExhibicionesNoConfirmadas" class="com.artear.filmo.web.action.ConfirmarProgramacionAction" method="generarListadoExhibicionesNoConfirmadas">
+			<result type="json"/>
+			<result name="error" type="json"/>
+		</action>
+		
+		<action name="generarListadoExhibicionesLibrerias" class="com.artear.filmo.web.action.DesconfirmarProgramacionAction" method="generarListadoExhibicionesLibrerias">
+			<result type="json"/>
+			<result name="error" type="json"/>
+		</action>
+		
+		
+		
+		<!--  Amortizar título sin exhibir / recibir -->
+		<action name="obtenerTitulosCastellanoSinExhibirRecibirPorCodigo" class="com.artear.filmo.web.action.AmortizarTituloSinExhibirRecibirAction" method="obtenerTitulosCastellanoPorCodigo">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTitulosOriginalSinExhibirRecibirPorCodigo" class="com.artear.filmo.web.action.AmortizarTituloSinExhibirRecibirAction" method="obtenerTitulosOriginalPorCodigo">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTitulosCastellanoSinExhibirRecibirPorDescripcion" class="com.artear.filmo.web.action.AmortizarTituloSinExhibirRecibirAction" method="obtenerTitulosCastellanoPorDescripcion">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTitulosOriginalSinExhibirRecibirPorDescripcion" class="com.artear.filmo.web.action.AmortizarTituloSinExhibirRecibirAction" method="obtenerTitulosOriginalPorDescripcion">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTituloSinExhibirRecibirConCapitulos" class="com.artear.filmo.web.action.AmortizarTituloSinExhibirRecibirAction" method="obtenerTituloSinExhibirRecibirConCapitulos">
+			<result type="json"/>
+		</action>
+		<action name="amortizarTituloSinExhibirRecibir" class="com.artear.filmo.web.action.AmortizarTituloSinExhibirRecibirAction" method="amortizarTituloSinExhibirRecibir">
+			<result type="json"/>
+		</action>
+		<!-- Horarios de Programacion -->
+		<action name="buscarProgramasConHorariosPorCodigo" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="buscarProgramasConHorariosPorCodigo">
+			<result type="json"/>
+		</action>
+		<action name="buscarProgramasConHorariosPorDescripcion" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="buscarProgramasConHorariosPorDescripcion">
+			<result type="json"/>
+		</action>
+		<action name="buscarMaestroProgramasPorCodigo" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="buscarMaestroProgramasPorCodigo">
+			<result type="json"/>
+		</action>
+		<action name="buscarMaestroProgramasPorDescripcion" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="buscarMaestroProgramasPorDescripcion">
+			<result type="json"/>
+		</action>
+		<action name="obtenerHorariosPrograma" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="obtenerHorariosPrograma">
+			<result type="json"/>
+		</action>
+		<action name="eliminarHorariosDeProgramacion" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="eliminarHorariosDeProgramacion">
+			<result type="json"><param name="root">message</param></result>
+		</action>
+		<action name="modificarHorariosPrograma" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="modificarHorariosProgramas">
+			<result type="json"><param name="root">message</param></result>
+		</action>
+		<action name="altaHorariosPrograma" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="altaHorariosProgramas">
+			<result type="json"><param name="root">message</param></result>
+		</action>
+		<action name="horariosProgramacionValidarFechaParaModificarHorarios" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="validarFechaParaModificarHorarios">
+			<result type="json"/>
+		</action>
+		<action name="horariosProgramacionModificarNuevafecha" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="modificarNuevafecha">
+			<result type="json"/>
+		</action>
+		<action name="horariosProgramacionValidarFechaParaEliminarHorarios" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="validarFechaParaEliminarHorarios">
+			<result type="json"/>
+		</action>
+		<action name="horariosProgramacionEliminarNuevafecha" class="com.artear.filmo.web.action.HorariosProgramacionAction" method="eliminarNuevafecha">
+			<result type="json"/>
+		</action>
+		
+		<!-- Trabajar Con Titulos -->
+		<action name="obtenerTitulosCastellanoPorDescripcion" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerTitulosCastellanoPorDescripcion">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTitulosOriginalPorDescripcion" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerTitulosOriginalPorDescripcion">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTitulosCastellanoPorCodigo" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerTitulosCastellanoPorCodigo">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTitulosOriginalPorCodigo" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerTitulosOriginalPorCodigo">
+			<result type="json"/>
+		</action>
+		<action name="abmTitulo" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="abmTitulo">
+			<result type="json">
+				<param name="root">message</param> 
+			</result>
+		</action>
+		<action name="cargarTitulo" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="cargarTitulo">
+			<result type="json"/>
+		</action>
+		<action name="cargarContrato" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="cargarContrato">
+			<result type="json"/>
+		</action>
+		<action name="obtenerContratos" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerContratos">
+			<result type="json"/>
+		</action>
+		<action name="obtenerTiposDeTitulos" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerTiposDeTitulos">
+			<result type="json"/>
+		</action>
+		<action name="obtenerCalificacionesOficiales" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerCalificacionesOficiales">
+			<result type="json"/>
+		</action>
+		<action name="obtenerFichasCinematograficasCast" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerFichasCinematograficasCast">
+			<result type="json"/>
+		</action>
+		<action name="obtenerFichasCinematograficasOriginal" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="obtenerFichasCinematograficasOriginal">
+			<result type="json"/>
+		</action>
+		<action name="cargarFichaCinematografica" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="cargarFichaCinematografica">
+			<result type="json"/>
+		</action>
+		<action name="trabajarConTitulosCargarDetalleContrato" class="com.artear.filmo.web.action.TrabajarConTitulosAction" method="cargarDetalleContrato">
+			<result type="json"/>
+		</action>
+		
+        <!-- Trabajar Con Titulos Amortizados-->
+        <action name="obtenerTitulosAmortizadosCastellanoPorDescripcion" class="com.artear.filmo.web.action.TrabajarConTitulosAmortizadosAction" method="obtenerTitulosAmortizadosCastellanoPorDescripcion">
+            <result type="json"/>
+        </action>
+        <action name="obtenerTitulosAmortizadosOriginalPorDescripcion" class="com.artear.filmo.web.action.TrabajarConTitulosAmortizadosAction" method="obtenerTitulosAmortizadosOriginalPorDescripcion">
+            <result type="json"/>
+        </action>
+        <action name="obtenerTitulosAmortizadosCastellanoPorCodigo" class="com.artear.filmo.web.action.TrabajarConTitulosAmortizadosAction" method="obtenerTitulosAmortizadosCastellanoPorCodigo">
+            <result type="json"/>
+        </action>
+        <action name="obtenerTitulosAmortizadosOriginalPorCodigo" class="com.artear.filmo.web.action.TrabajarConTitulosAmortizadosAction" method="obtenerTitulosAmortizadosOriginalPorCodigo">
+            <result type="json"/>
+        </action>
+        <action name="fueContabilizado" class="com.artear.filmo.web.action.TrabajarConTitulosAmortizadosAction" method="fueContabilizado">
+            <result type="json"/>
+        </action>
+        <action name="activarTitulo" class="com.artear.filmo.web.action.TrabajarConTitulosAmortizadosAction" method="activarTitulo">
+            <result type="json"/>
+        </action>
+
+         <!-- Modificar horarios emision grilla-->
+         <action name="buscarProgramasPorDescripcion" class="com.artear.filmo.web.action.ModificarHorariosDeEmisionGrillaAction" method="buscarProgramasPorDescripcion">
+            <result type="json"/>
+        </action>
+         <action name="obtenerHorarioEmisionPrograma" class="com.artear.filmo.web.action.ModificarHorariosDeEmisionGrillaAction" method="obtenerHorarioEmisionPrograma">
+            <result type="json"/>
+        </action>
+         <action name="modificarHorarioEmisionPrograma" class="com.artear.filmo.web.action.ModificarHorariosDeEmisionGrillaAction" method="modificarHorarioEmisionPrograma">
+            <result type="json"/>
+        </action>
+        
+        	<!-- chequeo Operativo -->
+		<action name="validarChequeoOperativo" class="com.artear.filmo.web.action.ChequeoOperativoAction" method="validarChequeoOperativo">
+			<result type="json"/>
+		</action>
+		
+		<action name="confirmarChequeoOperativo" class="com.artear.filmo.web.action.ChequeoOperativoAction" method="confirmarChequeoOperativo">
+			<result type="json"/>
+		</action>
+		
+		<action name="procesarChequeoOperativo" class="com.artear.filmo.web.action.ChequeoOperativoAction" method="procesarChequeoOperativo">
+			<result type="json"/>
+		</action>
+        
+        <action name="generarReportesChequeoOperativo" class="com.artear.filmo.web.action.ChequeoOperativoAction" method="generarReportes">
+			<result type="json"/>
+		</action>
+        
+        <!-- Armado de programacion -->
+        <action name="levantarListaDeProgramas" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="levantarListaDeProgramas">
+            <result type="json"/>
+        </action>
+        <action name="obtenerGrillaProgramada" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="obtenerGrillaProgramada">
+            <result type="json"/>
+        </action>
+        <action name="obtenerDatosTitulo" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="obtenerDatosTitulo">
+            <result type="json"/>
+        </action>
+        <action name="obtenerListaTitulosProgramar" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="obtenerListaTitulosProgramar">
+            <result type="json"/>
+        </action>
+        <action name="obtenerCapitulos" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="obtenerCapitulos">
+            <result type="json"/>
+        </action>
+        <action name="obtenerParteSegmento" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="obtenerParteSegmento">
+            <result type="json"/>
+        </action>
+        <action name="validarAltaProgramacion" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="validarAltaProgramacion">
+            <result type="json"/>
+        </action>
+        <action name="validarBajaProgramacion" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="validarBajaProgramacion">
+            <result type="json"/>
+        </action>
+        <action name="validarModificaProgramacion" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="validarModificaProgramacion">
+            <result type="json"/>
+        </action>
+        <action name="altaProgramacion" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="altaProgramacion">
+            <result type="json"/>
+        </action>
+        <action name="bajaProgramacion" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="bajaProgramacion">
+            <result type="json"/>
+        </action>
+        <action name="modificaProgramacion" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="modificaProgramacion">
+            <result type="json"/>
+        </action>
+        <action name="obtenerObservaciones" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="obtenerObservaciones">
+            <result type="json"/>
+        </action>
+        <action name="esUnaClaveValida" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="esUnaClaveValida">
+            <result type="json"/>
+        </action>
+        <action name="esUnCapituloValido" class="com.artear.filmo.web.action.ArmadoDeProgramacionAction" method="esUnCapituloValido">
+            <result type="json"/>
+        </action>
+        <action name="buscarTitulosRatingExcedente" class="com.artear.filmo.web.action.RatingExcedenteAction" method="buscarTitulosRatingExcedente">
+            <result type="json"/>
+        </action>
+        <action name="modificarRatingExcedente" class="com.artear.filmo.web.action.RatingExcedenteAction" method="modificarRatingExcedente">
+            <result type="json"/>
+        </action>
+        
+        <!-- Trabajar Con fichas de chequeo tecnico -->
+        <action name="buscarFichas" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarFichas">
+            <result type="json"/>
+        </action>
+        <action name="visualizarFicha" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="visualizarFicha">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarProgramasPorTituloOriginal" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarProgramasPorTituloOriginal">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarProgramasPorTituloCastellano" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarProgramasPorTituloCastellano">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarSeniales" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarSeniales">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoObtenerInfoChequeoPrograma" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="obtenerInfoChequeoPrograma">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoAltaCabeceraFicha" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="altaCabeceraFicha">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoModificarCabeceraFicha" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="modificarCabeceraFicha">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoEliminarFicha" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="eliminarFicha">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoInactivarFicha" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="inactivarFicha">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoInfoVigenciaContratos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="infoVigenciaContratos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoValidarTituloEnCanal" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="validarTituloEnCanal">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarGeneros" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarGeneros">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarCalifArtistica" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarCalifArtistica">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarCalifAutocontrol" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarCalifAutocontrol">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarCalifOficial" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarCalifOficial">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoValidarSegmentos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="validarSegmentos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoEliminarSegmentos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="eliminarSegmentos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoGuardarSegmentos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="guardarSegmentos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoGuardarActoresSinopsisYObservaciones" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="guardarActoresSinopsisYObservaciones">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoValidarChequeoDetalle" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="validarChequeoDetalle">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoGuardarChequeoDetalle" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="guardarChequeoDetalle">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarSenialesOkFilm" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarSenialesOkFilm">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoGuardarSenialesOkFilm" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="guardarSenialesOkFilm">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoPopupTitulosConContratosExhibidos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="popupTitulosConContratosExhibidos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoPopupTitulosConContratosExhibidosSN" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="popupTitulosConContratosExhibidosSN">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoVerificarDesenlace" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="popupVerificarDesenlace">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoValidarPayTV" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="validarPayTV">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoActualizarPY6001" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="actualizarPY6001">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoEjecutarDesenlace" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="ejecutarDesenlace">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoPopupTitulosConContratosExhibidosRechazo" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="popupTitulosConContratosExhibidosRechazo">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarSoportes" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarSoportes">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarSenialesAltaCopia" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarSenialesAltaCopia">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarRollos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarRollos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoAltaDeRollos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="altaDeRollos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoAltaOModificacionDeRollos" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="altaOModificacionDeRollos">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoBuscarContratosParaAsociarLaCopia" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="buscarContratosParaAsociarLaCopia">
+            <result type="json"/>
+        </action>
+        <action name="chequeoTecnicoRegistrarMaster" class="com.artear.filmo.web.action.TrabajarConFichasDeChequeoTecnicoAction" method="registrarMaster">
+            <result type="json"/>
+        </action>
+		
+        <!-- Modificar Contrato -->
+         <action name="dameContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameContrato">
+            <result type="json"/>
+        </action>
+        <action name="dameDistribuidoresPorNombre" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameDistribuidoresPorNombre">
+            <result type="json"/>
+        </action>
+        <action name="dameContratoConCabecera" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameContratoConCabecera">
+            <result type="json"/>
+        </action>
+        <action name="dameObservacionesDePago" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameObservacionesDePago">
+            <result type="json"/>
+        </action>
+        <action name="dameMonedas" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameMonedas">
+            <result type="json"/>
+        </action>
+        <action name="dameSenialImporte" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameSenialImporte">
+            <result type="json"/>
+        </action>
+        <action name="dameGrupos" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameGrupos">
+            <result type="json"/>
+        </action>
+        <action name="dameGrupo" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameGrupo">
+            <result type="json"/>
+        </action>
+        <action name="dameSenialesHeredadasAsignadas" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameSenialesHeredadasAsignadas">
+            <result type="json"/>
+        </action>
+        <action name="dameTiposDeImporte" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTiposDeImporte">
+            <result type="json"/>
+        </action>
+        <action name="dameTiposDeDerecho" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTiposDeDerecho">
+            <result type="json"/>
+        </action>
+        <action name="dameTiposDeDerechoTerritorial" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTiposDeDerechoTerritorial">
+            <result type="json"/>
+        </action>
+        <action name="dameTiposDeTitulo" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTiposDeTitulo">
+            <result type="json"/>
+        </action>
+        <action name="validarMoficacionDeCabecera" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarMoficacionDeCabecera">
+            <result type="json"/>
+        </action>
+        <action name="dameTitulos" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTitulos">
+            <result type="json"/>
+        </action>
+        <action name="dameTitulosAReemplazarPorContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTitulosAReemplazarPorContrato">
+            <result type="json"/>
+        </action>
+        <action name="dameTitulosAEliminarPorContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTitulosAEliminarPorContrato">
+            <result type="json"/>
+        </action>
+        <action name="dameTitulosPorContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTitulosPorContrato">
+            <result type="json"/>
+        </action>
+        <action name="dameCapitulosParaEliminar" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameCapitulosParaEliminar">
+            <result type="json"/>
+        </action>
+        <action name="dameCapitulosParaAgregar" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameCapitulosParaAgregar">
+            <result type="json"/>
+        </action>
+        <action name="dameTitulosARecontratar" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTitulosARecontratar">
+            <result type="json"/>
+        </action>
+        <action name="dameCapitulosARecontratar" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameCapitulosARecontratar">
+            <result type="json"/>
+        </action>
+        <action name="dameContratosConReRun" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameContratosConReRun">
+            <result type="json"/>
+        </action>
+        <action name="dameCapitulosPorTituloContratado" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameCapitulosPorTituloContratado">
+            <result type="json"/>
+        </action>
+        <action name="dameTitulo" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTitulo">
+            <result type="json"/>
+        </action>
+        <action name="dameVigenciasPorTituloContratado" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameVigenciasPorTituloContratado">
+            <result type="json"/>
+        </action>
+        <action name="dameSenialesHeredadas" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameSenialesHeredadas">
+            <result type="json"/>
+        </action>
+        <action name="dameSiguienteNumeroGrupo" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameSiguienteNumeroGrupo">
+            <result type="json"/>
+        </action>
+        <action name="updateContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="updateContrato">
+            <result type="json"/>
+        </action>
+        <action name="modificarSenial" class="com.artear.filmo.web.action.ModificarContratoAction" method="modificarSenial">
+            <result type="json"/>
+        </action>
+        <action name="validarMoficacionDeCabecera" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarMoficacionDeCabecera">
+            <result type="json"/>
+        </action>
+        <action name="validarContratoConSeniales" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarContratoConSeniales">
+            <result type="json"/>
+        </action>
+        <action name="validarMontos" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarMontos">
+            <result type="json"/>
+        </action>
+        <action name="validarCabeceraSeniales" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarCabeceraSeniales">
+            <result type="json"/>
+        </action>
+        <action name="validarCabeceraSenial" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarCabeceraSenial">
+            <result type="json"/>
+        </action>
+        <action name="actualizarImporteSenialAutomaticamente" class="com.artear.filmo.web.action.ModificarContratoAction" method="actualizarImporteSenialAutomaticamente">
+            <result type="json"/>
+        </action>
+        <action name="validarTituloPerpetuo" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarTituloPerpetuo">
+            <result type="json"/>
+        </action>
+        <action name="validarAltaTitulo" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarAltaTitulo">
+            <result type="json"/>
+        </action>
+        <action name="updateContratoMontoSenial" class="com.artear.filmo.web.action.ModificarContratoAction" method="updateContratoMontoSenial">
+            <result type="json"/>
+        </action>
+        <action name="altaSenial" class="com.artear.filmo.web.action.ModificarContratoAction" method="altaSenial">
+            <result type="json"/>
+        </action>
+        <action name="actualizarContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="actualizarContrato">
+            <result type="json"/>
+        </action>
+        <action name="eliminarSenial" class="com.artear.filmo.web.action.ModificarContratoAction" method="eliminarSenial">
+            <result type="json"/>
+        </action>
+        <action name="altaGrupoSinCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="altaGrupoSinCap">
+            <result type="json"/>
+        </action>
+        <action name="altaGrupoConCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="altaGrupoConCap">
+            <result type="json"/>
+        </action>
+        <action name="validarAltaGrupoSinCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarAltaGrupoSinCap">
+            <result type="json"/>
+        </action>
+        <action name="validarAltaGrupoConCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarAltaGrupoConCap">
+            <result type="json"/>
+        </action>
+        <action name="altaTituloContratado" class="com.artear.filmo.web.action.ModificarContratoAction" method="altaTituloContratado">
+            <result type="json"/>
+        </action>
+        <action name="altaTituloContratadoCC" class="com.artear.filmo.web.action.ModificarContratoAction" method="altaTituloContratadoCC">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="altaTituloContratadoCCTodos" class="com.artear.filmo.web.action.ModificarContratoAction" method="altaTituloContratadoCCTodos">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="titulosABorrar" class="com.artear.filmo.web.action.ModificarContratoAction" method="titulosABorrar">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="capitulosAAgregar" class="com.artear.filmo.web.action.ModificarContratoAction" method="capitulosAAgregar">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="capitulosABorrar" class="com.artear.filmo.web.action.ModificarContratoAction" method="capitulosABorrar">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="validarEnlaceAnterior" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarEnlaceAnterior">
+            <result type="json"/>
+        </action>
+        <action name="actualizarEnlaceAnterior" class="com.artear.filmo.web.action.ModificarContratoAction" method="actualizarEnlaceAnterior">
+            <result type="json"/>
+        </action>
+        <action name="validarEnlacePosterior" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarEnlacePosterior">
+            <result type="json"/>
+        </action>
+        <action name="actualizarEnlacePosterior" class="com.artear.filmo.web.action.ModificarContratoAction" method="actualizarEnlacePosterior">
+            <result type="json"/>
+        </action>
+        <action name="validarRerunDesenlace" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarRerunDesenlace">
+            <result type="json"/>
+        </action>
+        <action name="actualizarRerunDesenlace" class="com.artear.filmo.web.action.ModificarContratoAction" method="actualizarRerunDesenlace">
+            <result type="json"/>
+        </action>
+        <action name="validarModificaGrupoSinCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarModificaGrupoSinCap">
+            <result type="json"/>
+        </action>
+        <action name="validarModificaGrupoConCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarModificaGrupoSinCap">
+            <result type="json"/>
+        </action>
+        <action name="validarModificaGrupoConCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarModificaGrupoConCap">
+            <result type="json"/>
+        </action>
+        <action name="validarModificaGrupoSinCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarModificaGrupoSinCap">
+            <result type="json"/>
+        </action>
+        <action name="modificacionDeGrupoConCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="modificacionDeGrupoConCap">
+            <result type="json"/>
+        </action>
+        <action name="modificacionDeGrupoSinCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="modificacionDeGrupoSinCap">
+            <result type="json"/>
+        </action>
+        <action name="validarModificaCantidadGrupoConCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarModificaCantidadGrupoConCap">
+            <result type="json"/>
+        </action>
+        <action name="modificacionDeCantidadGrupoConCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="modificacionDeCantidadGrupoConCap">
+            <result type="json"/>
+        </action>
+        <action name="modificacionDeCantidadGrupoSinCap" class="com.artear.filmo.web.action.ModificarContratoAction" method="modificacionDeCantidadGrupoSinCap">
+            <result type="json"/>
+        </action>
+        <action name="validarDesmarcarTitulo" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarDesmarcarTitulo">
+            <result type="json"/>
+        </action>
+        <action name="desmarcarTitulo" class="com.artear.filmo.web.action.ModificarContratoAction" method="desmarcarTitulo">
+            <result type="json"/>
+        </action>
+        <action name="dameTituloContratado" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTituloContratado">
+            <result type="json"/>
+        </action>
+        <action name="ampliarDerechos" class="com.artear.filmo.web.action.ModificarContratoAction" method="ampliarDerechos">
+            <result type="json"/>
+        </action>
+        <action name="adelantarVencimiento" class="com.artear.filmo.web.action.ModificarContratoAction" method="adelantarVencimiento">
+            <result type="json"/>
+        </action>
+        <action name="damePayTV" class="com.artear.filmo.web.action.ModificarContratoAction" method="damePayTV">
+            <result type="json"/>
+        </action>
+        <action name="procesarPayTV" class="com.artear.filmo.web.action.ModificarContratoAction" method="procesarPayTV">
+            <result type="json"/>
+        </action>
+        <action name="modificarTituloContratadoSC" class="com.artear.filmo.web.action.ModificarContratoAction" method="modificarTituloContratadoSC">
+            <result type="json"/>
+        </action>
+        <action name="modificarTituloContratadoCC" class="com.artear.filmo.web.action.ModificarContratoAction" method="modificarTituloContratadoCC">
+            <result type="json"/>
+        </action>
+        <action name="reemplazarTitulos" class="com.artear.filmo.web.action.ModificarContratoAction" method="reemplazarTitulos">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="dameGruposConReemplazo" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameGruposConReemplazo">
+            <result type="json"/>
+        </action>
+        <action name="reemplazarGrupo" class="com.artear.filmo.web.action.ModificarContratoAction" method="reemplazarGrupo">
+            <result type="json"/>
+        </action>
+        <action name="validarExtenderChequeoTecnico" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarExtenderChequeoTecnico">
+            <result type="json"/>
+        </action>
+        <action name="dameSenialesChequeo" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameSenialesChequeo">
+            <result type="json"/>
+        </action>
+        <action name="extenderChequeoTecnico" class="com.artear.filmo.web.action.ModificarContratoAction" method="extenderChequeoTecnico">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="dameClave" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameClave">
+            <result type="json"/>
+        </action>
+        <action name="validarEliminarGrupo" class="com.artear.filmo.web.action.ModificarContratoAction" method="validarEliminarGrupo">
+            <result type="json"/>
+        </action>
+        <action name="eliminarGrupo" class="com.artear.filmo.web.action.ModificarContratoAction" method="eliminarGrupo">
+            <result type="json"/>
+        </action>
+        <action name="dameTG" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTG">
+            <result type="json"/>
+        </action>
+        <action name="actualizarTG" class="com.artear.filmo.web.action.ModificarContratoAction" method="actualizarTG">
+            <result type="json"/>
+        </action>
+        <action name="dameTitulosConReRun" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameTitulosConReRun">
+            <result type="json"/>
+        </action>
+        <action name="cleanTitulosConReRun" class="com.artear.filmo.web.action.ModificarContratoAction" method="cleanTitulosConReRun">
+            <result type="json"/>
+        </action>
+        <action name="dameNombreDelTitulo" class="com.artear.filmo.web.action.ModificarContratoAction" method="dameNombreDelTitulo">
+            <result type="json"/>
+        </action>
+        
+        
+        <action name="bloquearContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="bloquearContrato">
+            <result type="json"/>
+        </action>
+        <action name="desbloquearContrato" class="com.artear.filmo.web.action.ModificarContratoAction" method="desbloquearContrato">
+            <result type="json"/>
+        </action>
+        <action name="estaBloqueado" class="com.artear.filmo.web.action.ModificarContratoAction" method="estaBloqueado">
+            <result type="json"/>
+        </action>
+        
+        <!-- Baja de contrato -->
+        <action name="validarBajaContrato" class="com.artear.filmo.web.action.BajaContratoAction" method="validarBajaContrato">
+            <result type="json"/>
+        </action>
+        <action name="eliminarContrato" class="com.artear.filmo.web.action.BajaContratoAction" method="eliminarContrato">
+            <result type="json"/>
+        </action>
+
+        <!-- Ingreso de materiales -->
+       	<action name="buscarDistribuidoresParaMateriales" class="com.artear.filmo.web.action.IngresarMaterialesAction" method="buscarDistribuidoresParaMateriales">
+            <result type="json"/>
+        </action>
+        <action name="buscarTitulosCastellanoParaMateriales" class="com.artear.filmo.web.action.IngresarMaterialesAction" method="buscarTitulosCastellanoParaMateriales">
+            <result type="json"/>
+        </action>
+		<action name="buscarTitulosOriginalParaMateriales" class="com.artear.filmo.web.action.IngresarMaterialesAction" method="buscarTitulosOriginalParaMateriales">
+            <result type="json"/>
+        </action>
+      	<action name="determinarFamiliaTitulo" class="com.artear.filmo.web.action.IngresarMaterialesAction" method="determinarFamiliaTitulo">
+            <result type="json"/>
+        </action>
+        <action name="altaSoporteTitulo" class="com.artear.filmo.web.action.IngresarMaterialesAction" method="altaSoporteTitulo">
+            <result type="json"/>
+        </action>
+        <action name="buscarSoportesParaMateriales" class="com.artear.filmo.web.action.IngresarMaterialesAction" method="buscarSoportesParaMateriales">
+            <result type="json"/>
+        </action>   
+        
+        <!-- Modificación ingreso de materiales -->
+       	<action name="buscarRemitosPorNumeroRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarRemitosPorNumeroRemito">
+            <result type="json"/>
+        </action>
+       	<action name="buscarRemitosPorGuia" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarRemitosPorGuia">
+            <result type="json"/>
+        </action>        
+       	<action name="buscarRemitosPorRazonSocial" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarRemitosPorRazonSocial">
+            <result type="json"/>
+        </action>
+       	<action name="buscarRemitosPorFecha" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarRemitosPorFecha">
+            <result type="json"/>
+        </action>
+        <action name="buscarDistribuidoresParaRemitos" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarDistribuidoresParaRemitos">
+            <result type="json"/>
+        </action>
+        <action name="buscarTitulosPorDescripcion" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarTitulosPorDescripcion">
+            <result type="json"/>
+        </action>
+        <action name="buscarCapitulos" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarCapitulos">
+            <result type="json"/>
+        </action>
+        <action name="buscarPartes" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarPartes">
+            <result type="json"/>
+        </action>
+        <action name="validarExhibiciones" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarExhibiciones">
+      		<result type="json"/>
+        </action>
+        <action name="modificarCabeceraRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="modificarCabeceraRemito">
+            <result type="json"/>
+        </action>
+        <action name="validarEliminarRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarEliminarRemito">
+            <result type="json"/>
+        </action>
+        <action name="validarContabilizadoCabeceraRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarContabilizadoCabeceraRemito">
+            <result type="json"/>
+        </action>
+        <action name="validarDesenlaceRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarDesenlaceRemito">
+            <result type="json"/>
+        </action>
+        <action name="eliminarRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="eliminarRemito">
+            <result type="json"/>
+        </action>
+        <action name="buscarTitulosRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarTitulosRemito">
+            <result type="json"/>
+        </action>
+        <action name="buscarSoportesParaRemitos" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarSoportesParaRemitos">
+            <result type="json"/>
+        </action>
+        <action name="validarSoporte" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarSoporte">
+            <result type="json"/>
+        </action>
+        <action name="buscarMotivosIngresoParaRemitos" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="buscarMotivosIngresoParaRemitos">
+            <result type="json"/>
+        </action>
+        <action name="validarMotivoIngreso" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarMotivoIngreso">
+            <result type="json"/>
+        </action>
+        <action name="validarModificarDetalleRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarModificarDetalleRemito">
+            <result type="json"/>
+        </action>
+		<action name="modificarDetalleRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="modificarDetalleRemito">
+            <result type="json"/>
+        </action>
+        <action name="validarEliminarDetalleRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="validarEliminarDetalleRemito">
+            <result type="json"/>
+        </action>
+        <action name="chequeoEliminarRemitoDesde" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="chequeoEliminarRemitoDesde">
+            <result type="json"/>
+        </action>
+        <action name="eliminarDetalleRemito" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="eliminarDetalleRemito">
+            <result type="json"/>
+        </action>
+        <action name="eliminarDetalleRemitoDesde" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="eliminarDetalleRemitoDesde">
+            <result type="json"/>
+        </action>    
+                        
+		<!-- Desconfirmar sin amortizacion -->             
+        <action name="desconfirmarSinAmortizacionBuscarProgramasCodigo" class="com.artear.filmo.web.action.DesconfirmarSinAmortizacionAction" method="buscarProgramasCodigo">
+            <result type="json"/>
+        </action>   
+        <action name="desconfirmarSinAmortizacionBuscarProgramasClave" class="com.artear.filmo.web.action.DesconfirmarSinAmortizacionAction" method="buscarProgramasClave">
+            <result type="json"/>
+        </action>   
+        <action name="desconfirmarSinAmortizacionBuscarTitulosProgramas" class="com.artear.filmo.web.action.DesconfirmarSinAmortizacionAction" method="buscarTitulosProgramas">
+            <result type="json"/>
+        </action>   
+        <action name="desconfirmarSinAmortizacionDesconfirmar" class="com.artear.filmo.web.action.DesconfirmarSinAmortizacionAction" method="desconfirmar">
+            <result type="json"/>
+        </action>   
+
+        <!-- Confirmar sin amortizacion -->             
+        <action name="confirmarSinAmortizacionBuscarProgramasCodigo" class="com.artear.filmo.web.action.ConfirmarSinAmortizacionAction" method="buscarProgramasCodigo">
+            <result type="json"/>
+        </action>   
+        <action name="confirmarSinAmortizacionBuscarProgramasClave" class="com.artear.filmo.web.action.ConfirmarSinAmortizacionAction" method="buscarProgramasClave">
+            <result type="json"/>
+        </action>   
+        <action name="confirmarSinAmortizacionBuscarTitulosProgramas" class="com.artear.filmo.web.action.ConfirmarSinAmortizacionAction" method="buscarTitulosProgramas">
+            <result type="json"/>
+        </action>   
+        <action name="confirmarSinAmortizacionConfirmar" class="com.artear.filmo.web.action.ConfirmarSinAmortizacionAction" method="confirmar">
+            <result type="json"/>
+        </action>   
+
+		<!-- Levantar programas -->             
+        <action name="levantarProgramasObtenerMayorFechaProgramada" class="com.artear.filmo.web.action.LevantarProgramasAction" method="obtenerMayorFechaProgramada">
+            <result type="json"/>
+        </action>   
+        <action name="levantarProgramasObtenerGrillaProgramada" class="com.artear.filmo.web.action.LevantarProgramasAction" method="obtenerGrillaProgramada">
+            <result type="json"/>
+        </action>   
+        <action name="levantarProgramasValidacionLevantarExhibiciones" class="com.artear.filmo.web.action.LevantarProgramasAction" method="validacionLevantarExhibiciones">
+            <result type="json"/>
+        </action>   
+        <action name="levantarProgramasLevantarExhibiciones" class="com.artear.filmo.web.action.LevantarProgramasAction" method="levantarExhibiciones">
+            <result type="json"/>
+        </action>   
+
+		<!-- Ficha cinematografica -->             
+        <action name="trabajarFichaCinematograficaBuscarFichas" class="com.artear.filmo.web.action.FichaCinematograficaAction" method="buscarFichas">
+            <result type="json"/>
+        </action>   
+        <action name="trabajarFichaCinematograficaEliminarFicha" class="com.artear.filmo.web.action.FichaCinematograficaAction" method="eliminarFicha">
+            <result type="json"/>
+        </action>   
+        <action name="trabajarFichaCinematograficaObtenerFichaCompleta" class="com.artear.filmo.web.action.FichaCinematograficaAction" method="obtenerFichaCompleta">
+            <result type="json"/>
+        </action>   
+        <action name="trabajarFichaCinematograficaGuardarFicha" class="com.artear.filmo.web.action.FichaCinematograficaAction" method="guardarFicha">
+            <result type="json"/>
+        </action>   
+        <action name="trabajarFichaCinematograficaModificarFicha" class="com.artear.filmo.web.action.FichaCinematograficaAction" method="modificarFicha">
+            <result type="json"/>
+        </action>   
+        <action name="trabajarFichaCinematograficaAyudaSituar" class="com.artear.filmo.web.action.FichaCinematograficaAction" method="ayudaSituar">
+            <result type="json"/>
+        </action>   
+        
+		<!-- Trabajar con copias de titulos -->             
+        <action name="trabajarConCopiasDeTitulosBuscarTitulos" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="buscarTitulos">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosBuscarDatosCopias" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="buscarDatosCopias">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosAltaMasterRollos" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="altaMasterRollos">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosBajaMasterRollos" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="bajaMasterRollos">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosBuscarSoportes" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="buscarSoportes">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosBuscarCapitulos" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="buscarCapitulos">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosVerificarMasterSoporte" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="verificarMasterSoporte">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosVerificarRechazoCVR" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="verificarRechazoCVR">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosChequearMaterialesCopia" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="chequearMaterialesCopia">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosValidarAlta" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="validarAlta">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosModifMasterRollo" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="modifMasterRollo">
+            <result type="json"/>
+        </action>
+        <action name="trabajarConCopiasDeTitulosValidarBaja" class="com.artear.filmo.web.action.TrabajarConCopiasDeTitulosAction" method="validarBaja">
+            <result type="json"/>
+        </action>
+        
+        <!-- Trabajar con remitos de salida -->
+		<action name="buscarDistribuidoresParaRemitosSalida" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="buscarDistribuidoresParaRemitosSalida">
+			<result type="json"/>
+		</action>
+		<action name="buscarTitulosParaCarga" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="buscarTitulosParaCarga">
+			<result type="json"/>
+		</action>  		     
+		<action name="buscarCapitulosParaCarga" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="buscarCapitulosParaCarga">
+			<result type="json"/>
+		</action>
+		<action name="validarDistribuidor" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="validarDistribuidor">
+			<result type="json"/>
+		</action>
+		<action name="validarFechaSenial" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="validarFechaSenial">
+			<result type="json"/>
+		</action>
+		<action name="validarNuevaSenial" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="validarNuevaSenial">
+			<result type="json"/>
+		</action>
+		<action name="actualizarCantidad" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="actualizarCantidad">
+			<result type="json"/>
+		</action>
+		<action name="ejecutarRemito" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="ejecutarRemito">
+			<result type="json"/>
+		</action>
+		<action name="imprimirRemito" class="com.artear.filmo.web.action.TrabajarConRemitosMaterialesAction" method="imprimirRemito">
+			<result type="json"/>
+		</action>
+		
+		<!-- Desconfirmar programación -->
+		<action name="listarProgramacionDesconfirmar" class="com.artear.filmo.web.action.DesconfirmarProgramacionAction" method="listarProgramacion">
+			<result type="json"/>
+		</action>
+		<action name="buscarProgramasDesconfirmar" class="com.artear.filmo.web.action.DesconfirmarProgramacionAction" method="buscarProgramasDesconfirmar">
+			<result type="json"/>
+		</action>
+		<action name="buscarTitulosDesconfirmar" class="com.artear.filmo.web.action.DesconfirmarProgramacionAction" method="buscarTitulosDesconfirmar">
+			<result type="json"/>
+		</action>
+		<action name="procesarDesconfirmacion" class="com.artear.filmo.web.action.DesconfirmarProgramacionAction" method="procesarDesconfirmacion">
+			<result type="json"/>
+		</action>
+		
+		<!-- Confirmar programación -->
+		<action name="listarProgramacionConfirmar" class="com.artear.filmo.web.action.ConfirmarProgramacionAction" method="listarProgramacion">
+			<result type="json"/>
+		</action>
+		<action name="buscarContratosParaTitulo" class="com.artear.filmo.web.action.ConfirmarProgramacionAction" method="buscarContratosParaTitulo">
+			<result type="json"/>
+		</action>	
+		<action name="procesarConfirmacion" class="com.artear.filmo.web.action.ConfirmarProgramacionAction" method="procesarConfirmacion">
+			<result type="json"/>
+		</action>
+		<action name="procesarConfirmacionGrillaProgramacion" class="com.artear.filmo.web.action.ConfirmarProgramacionAction" method="procesarConfirmacionGrillaProgramacion">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+		</action>
+		
+		<!-- Activar título vencido -->
+		<action name="activarTituloVencidoBuscarTitulos" class="com.artear.filmo.web.action.ActivarTituloVencidoAction" method="buscarTitulos">
+			<result type="json"/>
+		</action>
+		<action name="activarTituloVencidoBuscarContratosParaElTitulo" class="com.artear.filmo.web.action.ActivarTituloVencidoAction" method="buscarContratosParaElTitulo">
+			<result type="json"/>
+		</action>
+		<action name="activarTituloVencidoValidarContrato" class="com.artear.filmo.web.action.ActivarTituloVencidoAction" method="validarContrato">
+			<result type="json"/>
+		</action>
+		<action name="activarTituloVencidoVisualizarModificacionContratos" class="com.artear.filmo.web.action.ActivarTituloVencidoAction" method="visualizarModificacionContratos">
+			<result type="json"/>
+		</action>
+		
+		<!-- Alta de contrato -->
+		<action name="altaContratoBuscarDistribuidores" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarDistribuidores">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarMonedas" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarMonedas">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarTiposTitulo" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTiposTitulo">
+			<result type="json"/>
+		</action>						
+		<action name="altaContratoGuardarDatosCabeceraContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="guardarDatosCabeceraContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoGuardarContratoSenialImporte" class="com.artear.filmo.web.action.AltaContratoAction" method="guardarContratoSenialImporte">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarSenialesImportes" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarSenialesImportes">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarExistenciaGrupos" class="com.artear.filmo.web.action.AltaContratoAction" method="validarExistenciaGrupos">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoModificarContratoSenialImporte" class="com.artear.filmo.web.action.AltaContratoAction" method="modificarContratoSenialImporte">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoDesenlaceContratoSenial" class="com.artear.filmo.web.action.AltaContratoAction" method="desenlaceContratoSenial">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoEliminarMontoSenial" class="com.artear.filmo.web.action.AltaContratoAction" method="eliminarMontoSenial">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarSumaGrupos" class="com.artear.filmo.web.action.AltaContratoAction" method="validarSumaGrupos">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoActualizarCabeceraEliminada" class="com.artear.filmo.web.action.AltaContratoAction" method="actualizarCabeceraEliminada">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarSenialesContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarSenialesContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoModificarCabeceraContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="modificarCabeceraContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarTiposImporte" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTiposImporte">
+			<result type="json"/>
+		</action>			
+		<action name="altaContratoBuscarTiposDerecho" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTiposDerecho">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarTiposDerechoTerritorial" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTiposDerechoTerritorial">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarNumeroGrupo" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarNumeroGrupo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarSenialHeredadaCC" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarSenialHeredadaCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="validarRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarAmortizacionCC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarAmortizacionCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoAltaGrupoCC" class="com.artear.filmo.web.action.AltaContratoAction" method="altaGrupoCC">
+			<result type="json"/>
+		</action> 
+		<action name="altaContratoValidarModificacionGrupoCC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarModificacionGrupoCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoEliminarConsultarCC" class="com.artear.filmo.web.action.AltaContratoAction" method="eliminarConsultarCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoModificacionGrupoCC" class="com.artear.filmo.web.action.AltaContratoAction" method="modificacionGrupoCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarSenialesHeredadas" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarSenialesHeredadas">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarAsignacionSenialHeredadaCC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarAsignacionSenialHeredadaCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoAsignarSenialHeredadaCC" class="com.artear.filmo.web.action.AltaContratoAction" method="asignarSenialHeredadaCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoDesasignarSenialHeredadaCC" class="com.artear.filmo.web.action.AltaContratoAction" method="desasignarSenialHeredadaCC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarSenialHeredadaSC" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarSenialHeredadaSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarAmortizacionSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarAmortizacionSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoAltaGrupoSC" class="com.artear.filmo.web.action.AltaContratoAction" method="altaGrupoSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarCambioTipoImporteSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarCambioTipoImporteSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarPasaLibreriaNaSSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarPasaLibreriaNaSSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarCantidadPasadasContratadasSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarCantidadPasadasContratadasSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarRerunSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarRerunSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarDesenlaceSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarDesenlaceSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarModificacionGrupoSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarModificacionGrupoSC">
+			<result type="json"/>
+		</action> 
+		<action name="altaContratoEliminarConsultarSC" class="com.artear.filmo.web.action.AltaContratoAction" method="eliminarConsultarSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoModificacionGrupoSC" class="com.artear.filmo.web.action.AltaContratoAction" method="modificacionGrupoSC">
+			<result type="json"/>
+		</action>						
+		<action name="altaContratoValidarAsignacionSenialHeredadaSC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarAsignacionSenialHeredadaSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoAsignarSenialHeredadaSC" class="com.artear.filmo.web.action.AltaContratoAction" method="asignarSenialHeredadaSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoDesasignarSenialHeredadaSC" class="com.artear.filmo.web.action.AltaContratoAction" method="desasignarSenialHeredadaSC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarGruposContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarGruposContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarTipoCosteoByGrupoContratoSenial" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="buscarTipoCosteoByGrupoContratoSenial">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">tipoDeCosteo</param></result>
+		</action>
+		<action name="tipoDeCosteoObtenerRegistrosCFM" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="obtenerRegistrosCFM">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">lista</param></result>
+		</action>
+		<action name="tipoDeCosteoAgregarRegistrosCFM" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="agregarRegistrosCFM">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoEliminarRegistrosCFM" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="eliminarRegistrosCFM">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoAgregarRegistrosExcedente" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="agregarRegistrosExcedente">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoEliminarRegistrosExcedente" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="eliminarRegistrosExcedente">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoObtenerRegistrosExcedente" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="obtenerRegistrosExcedente">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">listaExcedente</param></result>
+		</action>
+		<action name="tipoDeCosteoABMExcedente" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="abmRegistroExcedente">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoABMRating" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="abmRegistroRating">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoABMFijo" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="abmRegistroFijo">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoABMMixto" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="abmRegistroMixto">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoObtenerRegistrosABM" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="obtenerRegistrosABM">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">lista</param></result>
+		</action>
+		<action name="tipoDeCosteoObtenerRegistrosRatingABM" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="obtenerRegistrosRatingABM">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">listaRating</param></result>
+		</action>
+		<action name="tipoDeCosteoObtenerRegistrosExcedenteABM" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="obtenerRegistrosExcedenteABM">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">listaExcedente</param></result>
+		</action>
+		<action name="tipoDeCosteoAgregarRegistrosRating" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="agregarRegistrosRating">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoEliminarRegistrosRating" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="eliminarRegistrosRating">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoObtenerRegistrosRating" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="obtenerRegistrosRating">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">listaRating</param></result>
+		</action>
+		<action name="tipoDeCosteoAgregarRegistrosMixto" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="agregarRegistrosMixto">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoEliminarRegistrosMixto" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="eliminarRegistrosMixto">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="tipoDeCosteoObtenerRegistrosMixto" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="obtenerRegistrosMixto">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">lista</param></result>
+		</action>
+		<action name="tipoDeCosteoValidarSeleccion" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="validarSeleccion">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="buscarDescripcionCanjeByGrupo" class="com.artear.filmo.web.action.TipoDeCosteoAction" method="buscarDescripcionCanje">
+            <interceptor-ref name="json"><param name="contentType">application/json</param></interceptor-ref>
+            <result name="success" type="json"><param name="root">message</param></result>
+		</action>
+		<action name="altaContratoDesenlaceContratoGrupo" class="com.artear.filmo.web.action.AltaContratoAction" method="desenlaceContratoGrupo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoRecuperarDatosGrupo" class="com.artear.filmo.web.action.AltaContratoAction" method="recuperarDatosGrupo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoEliminarGrupoContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="eliminarGrupoContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarPerpetuidadTitulo" class="com.artear.filmo.web.action.AltaContratoAction" method="validarPerpetuidadTitulo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoObtenerNuevaClaveTitulo" class="com.artear.filmo.web.action.AltaContratoAction" method="obtenerNuevaClaveTitulo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarCalificacionesOficiales" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarCalificacionesOficiales">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarTitulosGrupo" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTitulosGrupo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidacionExistenciaTitulo" class="com.artear.filmo.web.action.AltaContratoAction" method="validacionExistenciaTitulo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidacionRecepcionMaster" class="com.artear.filmo.web.action.AltaContratoAction" method="validacionRecepcionMaster">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarSeleccionTitulo" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarSeleccionTitulo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarSeleccionTituloRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarSeleccionTituloRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarTitulosRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTitulosRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarRemitoSNC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarRemitoSNC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarMasterTitulo" class="com.artear.filmo.web.action.AltaContratoAction" method="validarMasterTitulo">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarSeleccionCapitulosTituloRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarSeleccionCapitulosTituloRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarCapitulosTituloRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarCapitulosTituloRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarRemitoSNCCapituloRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="validarRemitoSNCCapituloRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarRemitoNoSNC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarRemitoNoSNC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarSeleccionCapituloTituloRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarSeleccionCapituloTituloRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoContratosEnlazadosTituloRecontratacion" class="com.artear.filmo.web.action.AltaContratoAction" method="contratosEnlazadosTituloRecontratacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarDesenlaceTituloContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="validarDesenlaceTituloContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoEjecutarDesenlaceTituloContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="ejecutarDesenlaceTituloContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarEnlacePosterior" class="com.artear.filmo.web.action.AltaContratoAction" method="validarEnlacePosterior">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoEjecutarEnlacePosterior" class="com.artear.filmo.web.action.AltaContratoAction" method="ejecutarEnlacePosterior">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoVisualizarModificacionesVigencia" class="com.artear.filmo.web.action.AltaContratoAction" method="visualizarModificacionesVigencia">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarCapitulosEliminacion" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarCapitulosEliminacion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarCantidadCapitulosBaja" class="com.artear.filmo.web.action.AltaContratoAction" method="validarCantidadCapitulosBaja">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoPrimerValidacionRerunBajaCapitulos" class="com.artear.filmo.web.action.AltaContratoAction" method="primerValidacionRerunBajaCapitulos">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoSegundaValidacionRerunBajaCapitulos" class="com.artear.filmo.web.action.AltaContratoAction" method="segundaValidacionRerunBajaCapitulos">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarBajaCapitulos" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarBajaCapitulos">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarCapitulosAdicion" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarCapitulosAdicion">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarRemitoCapitulosSNC" class="com.artear.filmo.web.action.AltaContratoAction" method="validarRemitoCapitulosSNC">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarAltaCapitulos" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarAltaCapitulos">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoBuscarTitulosEliminarContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTitulosEliminarContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoValidarEliminacionTituloContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="validarEliminacionTituloContrato">
+			<result type="json"/>
+		</action>
+		<action name="altaContratoConfirmarEliminacionTituloContrato" class="com.artear.filmo.web.action.AltaContratoAction" method="confirmarEliminacionTituloContrato">
+			<result type="json"/>
+		</action>			
+		<action name="altaContratoBuscarTitulosGrupoReadOnly" class="com.artear.filmo.web.action.AltaContratoAction" method="buscarTitulosGrupoReadOnly">
+			<result type="json"/>
+		</action>			
+			
+	</package>
+
+</struts>

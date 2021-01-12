@@ -1,0 +1,46 @@
+<div id="{{id}}" class="FormContainer">
+	<h1 style="text-align: center;">TIPO DE COSTEO FIJO MENSUAL</h1>	
+	<div class="FormRowC"><h3>TIPO CONTABILIZACION</h3></div>
+		<div class="FormRowA" id="{{id}}-div-radioButtonTipoContrado">
+			<table>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonCFM-tipoCash" name="{{id}}-radioButtonTipoContrato" value="N"/></td>
+	   				<td><label for="{{id}}-radioButtonCFM-tipoCash" style="width: 150px;">Tipo Cash</label></td>
+	   			</tr>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonCFM-tipoCabecera" name="{{id}}-radioButtonTipoContrato" value="T" checked="checked"/></td>
+	   				<td><label for="{{id}}-radioButtonCFM-tipoCabecera" style="width: 150px;">Tipo Cabecera</label></td>
+	   				<td><span id="{{id}}-descripcionCanjeCabecera"></span></td>
+	   			</tr>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonCFM-tipoCanje" name="{{id}}-radioButtonTipoContrato" value="S"/></td>
+	   				<td><label for="{{id}}-radioButtonCFM-tipoCanje" style="width: 150px;">Tipo Canje</label></td>
+	   			</tr>
+	   		</table>
+	   	</div>
+		<div class="FormRowC">
+			<span id="{{id}}-span-tipoContrato"></span>
+		</div>
+		<div class="FormRowC">
+			<table>
+				<tr>
+				<td><label>AÑO:</label></td>
+				<td><input type="text" maxlength="4" size="4" name="anio" id="{{id}}-anio"/></td>
+				<td><label>MES:</label></td>
+				<td><input type="text" maxlength="2" size="2" name="mes" id="{{id}}-mes"/></td>
+				<td><label>VALOR:</label></td>
+				<td><input type="text" size="10" name="valorMes" id="{{id}}-valorMes"/></td>
+				<td><button id="{{id}}-buttonAgregarCFM">Agregar</button></td>
+				</tr>
+			</table>
+		</div>
+		<div class="clearfix"></div>
+		<div class="FormRowC">
+			<div id="{{id}}-grillaCFM">
+		        <table id="{{id}}-tGrillaCFM"></table>
+	    	    <div id="{{id}}-pagerGrillaCFM"></div>
+	        </div>
+        </div>
+        <div id="{{id}}-div-popUp-modificacion" title="Modificación Tipo de Costeo"></div>
+        
+</div>

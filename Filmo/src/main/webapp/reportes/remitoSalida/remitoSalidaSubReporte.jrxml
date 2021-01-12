@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="remitoSalidaSubReporte" pageWidth="554" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="1" bottomMargin="20">
+	<parameter name="p_remitoInterno" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="usuario" class="java.lang.String"/>
+	<parameter name="tipoCopia" class="java.lang.String"/>
+	<parameter name="p_numero" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[-- detalle --
+SELECT Trim (rm.ttktpotit) || LPad (rm.mtknrotit, 6, 0)        clave,
+       spccod                                                  soporte,
+       mt.mtdtitori                                            titulo,
+       Decode (ttmfmltit, 'CC', rmknumcap, NULL)               nroCapitulo,
+       Decode (ttmfmltit, 'CC', rmknumpart, NULL)              nroParte
+  FROM rm6001 rm, mt6001 mt, tt6001 tt
+ WHERE rm.ttktpotit  = mt.ttktpotit
+   AND rm.mtknrotit  = mt.mtknrotit
+   AND rm.ttktpotit  = tt.ttktpotit
+   AND rm.rtkidrem   =  $P{p_remitoInterno}
+ ORDER BY titulo ASC, nroCapitulo ASC, nroParte ASC]]>
+	</queryString>
+	<field name="CLAVE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SOPORTE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TITULO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NROCAPITULO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NROPARTE" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="tipoCopia" class="java.lang.String">
+		<variableExpression><![CDATA[$P{tipoCopia}]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{tipoCopia}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="275" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{TITULO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="275" y="0" width="64" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{NROCAPITULO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="339" y="0" width="69" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{NROPARTE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="408" y="0" width="69" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SOPORTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

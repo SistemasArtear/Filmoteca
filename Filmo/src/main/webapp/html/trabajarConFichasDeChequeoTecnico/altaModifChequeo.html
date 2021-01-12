@@ -1,0 +1,432 @@
+<div id="{{id}}_altaModifChequeoDiv" class="FormContainer">
+	<h3><a href="#">Resultado del Chequeo</a></h3>
+	<div>
+	<div id="{{id}}_altaModifChequeoFichaDiv">
+		<form id="{{id}}_formAltaModifChequeoFicha">
+			<input type="hidden" value="{{fichaChequeo}}" name="fichaRequest.nroFicha">
+			<input type="hidden" value="{{clave}}" name="fichaRequest.clave">
+			<input type="hidden" value="{{senial}}" name="fichaRequest.senial">
+			<div class="FormRowA">
+				<label>Ficha de Chequeo:</label>
+				<span id="{{id}}_fichaChequeoChequeoLabel">{{fichaChequeo}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>Fecha de Solicitud: </label>
+				<span id="{{id}}_fechaSolicitudChequeoLabel">{{fechaSolicitud}}</span>
+			</div>
+			<div class="FormRowA">
+				<label>Emisora: </label>
+				<span id="{{id}}_emisoraChequeoLabel">{{emisoras}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>Clave:</label>
+				<span id="{{id}}_claveChequeoLabel">{{clave}}</span>
+			</div>
+			<div class="FormRowA">
+				<label>Titulo Original:</label>
+				<input type="text" name="fichaRequest.tituloOriginal" id="{{id}}_tituloOrigAltaModifChequeo" value="{{tituloOriginal}}" style="width: 200px;" />
+			</div>
+			<div class="FormRowB">
+				<label>T&iacute;tulo Castellano:</label>
+				<input type="text" name="fichaRequest.tituloCastellano" id="{{id}}_tituloCastAltaModifChequeo" value="{{tituloCastellano}}" style="width: 200px;" />
+			</div>
+			<div class="FormRowA">	
+				<label>T&iacute;tulo en Off:</label>
+				<input type="text" name="fichaRequest.tituloOff" id="{{id}}_tituloOffAltaModifChequeo" value="{{tituloOff}}"/>
+			</div>
+			<div class="FormRowA">
+				<label>Soporte:</label>
+				<span id="{{id}}_soporteChequeoLabel">{{soporte}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>Capitulo:</label>
+                <span id="{{id}}_capituloChequeoLabel">{{capitulo}}</span>
+                <input type="text" name="fichaRequest.descCapitulo" id="{{id}}_capituloChequeo" value="{{descCapitulo}}" style="width: 100px;"/>
+			</div>
+			<div class="FormRowA">
+				<label>Parte:</label>
+				<span id="{{id}}_parteAltaModifChequeo">{{parte}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>G&eacute;nero:</label>
+				<input type="text" name="fichaRequest.genero" id="{{id}}_generoAltaModifChequeo" value="{{genero}}"/>
+				<span id="{{id}}_generoChequeoLabel"></span>
+				<span id="{{id}}_popupBusquedaGeneroAltaModifChequeo" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar soporte"/>
+				<span id="{{id}}_generoChequeoLabelValor">{{generoDescripcion}}</span>
+			</div>
+			<div class="FormRowA">
+				<label>Color:</label>
+				<select name="fichaRequest.color" id="{{id}}_colorAltaModifChequeo">
+					<option value="C" label="Color">Color</option>
+					<option value="B" label="Blanco y Negro">Blanco y Negro</option>
+				</select>
+			</div>
+			<div class="FormRowB">
+				<label>A&ntilde;o:</label>
+				<input type="text" name="fichaRequest.anio" id="{{id}}_anioAltaModifChequeo" value="{{anio}}"/>
+			</div>
+			<div class="FormRowA">
+				<label>Pa&iacute;s:</label>
+				<input type="text" name="fichaRequest.pais" id="{{id}}_paisAltaModifChequeo" value="{{pais}}"/>
+			</div>
+			<div class="FormRowB">
+				<label>Nacionalidad:</label>
+				<select name="fichaRequest.nacionalidad" id="{{id}}_nacionalidadAltaModifChequeo">
+					<option value="N" label="Nacional/Mex">Nacional/Mex</option>
+					<option value="E" label="Extranjero">Extranjero</option>
+				</select>
+			</div>
+			<div class="FormRowA">
+				<label>Sello:</label>
+				<input type="text" name="fichaRequest.sello" id="{{id}}_selloAltaModifChequeo" value="{{sello}}" style="width: 200px;"/>
+			</div>
+			<div class="FormRowB">
+				<label>Autor:</label>
+				<input type="text" name="fichaRequest.autor" id="{{id}}_autorAltaModifChequeo" value="{{autor}}" style="width: 200px;"/>
+			</div>
+			<div class="FormRowA">
+				<label>Director:</label>
+				<input type="text" name="fichaRequest.director" id="{{id}}_directorAltaModifChequeo" value="{{director}}" style="width: 200px;"/>
+			</div>
+			<div class="FormRowB">
+				<label>Productor:</label>
+				<input type="text" name="fichaRequest.productor" id="{{id}}_productorAltaModifChequeo" value="{{productor}}" style="width: 200px;"/>
+			</div>
+			<div class="FormRowA">
+				<label>Calificaci&oacute;n Art&iacute;stica:</label>
+				<input type="text" name="fichaRequest.califArtistica" id="{{id}}_califArtisticaAltaModifChequeo" value="{{califArtistica}}" maxlength="3"/>
+				<span id="{{id}}_popupBusquedaCalifArtisticaAltaModifChequeo" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar calificaci&oacute;n art&iacute;stica"/>
+				<span id="{{id}}_califArtisticaChequeoLabel">{{califArtisticaDesc}}</span>
+ 			</div>
+			<div class="FormRowB">
+				<label>Calificaci&oacute;n Oficial:</label>
+				<input type="text" name="fichaRequest.califMoralOficial" id="{{id}}_califOficialAltaModifChequeo" value="{{califOficial}}"/>
+				<span id="{{id}}_popupBusquedaCalifOficialAltaModifChequeo" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar calificaci&oacute;n oficial"/>
+				<span id="{{id}}_califOficialChequeoLabel">{{califMoralOficialDesc}}</span>
+			</div>
+			<div class="FormRowA">
+				<label>Calif. Autocontrol:</label>
+				<input type="text" name="fichaRequest.califAutocontrol" id="{{id}}_califAutocontrolAltaModifChequeo" value="{{califAutocontrol}}"/>
+				<span id="{{id}}_popupBusquedaCalifAutocontrolAltaModifChequeo" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar calificaci&oacute;n autocontrol"/>
+				<span id="{{id}}_califAutocontrolChequeoLabel">{{califAutocontrolDesc}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>Est. Copia:</label>
+				<select name="fichaRequest.estadoCopia" id="{{id}}_estCopiaAltaModifChequeo">
+					<option value="B" label="Bueno">Bueno</option>
+					<option value="M" label="Malo">Malo</option>
+				</select>
+			</div>
+			<div class="FormRowA">
+				<label>Audio:</label>
+				<select name="fichaRequest.audio" id="{{id}}_audioAltaModifChequeo">
+					<option value="B" label="Bueno">Bueno</option>
+					<option value="M" label="Malo">Malo</option>
+				</select>
+			</div>
+			<div class="FormRowB">
+				<label>Imagen:</label>
+				<select name="fichaRequest.imagen" id="{{id}}_imagenAltaModifChequeo">
+					<option value="B" label="Bueno">Bueno</option>
+					<option value="M" label="Malo">Malo</option>
+				</select>
+			</div>
+			<div class="FormRowA">
+				<label>Duraci&oacute;n Art&iacute;stica:</label>
+				<input type="text" name="fichaRequest.duracionArtistica" id="{{id}}_durArtisticaAltaModifChequeo" value="{{duracion}}"/>
+			</div>
+			<div class="FormRowB">
+				<label>Creditos:</label>
+				<input type="text" name="fichaRequest.credito" id="{{id}}_creditosAltaModifChequeo" value="{{credito}}"/>
+			</div>
+			<div class="FormRowA">
+				<label>Tipo de Audio:</label>
+				<select name="fichaRequest.tipoAudio" id="{{id}}_tipoAudioAltaModifChequeo">
+					<option value="1" label="Est&eacute;reo">Est&eacute;reo</option>
+					<option value="2" label="Mono">Mono</option>
+					<option value="3" label="Estereo/SAP">Estereo/SAP</option>
+					<option value="4" label="Mono/SAP">Mono/SAP</option>
+				</select>
+			</div>
+			<div class="FormRowB">
+				<label>Autorizaci&oacute;n Autor:</label>
+				<select name="fichaRequest.autAutor" id="{{id}}_autAutorAltaModifChequeo" class="{{id}}_inputConCapitulos">
+					<option value="" label="Elija...">Elija...</option>
+					<option value="S" label="Si">Si</option>
+					<option value="N" label="No">No</option>
+				</select>
+			</div>
+			<div class="FormRowA">
+				<label>Paga Argentores:</label>
+				<select name="fichaRequest.pagaArgentores" id="{{id}}_pagaArgentoresAltaModifChequeo" class="{{id}}_inputConCapitulos">
+					<option value="" label="Elija...">Elija...</option>
+					<option value="S" label="Si">Si</option>
+					<option value="N" label="No">No</option>
+				</select>
+			</div>
+			<div class="FormRowB">
+				<label>Cap&iacute;tulo Segmentado:</label>
+				<select name="fichaRequest.capSegmentado" id="{{id}}_capituloSegmentadoAltaModifChequeo" class="{{id}}_inputConCapitulos">
+					<option value="" label="Elija...">Elija...</option>
+					<option value="S" label="Si">Si</option>
+					<option value="N" label="No">No</option>
+				</select>
+			</div>
+			<div class="FormRowA">
+				<label>Cant. de Segmentos:</label>
+				<input type="text" name="fichaRequest.cantSegmentos" id="{{id}}_cantSegmentosAltaModifChequeo" value="{{cantSegmentos}}" class="{{id}}_inputConCapitulos"/>
+			</div>
+			<div class="FormRowC">
+				<label style="width: 300px;" >Aceptado T&eacute;cnicamente P/Todas Las Emisoras Por VTR:</label>
+				<select name="fichaRequest.aceptadoVTR" id="{{id}}_aceptadoVTRAltaModifChequeo" ><!-- class="{{id}}_inputConCapitulos" -->
+					<option value="" label="Elija...">Elija...</option>
+					<option value="S" label="Si">Si</option>
+					<option value="N" label="No">No</option>
+				</select>
+			</div>
+			<div class="FormRowA">
+				<label>Film:</label>
+				<select name="fichaRequest.film" id="{{id}}_filmAltaModifChequeo" ><!-- class="{{id}}_inputConCapitulos" -->
+					<option value="" label="Elija...">Elija...</option>
+					<option value="S" label="Si">Si</option>
+					<option value="N" label="No">No</option>
+				</select>
+			</div>
+			<div class="FormRowB">
+				<label>Operador VTR:</label>
+				<input type="text" name="fichaRequest.operadorVTR" id="{{id}}_operadorVTRAltaModifChequeo" value="{{operadorVTR}}" maxlength="40"/>
+			</div>
+			<div class="FormRowA">
+				<label>Fecha Chequeo:</label>
+				<input type="text" name="fichaRequest.fechaChequeo" id="{{id}}_fechaChequeoAltaModifChequeo" class="datepicker" value="{{fechaChequeo}}"/>
+			</div>
+		</form>
+		<div class="botonera">
+			<button id="{{id}}_siguienteAltaModifChequeoFicha">Siguiente</button>
+			<button id="{{id}}_confirmarAltaModifChequeoFicha" style="display: none;">Confirmar</button>
+		</div>
+	</div>
+	
+	<div id="{{id}}_altaModifChequeoSegmentosDiv" style="display: none">
+		<div class="FormRowA">
+			<label>Ficha de Chequeo:</label>
+			<span id="{{id}}_fichaChequeoChequeoLabel">{{fichaChequeo}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Fecha de Solicitud: </label>
+			<span id="{{id}}_fechaSolicitudChequeoLabel">{{fechaSolicitud}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Emisora: </label>
+			<span id="{{id}}_emisoraChequeoLabel">{{emisoras}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Titulo Original:</label>
+			<span id="{{id}}_tituloOriginalChequeoLabel">{{tituloOriginal}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>T&iacute;tulo Castellano:</label>
+			<span id="{{id}}_tituloCastChequeoLabel">{{tituloCastellano}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>T&iacute;tulo en Off:</label>
+			<span id="{{id}}_tituloOffChequeoLabel">{{tituloOff}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Clave:</label>
+			<span id="{{id}}_claveChequeoLabel">{{clave}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Capitulo:</label>
+			<span id="{{id}}_capituloChequeoLabel">{{capitulo}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Parte:</label>
+			<span id="{{id}}_parteChequeoLabel">{{parte}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Soporte:</label>
+			<span id="{{id}}_soporteChequeoLabel">{{soporte}}</span>
+		</div>
+		
+		<form id="{{id}}_formAltaModifChequeoSegmentos">
+			<div id="{{id}}_divSegmentos" class="FormRowC">
+				<h3><a href="#">Segmentos</a></h3>
+				<div>
+					<input type="hidden" value="{{fichaChequeo}}" name="segmentosRequest.nroFicha">
+					<table id="{{id}}_divToAppendSegmentos">
+					</table>
+				</div>
+			</div>
+		</form><br/>
+		<div class="botonera">
+			<button id="{{id}}_siguienteAltaModifChequeoSegmentos">Siguiente</button>
+			<button id="{{id}}_volverAltaModifChequeoSegmentos">Volver</button>
+		</div>
+	</div>
+	
+	<div id="{{id}}_altaModifChequeoActoresDiv" style="display: none">
+		<div class="FormRowA">
+			<label>Ficha de Chequeo:</label>
+			<span id="{{id}}_fichaChequeoChequeoLabel">{{fichaChequeo}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Fecha de Solicitud: </label>
+			<span id="{{id}}_fechaSolicitudChequeoLabel">{{fechaSolicitud}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Emisora: </label>
+			<span id="{{id}}_emisoraChequeoLabel">{{emisoras}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Titulo Original:</label>
+			<span id="{{id}}_tituloOriginalChequeoLabel">{{tituloOriginal}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>T&iacute;tulo Castellano:</label>
+			<span id="{{id}}_tituloCastChequeoLabel">{{tituloCastellano}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>T&iacute;tulo en Off:</label>
+			<span id="{{id}}_tituloOffChequeoLabel">{{tituloOff}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Clave:</label>
+			<span id="{{id}}_claveChequeoLabel">{{clave}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Capitulo:</label>
+			<span id="{{id}}_capituloChequeoLabel">{{capitulo}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Parte:</label>
+			<span id="{{id}}_parteChequeoLabel">{{parte}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Soporte:</label>
+			<span id="{{id}}_soporteChequeoLabel">{{soporte}}</span>
+		</div>
+		
+		<form id="{{id}}_formAltaModifChequeoActores">
+			<div id="{{id}}_divActores" class="FormRowC">
+				<h3><a href="#">Actores</a></h3>
+				<div id="{{id}}_divToAppendActores">
+					<input type="hidden" value="{{fichaChequeo}}" name="actoresSinopsisObservRequest.nroFicha">
+					<input type="hidden" value="{{clave}}" name="actoresSinopsisObservRequest.clave">
+					<input type="hidden" value="{{capitulo}}" name="actoresSinopsisObservRequest.capitulo">
+					<input type="hidden" value="{{parte}}" name="actoresSinopsisObservRequest.parte">
+					<div class="FormRowA">
+						<label>Actor:</label>
+					</div>
+					<div class="FormRowB">
+						<label>Personaje:</label>
+						<span class="remove-inputActor ui-icon ui-icon-minusthick" style="cursor: pointer; float: right;" onclick="trabajarConFichasDeChequeoTecnicoEvent.removeInputActor()"></span>
+						<span class="add-inputActor ui-icon ui-icon-plusthick"  style="cursor: pointer; float: right;" onclick="trabajarConFichasDeChequeoTecnicoEvent.addInputActor()"></span>
+					</div>
+					<div class="FormRowA actorCount">
+						<input type="text" name="actoresSinopsisObservRequest.actores[0].actor" id="{{id}}_actor0" style="width: 200px;" maxlength="30"/>
+					</div>
+					<div class="FormRowB">
+						<input type="text" name="actoresSinopsisObservRequest.actores[0].personaje" id="{{id}}_personaje0" style="width: 200px;" maxlength="30"/>
+					</div>
+				</div>
+			</div>
+			<div id="{{id}}_divSinopsis" class="FormRowC">
+				<h3><a href="#">Sinopsis</a></h3>
+				<div id="{{id}}_divToAppendSinopsis">
+					<div class="FormRowC sinopsisCount">
+						<input type="text" name="actoresSinopsisObservRequest.sinopsis[0]" id="{{id}}_sinopsis0" style="width: 50%" maxlength="50"/>
+						<span class="remove-inputSinopsis ui-icon ui-icon-minusthick" style="cursor: pointer; float: right;" onclick="trabajarConFichasDeChequeoTecnicoEvent.removeInputSinopsis()"></span>
+						<span class="add-inputSinopsis ui-icon ui-icon-plusthick"  style="cursor: pointer; float: right;" onclick="trabajarConFichasDeChequeoTecnicoEvent.addInputSinopsis()"></span>
+					</div>
+				</div>	
+			</div>
+			<div id="{{id}}_divObservaciones" class="FormRowC">
+				<h3><a href="#">Observaciones</a></h3>
+				<div id="{{id}}_divToAppendObservaciones">
+					<div class="FormRowC observacionCount">
+						<input type="text" name="actoresSinopsisObservRequest.observaciones[0]" id="{{id}}_observacion0" style="width: 50%" maxlength="50"/>
+						<span class="remove-inputObservacion ui-icon ui-icon-minusthick" style="cursor: pointer; float: right;" onclick="trabajarConFichasDeChequeoTecnicoEvent.removeInputObservacion()"></span>
+						<span class="add-inputObservacion ui-icon ui-icon-plusthick"  style="cursor: pointer; float: right;" onclick="trabajarConFichasDeChequeoTecnicoEvent.addInputObservacion()"></span>
+					</div>
+				</div>
+			</div>
+		</form><br/>
+		<div class="botonera">
+			<button id="{{id}}_siguienteAltaModifChequeoActores">Siguiente</button>
+			<button id="{{id}}_volverAltaModifChequeoActores">Volver</button>
+		</div>
+	</div>
+	
+	<div id="{{id}}_altaModifChequeoSenialesOkFilmDiv" style="display: none">
+		<div class="FormRowA">
+			<label>Ficha de Chequeo:</label>
+			<span id="{{id}}_fichaChequeoChequeoLabel">{{fichaChequeo}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Fecha de Solicitud: </label>
+			<span id="{{id}}_fechaSolicitudChequeoLabel">{{fechaSolicitud}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Emisora: </label>
+			<span id="{{id}}_emisoraChequeoLabel">{{emisoras}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Titulo Original:</label>
+			<span id="{{id}}_tituloOriginalChequeoLabel">{{tituloOriginal}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>T&iacute;tulo Castellano:</label>
+			<span id="{{id}}_tituloCastChequeoLabel">{{tituloCastellano}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>T&iacute;tulo en Off:</label>
+			<span id="{{id}}_tituloOffChequeoLabel">{{tituloOff}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Clave:</label>
+			<span id="{{id}}_claveChequeoLabel">{{clave}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Capitulo:</label>
+			<span id="{{id}}_capituloChequeoLabel">{{capitulo}}</span>
+		</div>
+		<div class="FormRowA">
+			<label>Parte:</label>
+			<span id="{{id}}_parteChequeoLabel">{{parte}}</span>
+		</div>
+		<div class="FormRowB">
+			<label>Soporte:</label>
+			<span id="{{id}}_soporteChequeoLabel">{{soporte}}</span>
+		</div>
+		
+		<form id="{{id}}_formAltaModifChequeoSenialesOkFilm">
+			<div id="{{id}}_divSenialesOkFilm" class="FormRowC">
+				<h3><a href="#">Se&ntilde;ales del Chequeo</a></h3>
+				<div>
+					<input type="hidden" value="{{fichaChequeo}}" name="senialesFilmRequest.nroFicha">
+					<table id="{{id}}_divToAppendSenialesOkFilm">
+					</table>
+				</div>
+			</div>
+		</form><br/>
+		<div class="botonera">
+			<button id="{{id}}_siguienteAltaModifChequeoSenialesOkFilm">Siguiente</button>
+			<button id="{{id}}_volverAltaModifChequeoSenialesOkFilm">Volver</button>
+		</div>
+	</div>
+	
+	<div class="botonera"><button id="{{id}}_cancelarAltaModifChequeoFicha">Cancelar</button></div>
+	</div>
+	
+	<div id="{{id}}_popupTitulosConContratosExhibidos" style="display: none">
+		<table id="{{id}}_gridContratosExhibidos"></table><div id="{{id}}_pagerGridContratosExhibidos"></div>
+		<p id="{{id}}_mensajeContratosExhibidos"></p>
+	</div>
+	
+	<div id="{{id}}_popupPrueba" style="display: none">
+		<table id="{{id}}_confirmacion"></table><div id="{{id}}_pagerConfirmacion"></div>
+		<p id="{{id}}_mensajeConfirmacion"></p>
+	</div>
+	
+</div>

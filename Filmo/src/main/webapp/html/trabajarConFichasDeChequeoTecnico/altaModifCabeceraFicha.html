@@ -1,0 +1,98 @@
+<div id="{{id}}_altaModifFichaDiv" class="FormContainer">
+	<h3><a href="#">{{accion}} de Fichas de Chequeo</a></h3>
+	<div>
+		<form id="{{id}}_formAltaModifFicha">
+			<input type="hidden" name="altaModifFichaRequest.senial" value="{{senial}}">
+			<input type="hidden" name="altaModifFichaRequest.nroFicha" value="{{nroFicha}}">
+			<div class="FormRowA">
+				<label>Ficha de Chequeo:</label>
+				<span id="{{id}}_fichaChequeoLabel">{{nroFicha}}</span>
+			</div>
+			<div class="FormRowB">
+				<label>Fecha de Solicitud: </label>
+				<input type="text" name="altaModifFichaRequest.fechaSolicitud" id="{{id}}_fechaSolicitudAltaModifFicha" class="datepicker"/>
+			</div>
+			<div class="FormRowA">
+				<label>T&iacute;tulo Original:</label>
+				<span id="{{id}}_tituloOriginalLabel"/>
+			</div>
+			<div class="FormRowA">
+				<label>T&iacute;tulo Castellano:</label>
+				<span id="{{id}}_tituloCastellanoLabel"/>
+			</div>
+			<div class="FormRowA">	
+				<label>T&iacute;tulo en Off:</label>
+				<span id="{{id}}_tituloOffLabel"/>
+			</div>
+			<div class="FormRowA">
+				<label>Clave:</label>
+				<input type="text" name="altaModifFichaRequest.clave" id="{{id}}_claveAltaModifFicha"/>
+				<a href="#" id="{{id}}_popupBusquedaProgTitOriginalAltaModifFicha">Buscar Tit. Orig.</a>
+				<a href="#" id="{{id}}_popupBusquedaProgTitCastellanoAltaModifFicha">Buscar Tit. Cast.</a>
+			</div>
+			<div class="FormRowB">
+				<label>Cap&iacute;tulo:</label>
+				<input type="text" name="altaModifFichaRequest.capitulo" id="{{id}}_capituloAltaModifFicha"/>
+			</div>
+			<div class="FormRowA">
+				<label>Parte:</label>
+				<input type="text" name="altaModifFichaRequest.parte" id="{{id}}_parteAltaModifFicha"/>
+			</div>
+			<div class="FormRowB">
+				<label>Soporte:</label>
+				<input type="text" name="altaModifFichaRequest.soporte" id="{{id}}_soporteAltaModifFicha"/>
+				<span id="{{id}}_popupBusquedaSoporteAlta" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar Soportes"/>
+				
+			</div>
+			<div class="FormRowC">
+				<label>Emisora:</label>
+				<input type="text" name="altaModifFichaRequest.emisoras[0]" id="{{id}}_emisora1AltaModifFicha"/>
+				<input type="text" name="altaModifFichaRequest.emisoras[1]" id="{{id}}_emisora2AltaModifFicha"/>
+				<input type="text" name="altaModifFichaRequest.emisoras[2]" id="{{id}}_emisora3AltaModifFicha"/>
+				<input type="text" name="altaModifFichaRequest.emisoras[3]" id="{{id}}_emisora4AltaModifFicha"/>
+				<input type="text" name="altaModifFichaRequest.emisoras[4]" id="{{id}}_emisora5AltaModifFicha"/>
+				<a href="#" name="{{id}}_popupEmisoraAltaModifFicha" id="{{id}}_popupEmisoraAltaModifFicha" >Buscar</a>
+			</div>
+			<div id="{{id}}_divActoresAM" class="FormRowC">
+				<h3><a href="#">Actores</a></h3>
+				<div>	
+					<div class="FormRowA">
+						<label>Actores:</label>
+					</div>
+					<div class="FormRowA">
+						<input type="text" name="altaModifFichaRequest.actores[0]" id="{{id}}_actor1AltaModifFicha" tabindex="1" style="width: 200px;"/>
+					</div>
+					<div class="FormRowB">
+						<label>Sello:</label>
+						<input type="text" name="altaModifFichaRequest.sello" id="{{id}}_selloAltaModifFicha" tabindex="5" style="width: 200px;"/>
+					</div>
+					<div class="FormRowA">
+						<input type="text" name="altaModifFichaRequest.actores[1]" id="{{id}}_actor2AltaModifFicha" tabindex="2" style="width: 200px;"/>
+					</div>
+					<div class="FormRowB">
+						<label>Productor:</label>
+						<input type="text" name="altaModifFichaRequest.productor" id="{{id}}_productorAltaModifFicha" tabindex="6" style="width: 200px;"/>
+					</div>
+					<div class="FormRowA">
+						<input type="text" name="altaModifFichaRequest.actores[2]" id="{{id}}_actor3AltaModifFicha" tabindex="3" style="width: 200px;"/>
+					</div>
+					<div class="FormRowB">
+						<label>Autor:</label>
+						<input type="text" name="altaModifFichaRequest.autor" id="{{id}}_autorAltaModifFicha" tabindex="7" style="width: 200px;"/>
+					</div>
+					<div class="FormRowA">
+						<input type="text" name="altaModifFichaRequest.actores[3]" id="{{id}}_actor4AltaModifFicha" tabindex="4" style="width: 200px;"/>
+					</div>
+					<div class="FormRowB">
+						<label>Director:</label>
+						<input type="text" name="altaModifFichaRequest.director" id="{{id}}_directorAltaModifFicha" tabindex="8" style="width: 200px;"/>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="botonera">
+			<button id="{{id}}_aceptarAltaModifFicha">Aceptar</button>
+			<button id="{{id}}_cancelarAltaModifFicha">Cancelar</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,172 @@
+<div id="{{id}}_grupoPopUp">
+    <form id="{{id}}_grupoPopUp_form" class="FormContainer3c">
+        <fieldset>
+            <div class="divLeft">
+                <label>CONTRATO: </label>
+                <input type="text" id="{{id}}_grupoPopUp_contrato" />
+            </div>
+            <div class="divLeft">
+                <label>SENIAL: </label>
+                <input type="text" id="{{id}}_grupoPopUp_senial" />
+            </div>
+            <div class="divLeft">
+                <label>DISTRIBUIDOR: </label>
+                <input type="text" id="{{id}}_grupoPopUp_distribuidor" />
+            </div>
+            <div class="divLeft">
+                <label>MONTO: </label>
+                <input type="text" id="{{id}}_grupoPopUp_montoSenial" />
+            </div>
+            <div class="divLeft">
+                <label>NRO GRUPO: </label>
+                <input type="text" id="{{id}}_grupoPopUp_nroGrupo" />
+            </div>
+            <div class="divLeft" style="width: 100%; margin-bottom: 20px;">
+                <label style="width: auto">SEÑALES HEREDADAS: </label>
+                <div id="{{id}}_grupoPopUp_senialesHeredadas" class="senialesHeredadesCheckBoxesContanier">
+                </div>
+            </div>
+            <div class="divLeft" style="width: 100%;">
+                <label>TIPO TITULO: </label>
+                <select id="{{id}}_grupoPopUp_tipoTitulo" ></select>
+            </div>
+            <div class="divLeft" style="width: 100%">
+                <label>NOMBRE GRUPO: </label>
+                <input type="text" id="{{id}}_grupoPopUp_nombreGrupo" style="width: 75%" maxlength="40"/>
+            </div>
+            
+            <div class="divLeft">
+                <label id="{{id}}_grupoPopUp_label_cantTitulos">CANTIDAD: </label>
+                <input type="text" id="{{id}}_grupoPopUp_cantTitulos" />
+            </div>
+            <div class="divLeft">
+                <label id="{{id}}_grupoPopUp_label_cantPasadas">CANTIDAD PASADAS: </label>
+                <input type="text" id="{{id}}_grupoPopUp_cantPasadas" />
+            </div>
+            <div class="divLeft">
+                <label>TIPO IMPORTE: </label>
+                <select id="{{id}}_grupoPopUp_tipoImporte" ></select>
+            </div>
+            <div class="divLeft" style="clear: left">
+                <label id="{{id}}_grupoPopUp_label_costo">COSTO TOTAL: </label>
+                <input type="text" id="{{id}}_grupoPopUp_costoTotal" />
+            </div>
+            <div class="divLeft">
+                <label>E/R: </label>
+                <select id="{{id}}_grupoPopUp_er">
+                    <option value="E">Estreno</option>
+                    <option value="R">Repeticion</option>
+                </select>
+            </div>
+            <div class="divLeft">
+                <label>FECHA DERECHOS: </label>
+                <input type="text" id="{{id}}_grupoPopUp_fechaDerechos" />
+            </div>
+            <div class="divLeft">
+                <label>CODIGO DERECHOS: </label>
+                <select id="{{id}}_grupoPopUp_codigoDerechos" ></select>
+            </div>
+            
+            <div class="divLeft">
+                <label>CANTIDAD TIEMPO: </label>
+                <input type="text" id="{{id}}_grupoPopUp_cantTiempo" maxlength="3" title="Valor m&aacute;ximo: 999" />
+            </div>
+            <div class="divLeft">
+                <label>UNIDAD DE TIEMPO: </label>
+                <select id="{{id}}_grupoPopUp_unidadDeTiempo">
+                    <option value="" selected="selected">Elija</option>
+                    <option value="D">Dia</option>
+                    <option value="M">Mes</option>
+                    <option value="A">Año</option>
+                </select>
+            </div>
+            
+            <div class="divLeft" style="clear: left">
+                <label>DERECHOS TERRITORIALES: </label>
+                <select id="{{id}}_grupoPopUp_codigoDerechosTerritoriales" ></select>
+            </div>
+            <div class="divLeft">
+                <label>MARCA PERPETUIDAD: </label>
+                <select id="{{id}}_grupoPopUp_marcaPerpetuidad">
+                    <option value="S">Si</option>
+                    <option value="N" selected="selected">No</option>
+                </select>
+            </div>
+            
+            <div class="divLeft" style="clear: left">
+                <label>PLAN ENTREGA: </label>
+                <input type="text" id="{{id}}_grupoPopUp_planEntrega" />
+            </div>
+            <div class="divLeft">
+                <label>FECHA ENTREGA: </label>
+                <input type="text" id="{{id}}_grupoPopUp_fechaEntrega" />
+            </div>
+            <div class="divLeft">
+                <label id="{{id}}_grupoPopUp_label_recontratacion">RECONTRATACION: </label>
+                <select id="{{id}}_grupoPopUp_recontratacion">
+                    <option value="S">Si</option>
+                    <option value="N" selected="selected">No</option>
+                </select>
+            </div>
+            
+
+            <div class="divLeft">
+                <label>CANTIDAD TIEMPO EXCLUSIVO: </label>
+                <input type="text" id="{{id}}_grupoPopUp_cantTiempoExclusivo" />
+            </div>
+            <div class="divLeft">
+                <label>UNIDAD TIEMPO EXCLUSIVO: </label>
+                <select id="{{id}}_grupoPopUp_unidadTiempoExclusivo">
+                    <option value="" selected="selected">Elija</option>
+                    <option value="D">Dia</option>
+                    <option value="M">Mes</option>
+                    <option value="A">Anio</option>
+                </select>
+            </div>
+            
+            
+            <div class="divLeft">
+                <label>AUTORIZACION AUTOR: </label>
+                <select id="{{id}}_grupoPopUp_autorizacionAutor">
+                    <option value="" selected="selected">Elija</option>
+                    <option value="S">Si</option>
+                    <option value="N">No</option>
+                </select>
+            </div>
+            <div class="divLeft">
+                <label>PAGA ARGENTORES: </label>
+                <select id="{{id}}_grupoPopUp_pagaArgentores">
+                    <option value="" selected="selected">Elija</option>
+                    <option value="S">Si</option>
+                    <option value="N">No</option>
+                </select>
+            </div>
+            <div class="divLeft">
+                <label id="{{id}}_grupoPopUp_label_pasaLibreria">PASA LIBRERIA: </label>
+                <select id="{{id}}_grupoPopUp_pasaLibreria">
+                    <option value="" selected="selected">Elija</option>
+                    <option value="S">Si</option>
+                    <option value="N">No</option>
+                </select>
+            </div>
+            <div class="divLeft">
+                <label>FECHA COMIENZO DERECHOS LIBRERIA: </label>
+                <input type="text" id="{{id}}_grupoPopUp_fechaComienzoDerechosLibreria" />
+            </div>
+        </fieldset>
+    </form>
+    
+    <div id="{{id}}_grupoPopUp_grillaDeTitulosContainer">
+        <table id="{{id}}_grupoPopUp_grillaDeTitulos"></table>
+        <div id="{{id}}_grupoPopUp_pagerGrillaDeTitulos"></div>
+    </div>
+    
+    <div id="{{id}}_grupoPopUp_grillaDeCapitulosContainer">
+        <table id="{{id}}_grupoPopUp_grillaDeCapitulos"></table>
+        <div id="{{id}}_grupoPopUp_pagerGrillaDeCapitulos"></div>
+    </div>
+
+	<div id="popupModificarTipoDeCosteo" title="Tipo de Costeo"></div>
+
+
+</div>

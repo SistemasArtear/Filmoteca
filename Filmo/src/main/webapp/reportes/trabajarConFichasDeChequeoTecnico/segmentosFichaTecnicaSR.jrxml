@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="segmentosFichaTecnicaSR" pageWidth="595" pageHeight="100" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="p_fichaChequeo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT distinct 
+       sm.smnnumseg                                               nroSegmento,
+       sm.smdtitseg                                               tituloSegmento,
+       sm.smndurseg                                               duracionSegmento
+      
+  FROM ch6001 ch, tt6001 tt,
+       mt6001 mt, sc6001 sc,
+       et6001 et, ot6001 ot,
+       sm6001 sm, oc6001 oc,
+       to6001 t
+ WHERE ch.ttktpotit = tt.ttktpotit
+   AND ch.ttktpotit = mt.ttktpotit
+   AND ch.mtknrotit = mt.mtknrotit
+   AND ch.chkfchchk = sc.chkfchchk
+   AND ch.ttktpotit = et.ttktpotit(+)
+   AND ch.mtknrotit = et.mtknrotit(+)
+   AND ch.chnnumcap = et.toknrocap(+)
+   AND ch.chnnumpar = et.tokparte (+)
+   AND mt.ttktpotit = ot.ttktpotit(+)
+   AND mt.mtknrotit = ot.mtknrotit(+)
+   AND ch.chkfchchk = sm.chkfchchk(+)
+   AND ch.chnnumpar = sm.smnnumpar(+)
+   AND ch.chkfchchk = oc.chkfchchk(+)
+   AND ch.ttktpotit = t.ttktpotit(+)
+   AND ch.mtknrotit = t.mtknrotit(+)
+   AND ch.chnnumcap = t.toknrocap(+)
+   AND ch.chnnumpar = t.tokparte (+)
+   AND ch.chkfchchk = $P{p_fichaChequeo}]]>
+	</queryString>
+	<field name="NROSEGMENTO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TITULOSEGMENTO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DURACIONSEGMENTO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="13">
+			<staticText>
+				<reportElement x="100" y="0" width="269" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="0" width="70" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Duración]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="0" width="70" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segmento Nro.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="441" y="6" width="70" height="10"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{DURACIONSEGMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="6" width="57" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{NROSEGMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="6" width="332" height="10"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{TITULOSEGMENTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

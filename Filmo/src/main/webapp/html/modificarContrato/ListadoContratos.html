@@ -1,0 +1,25 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>MODIFICAR CONTRATO</h1>
+        <div id="{{id}}_filtroBusquedaContratos">
+        <h3><a href="#">Filtros</a></h3>
+			<div>
+                <div class="FormRowA">
+					<label>Contrato:</label>
+					<input type="text" size="10" name="claveContrato" id="{{id}}_busquedaContratoPorClave"/>
+                    <button id="{{id}}_buscarContratoPorClave">Situar</button>
+                </div>
+                <div class="FormRowB">
+                    <label>Distribuidor:</label>
+                    <input type="text" name="distribuidor" id="{{id}}_busquedaPorDistribuidor"/>
+                    <span id="{{id}}_popupBusquedaContratoDistribuidor" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar Distribuidor"/>
+					<button id="{{id}}_buscarContratoPorDistribuidor">Buscar</button>
+                </div>
+			</div>
+		</div>
+    	<div id="{{id}}_listadoDeContratos">
+			<div id="{{id}}_grillaDeContratosContainer">
+                <table id="{{id}}_grillaDeContratos"></table>
+                <div id="{{id}}_pagerGrillaDeContratos"></div>
+            </div>
+    	</div>
+</div>

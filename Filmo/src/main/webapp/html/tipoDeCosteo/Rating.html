@@ -1,0 +1,42 @@
+<div id="{{id}}" class="FormContainer">
+	<h1 style="text-align: center;">TIPO DE COSTEO RATING</h1>	
+	<div class="FormRowC"><h3>TIPO CONTABILIZACION</h3></div>
+		<div class="FormRowA" id="{{id}}-div-radioButtonTipoContrado">
+			<table>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonRating-tipoCash" name="{{id}}-radioButtonTipoContrato" value="N"/></td>
+	   				<td><label for="{{id}}-radioButtonRating-tipoCash" style="width: 150px;">Tipo Cash</label></td>
+	   			</tr>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonRating-tipoCabecera" name="{{id}}-radioButtonTipoContrato" value="T" checked="checked"/></td>
+	   				<td><label for="{{id}}-radioButtonRating-tipoCabecera" style="width: 150px;">Tipo Cabecera</label></td>
+	   				<td><span id="{{id}}-descripcionCanjeCabecera"></span></td>
+	   			</tr>
+				<tr>
+	   				<td><input type="radio" id="{{id}}-radioButtonRating-tipoCanje" name="{{id}}-radioButtonTipoContrato" value="S"/></td>
+	   				<td><label for="{{id}}-radioButtonRating-tipoCanje" style="width: 150px;">Tipo Canje</label></td>
+	   			</tr>
+	   		</table>
+		</div>
+		<div class="FormRowC">
+			<span id="{{id}}-span-tipoContrato"></span>
+		</div>
+		<div class="FormRowC">
+			<table>
+				<tr>
+				<td><label style="width: 140px">RATING DESDE:</label></td>
+				<td><input type="text" maxlength="2" size="2" name="anio" id="{{id}}-ratingDesde"/></td>
+				<td><label style="width: 140px">RATING HASTA:</label></td>
+				<td><input type="text" maxlength="2" size="2" name="anio" id="{{id}}-ratingHasta"/></td>
+				<td><label style="width: 140px">VALOR:</label></td>
+				<td><input type="text" size="11" name="valor" id="{{id}}-valor"/></td>
+				<td><button id="{{id}}-buttonAgregarRating">Agregar</button></td>
+				</tr>
+			</table>
+		</div>
+		<div id="{{id}}-grillaRating">
+	        <table id="{{id}}-tGrillaRating"></table>
+    	    <div id="{{id}}-pagerGrillaRating"></div>
+        </div>
+        <div id="{{id}}-div-popUp-modificacion" title="Modificación Tipo de Costeo"></div>
+</div>

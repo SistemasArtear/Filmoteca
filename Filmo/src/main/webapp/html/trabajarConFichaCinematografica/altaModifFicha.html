@@ -1,0 +1,135 @@
+<div id="{{id}}_altaModifFicha" class="FormContainer">
+	<h3><a href="#">{{accion}} De Ficha Cinematogr&aacute;fica</a></h3>
+	<div>
+		<form id="{{id}}_formAltaModif">
+			<input type="hidden" name="fichaCompleta.ficha.idFicha" id="{{id}}_idFicha">
+			<div class="FormRowA">
+				<label>T&iacute;tulo Castellano:</label>
+				<input type="text" name="fichaCompleta.ficha.tituloCastellano" id="{{id}}_tituloCastellano" style="width:150px; text-transform: uppercase;"/>
+			</div>	
+			<div class="FormRowB">
+				<label>T&iacute;tulo Original:</label>
+				<input type="text" name="fichaCompleta.ficha.tituloOriginal" id="{{id}}_tituloOriginal" style="width:150px; text-transform: uppercase;"/>
+			</div>		
+			<div class="FormRowA">
+				<label>Color C/B</label>
+				<select name="fichaCompleta.ficha.color" id="{{id}}_color">
+					<option value="" label="Seleccionar...">
+					<option value="C" label="Color">Color</option>
+					<option value="B" label="En Blanco Y Negro">En Blanco Y Negro</option>
+				</select>
+			</div>		
+			<div class="FormRowB">
+				<label>Calif. Com.:</label>
+				<input type="text" name="fichaCompleta.ficha.califComercialCod" id="{{id}}_califComercialCod" maxlength="2" style="text-transform: uppercase;"/>
+				<span id="{{id}}_califComercialDesc"/>
+				<span id="{{id}}_popupCalifComercial" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar calificaci&oacute;n comercial"/>
+			</div>		
+			<div class="FormRowA">
+				<label>Calif. Art.:</label>
+				<input type="text" name="fichaCompleta.ficha.califArtisticaCod" id="{{id}}_califArtisticaCod" maxlength="2" style="text-transform: uppercase;"/>
+				<span id="{{id}}_califArtisticaDesc"/>
+				<span id="{{id}}_popupCalifArtistica" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar calificaci&oacute;n art&iacute;stica"/>
+			</div>		
+			<div class="FormRowB">
+				<label>Sello:</label>
+				<input type="text" name="fichaCompleta.ficha.selloProductor" id="{{id}}_selloProductor" style="width:150px; text-transform: uppercase;"/>
+			</div>		
+			<div class="FormRowA">
+				<label>Genero:</label>
+				<input type="text" name="fichaCompleta.ficha.generoCod" id="{{id}}_generoCod" maxlength="2"/>
+				<span id="{{id}}_generoDesc"/>
+				<span id="{{id}}_popupGenero" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar genero"/>
+			</div>		
+			<div class="FormRowA">
+				<label>A&ntilde;o Producci&oacute;n:</label>
+				<input type="text" name="fichaCompleta.ficha.anioProduccion" id="{{id}}_anioProduccion" maxlength="4"/>
+			</div>		
+			<div class="FormRowB">
+				<label>Productor:</label>
+				<input type="text" name="fichaCompleta.ficha.productor" id="{{id}}_productor" style="width:150px; text-transform: uppercase;" maxlength="40"/>
+			</div>		
+			<div class="FormRowA">
+				<label>Pa&iacute;s de Origen:</label>
+				<input type="text" name="fichaCompleta.ficha.pais" id="{{id}}_pais" maxlength="20" style="text-transform: uppercase;"/>
+			</div>		
+			<div class="FormRowA">
+				<label>Director:</label>
+				<input type="text" name="fichaCompleta.ficha.director" id="{{id}}_director" style="width:150px;text-transform: uppercase;" maxlength="40"/>
+			</div>		
+			<div class="FormRowB">
+				<label>Autor:</label>
+				<input type="text" name="fichaCompleta.ficha.autor" id="{{id}}_autor" style="width:150px;text-transform: uppercase;" maxlength="40"/>
+			</div>		
+			<div class="FormRowA">
+				<label>Calif. Oficial:</label>
+				<input type="text" name="fichaCompleta.ficha.califMoralCod" id="{{id}}_califMoralCod" maxlength="5" style="text-transform: uppercase;"/>
+				<span id="{{id}}_califMoralDesc"/>
+				<span id="{{id}}_popupCalifMoral" style="cursor: pointer; display: inline-block;" class="ui-icon ui-icon-search" title="Buscar calificaci&oacute;n Oficial"/>
+			</div>		
+			<div class="FormRowB">
+				<label>Duraci&oacute;n:</label>
+				<input type="text" name="fichaCompleta.ficha.duracion" id="{{id}}_duracion" maxlength="3"/>
+			</div>		
+			<div class="FormRowA">
+				<label>Fecha Estreno en Cine:</label>
+				<input type="text" name="fichaCompleta.ficha.fechaEstrenoCine" id="{{id}}_fechaEstrenoCine"/>
+			</div>		
+			<div class="FormRowB">
+				<label>Fecha Estreno en Video:</label>
+				<input type="text" name="fichaCompleta.ficha.fechaEstrenoVideo" id="{{id}}_fechaEstrenoVideo"/>
+			</div>		
+			<div id="{{id}}_divActores" class="FormRowC">
+				<h3><a href="#">Actores</a></h3>
+				<div id="{{id}}_divToAppendActores">
+					<div class="FormRowA">
+						<label>Nombre de Actores:</label>
+					</div>		
+					<div class="FormRowB" id="{{id}}_divActoresToAppendControllers">
+						<label>Personajes:</label>
+						<span class="remove-inputActor ui-icon ui-icon-minusthick" style="cursor: pointer; float: right;" onclick="trabajarConFichaCinematograficaEvent.removeInputActor()"></span>
+						<span class="add-inputActor ui-icon ui-icon-plusthick"  style="cursor: pointer; float: right;" onclick="trabajarConFichaCinematograficaEvent.addInputActor()"></span>
+					</div>	
+					<div class="FormRowA actorCount">
+						<input type="text" name="fichaCompleta.actores[0].actor" id="{{id}}_actor0" style="width:150px; text-transform: uppercase;" maxlength="30"/>
+					</div>	
+					<div class="FormRowB">
+						<input type="text" name="fichaCompleta.actores[0].personaje" id="{{id}}_personaje0" style="width:150px; text-transform: uppercase;" maxlength="30"/>
+					</div>	
+					<div class="FormRowA actorCount">
+						<input type="text" name="fichaCompleta.actores[1].actor" id="{{id}}_actor1" style="width:150px; text-transform: uppercase;" maxlength="30"/>
+					</div>	
+					<div class="FormRowB">
+						<input type="text" name="fichaCompleta.actores[1].personaje" id="{{id}}_personaje1" style="width:150px; text-transform: uppercase;" maxlength="30"/>
+					</div>	
+					<div class="FormRowA actorCount">
+						<input type="text" name="fichaCompleta.actores[2].actor" id="{{id}}_actor2" style="width:150px; text-transform: uppercase;" maxlength="30"/>
+					</div>	
+					<div class="FormRowB">
+						<input type="text" name="fichaCompleta.actores[2].personaje" id="{{id}}_personaje2" style="width:150px; text-transform: uppercase;" maxlength="30"/>
+					</div>	
+				</div>
+			</div>
+			<div id="{{id}}_divSinopsis" class="FormRowC">
+				<h3><a href="#">Sinopsis</a></h3>
+				<div id="{{id}}_divToAppendSinopsis">
+					<div class="FormRowC sinopsisCount">
+						<input type="text" name="fichaCompleta.sinopsis[0].detalle" id="{{id}}_sinopsis0" style="width: 50%" maxlength="50"/>
+						<span class="remove-inputSinopsis ui-icon ui-icon-minusthick" style="cursor: pointer; float: right;" onclick="trabajarConFichaCinematograficaEvent.removeInputSinopsis()"></span>
+						<span class="add-inputSinopsis ui-icon ui-icon-plusthick"  style="cursor: pointer; float: right;" onclick="trabajarConFichaCinematograficaEvent.addInputSinopsis()"></span>
+					</div>
+					<div class="FormRowC sinopsisCount">
+						<input type="text" name="fichaCompleta.sinopsis[1].detalle" id="{{id}}_sinopsis1" style="width: 50%; text-transform: uppercase;" maxlength="50"/>
+					</div>
+					<div class="FormRowC sinopsisCount">
+						<input type="text" name="fichaCompleta.sinopsis[2].detalle" id="{{id}}_sinopsis2" style="width: 50%; text-transform: uppercase;" maxlength="50"/>
+					</div>
+				</div>	
+			</div>
+		</form>
+		<div class="botonera">
+			<button id="{{id}}_aceptarFicha">Aceptar</button>
+			<button id="{{id}}_volverDeAltaModif">Volver</button>
+		</div>
+	</div>
+</div>

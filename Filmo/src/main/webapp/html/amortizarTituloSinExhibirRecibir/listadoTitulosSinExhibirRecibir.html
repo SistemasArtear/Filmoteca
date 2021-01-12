@@ -1,0 +1,35 @@
+<div id="{{id}}" class="FormContainer">
+	<h1>Amortizar título sin exhibir / recibir</h1>
+	<div id="{{id}}_listadoTitulosSinExhibirRecibir">
+		<div id="{{id}}_accordionListadoTitulos">
+			<h3><a href="#">Filtros</a></h3>
+			<div>
+				<div class="FormRowA">
+					<label>Título <span id="{{id}}_tipoBusqueda">{{tipoBusquedaTitulo}}</span>:</label>
+					<input type="text" name="descripcion" id="{{id}}_inputBusquedaTituloDescripcion"/>
+					<button id="{{id}}_buscarTituloPorDescripcion">Buscar</button>
+				</div>
+				<div class="FormRowB">
+					<label>Clave:</label>
+					<input type="text" name="codigo" id="{{id}}_inputBusquedaTituloCodigo"/>
+					<button id="{{id}}_buscarTituloPorCodigo">Buscar</button>
+				</div>
+			
+				<div style="float:right">
+					<a href="#" id="{{id}}_cambiarTipoTitulo"></a> 
+					<button id="{{id}}_limpiar">Limpiar</button>
+				</div>
+				<br>
+				<br>
+			</div>
+		</div>
+		
+		<br>
+		
+		<div id="{{id}}_gridContainerTitulos">
+			<table id="{{id}}_gridTitulos"></table>
+			<div id="{{id}}_pagerGridTitulos"></div>
+		</div>
+	</div>
+	
+</div>
