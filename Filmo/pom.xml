@@ -5,7 +5,7 @@
 <!-- 	<artifactId>FilmoUDN4</artifactId> -->
     <artifactId>Filmo</artifactId>
 	<packaging>war</packaging>
-	<version>1.7.20</version>
+	<version>1.7.21</version>
 <!-- 	<name>FilmoUDN4</name> -->
     <name>Filmo</name>
 	<url>http://www.artear.com</url>
