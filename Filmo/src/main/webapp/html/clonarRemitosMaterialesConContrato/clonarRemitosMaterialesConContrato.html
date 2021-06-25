@@ -1,0 +1,142 @@
+<div id="{{id}}">
+	<h1>Clonar remitos de materiales con contrato</h1>
+	<div id="{{id}}_divFormCabecera" class="FormContainer3c resizeableContainer3c">
+		<div id="{{id}}_accordionFormCabecera">
+			<h3><a href="#">Filtros</a></h3>
+			
+			<div>
+				<div id="{{id}}_camposBusquedaClave" class="clearfix">
+					<div class="FormRowA">
+						<table border='0' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td><label style="width: 60px;">Tipo Título:</label></td>
+								<td><input type="text" name="titulo.tipoTitulo" id="{{id}}_tipoTituloCodigo" style="width: 60px;"/></td>
+								<td style="padding-left: 5px"><span id="{{id}}_tipoTituloDesc"/></td>
+								<td><span id="{{id}}_popupTipoTitulo" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar título" /></td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="divCenter">
+						<label>Nro. Título:</label>
+						<input type="text" name="numeroTitulo" id="{{id}}_numeroTitulo" maxlength="12"/>
+					</div>
+					
+					<div class="FormRowA">
+						<label>Contrato Anterior:</label>
+						<input type="text" name="contratoAnterior" id="{{id}}_contratoAnterior" maxlength="12"/>
+					</div>
+					
+					<div class="divCenter">
+						<label>Grupo Anterior:</label>
+						<input type="text" name="grupoAnterior" id="{{id}}_grupoAnterior" maxlength="12"/>
+					</div>
+					
+					<div style="float:right">
+						<a href="#" id="{{id}}_irBusquedaDescTitulo">Ir a Busqueda por Descripcion</a> |
+					</div>
+				</div>	
+					
+					
+				<div  id="{{id}}_camposBusquedaDescTitulo" class="clearfix">
+					<div class="FormRowA">
+						<label>Titulo <span id="{{id}}_tipoBusquedaTitulo">{{tipoBusquedaTitulo}}</span>:</label>
+						<input type="text" name="descripcion" id="{{id}}_busquedaTitulosDescripcion"/>
+					</div>
+					<div style="float:right">
+						<a href="#" id="{{id}}_cambiarTipoBusquedaTitulo">Cambiar Tipo (original/castellano)</a> |
+						<a href="#" id="{{id}}_irBusquedaClave">Ir a Busqueda por Clave</a>
+					</div>
+				</div>
+
+				<div class="clearfix">
+					<div class="divLeft">
+						<table cellspacing="0" cellpadding="0" border="0" style=" width:320px;">
+						</table>
+					</div>
+					
+					<div class="botonera">
+						<button id="{{id}}_aceptarBuscarRemitos">Buscar</button>
+						<button id="{{id}}_limpiarBuscarRemitos">Limpiar</button>
+					</div>
+				</div>
+								
+			</div>
+		</div>
+	</div>
+	
+	<br>
+
+	<div id="{{id}}_gridContainerTitulos"><table id="{{id}}_gridTitulos"></table><div id="{{id}}_pagerGridTitulos"></div></div>
+
+	<br>
+	
+	<div id="{{id}}_divFormSeccionClonar" class="FormContainer3c resizeableContainer3c">
+		<div id="{{id}}_accordionFormClonar">
+			<h3><a href="#">Clonar</a></h3>
+			<div id="{{id}}_camposParaClonar" class="clearfix">
+				<div>
+					<div class="clearfix">
+						<div class="divLeft">
+							<label>Tipo Título:</label>
+							<span class="texto" id="{{id}}_tipoTituloCodigoClonar" style="font-style: italic; font-weight: bold;"></span>
+						</div>
+				
+						<div class="divCenter">
+							<label>Nro. Título:</label>
+							<span class="texto" id="{{id}}_numeroTituloClonar" style="font-style: italic; font-weight: bold;"></span>
+						</div>
+
+					</div>
+					
+					<div class="clearfix">
+						<div class="divLeft">
+							<label>Proveedor Anterior:</label>
+							<span class="texto" id="{{id}}_proveedorAnteriorClonar" style="font-style: italic; font-weight: bold;"></span>
+						</div>
+				
+						<div class="divCenter">
+							<label>Contrato Anterior:</label>
+							<span class="texto" id="{{id}}_contratoAnteriorClonar" style="font-style: italic; font-weight: bold;"></span>
+						</div>
+				
+						<div class="divRight">
+							<label>Grupo Anterior:</label>
+							<span class="texto" id="{{id}}_grupoAnteriorClonar" style="font-style: italic; font-weight: bold;"></span>
+						</div>
+					</div>
+		
+					<div class="clearfix">
+						<div class="divLeftExtend">
+							<label style="width:15%;">Nuevo Proveedor:</label>
+							<input type="text" name="razonSocial" id="{{id}}_razonSocialDistribuidor" maxlength="60" style="float:left; width:50%;"/>
+							<span id="{{id}}_popupDistribuidorPorRazonSocial" style="cursor: pointer; float:left;" class="ui-icon ui-icon-search" title="Buscar por razón social" />
+							<input type="text" name="codigo" id="{{id}}_codigoDistribuidor" maxlength="6" style="float:left; width:10%;"/>
+							<span id="{{id}}_popupDistribuidorPorCodigo" style="cursor: pointer" class="ui-icon ui-icon-search" title="Buscar por código" />
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="divLeft">
+							<label>Nuevo Contrato:</label>
+							<input type="text" name="contratoNuevoClonar" id="{{id}}_contratoNuevoClonar" maxlength="12"/>
+						</div>
+				
+						<div class="divCenter">
+							<label>Nuevo Grupo:</label>
+							<input type="text" name="grupoNuevoClonar" id="{{id}}_grupoNuevoClonar" maxlength="12"/>
+						</div>
+										
+						<div class="divRight">
+							<div class="botonera">
+								<button id="{{id}}_clonar">Clonar</button>
+								<button id="{{id}}_limpiarSeccionClonar">Limpiar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<div id="popupErrores"></div>

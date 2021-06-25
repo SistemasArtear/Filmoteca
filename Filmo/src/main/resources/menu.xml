@@ -141,6 +141,26 @@
                         <string>FIL_OPERADOR</string>
                     </roles>
                 </com.artear.filmo.bo.menu.SubMenu>
+                
+                <!--CLONACION DE REMITOS DE MATERIALES SIN CONTRATO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-clonacionRemitosSinContrato</key>
+                    <title>Clonar remitos de materiales sin contrato</title>
+                    <action>clonarRemitosMaterialesSinContratoEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
+                
+                <!--CLONACION DE REMITOS DE MATERIALES CON CONTRATO -->
+                <com.artear.filmo.bo.menu.SubMenu>
+                    <key>menu-subopcion-clonacionRemitosConContrato</key>
+                    <title>Clonar remitos de materiales con contrato</title>
+                    <action>clonarRemitosMaterialesConContratoEvent.create</action>
+                    <roles>
+                        <string>FIL_OPERADOR</string>
+                    </roles>
+                </com.artear.filmo.bo.menu.SubMenu>
             </subMenu>
         </com.artear.filmo.bo.menu.SubMenu>
 
