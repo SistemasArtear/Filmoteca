@@ -811,6 +811,35 @@
         <action name="eliminarDetalleRemitoDesde" class="com.artear.filmo.web.action.ModificarIngresoMaterialesAction" method="eliminarDetalleRemitoDesde">
             <result type="json"/>
         </action>    
+        
+        <!-- Clonar remitos sin contrato --> 
+        <action name="buscarRemitosParaClonarSinContrato" class="com.artear.filmo.web.action.ClonarRemitosAction" method="buscarRemitosParaClonarSinContrato">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="clonarRemitosSinContrato" class="com.artear.filmo.web.action.ClonarRemitosAction" method="clonarRemitosSinContrato">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+
+        
+        <!-- Clonar remitos con contrato -->
+        <action name="buscarRemitosParaClonarConContrato" class="com.artear.filmo.web.action.ClonarRemitosAction" method="buscarRemitosParaClonarConContrato">
+            <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+       	<action name="clonarRemitosConContrato" class="com.artear.filmo.web.action.ClonarRemitosAction" method="clonarRemitosConContrato">
+       	    <interceptor-ref name="json">
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action> 
                         
 		<!-- Desconfirmar sin amortizacion -->             
         <action name="desconfirmarSinAmortizacionBuscarProgramasCodigo" class="com.artear.filmo.web.action.DesconfirmarSinAmortizacionAction" method="buscarProgramasCodigo">
